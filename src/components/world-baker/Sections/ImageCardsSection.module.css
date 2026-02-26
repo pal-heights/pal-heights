@@ -1,0 +1,256 @@
+.section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  left: -26;
+  top: 0rem;
+  width: 52rem;
+  height: 52rem;
+  background: radial-gradient(circle, #fff189 0%, rgba(255, 241, 137, 0) 70%);
+  opacity: 0.35;
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 8rem 6rem;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.kickerWrap {
+  display: block;
+  overflow: hidden;
+}
+.kicker {
+  font-family: var(--font-allcaps);
+  font-size: 0.9rem;
+  color: var(--pal-brown);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.line {
+  width: 6.5rem;
+  height: 2px;
+  background: var(--pal-brown);
+  opacity: 0.6;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 4rem;
+  display: flex;
+  overflow: hidden;
+  gap: 0.7rem;
+  color: var(--pal-black);
+}
+
+.sectionTitle .span {
+  font-family: var(--font-small-heading);
+  color: var(--pal-brown);
+}
+.sectionTitle span {
+  display: block;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+/* CARD */
+.card {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.imageWrap img {
+  object-fit: cover;
+  object-position: bottom;
+}
+
+/* CONTENT */
+.content {
+  width: 90%;
+  margin: -6rem auto 0;
+  padding: 2rem;
+  background: var(--pal-light);
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
+  z-index: 1;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  color: var(--pal-black);
+  margin-bottom: 0.75rem;
+}
+
+.title span {
+  color: var(--pal-brown);
+  font-family: var(--font-small-heading);
+}
+
+.desc {
+  font-family: var(--font-paragraph);
+  font-size: 1.05rem;
+  line-height: 1.8rem;
+  color: var(--pal-grey);
+}
+
+/* Scaled devices Responsivness */
+@media (max-width: 1536px) {
+  .container {
+    padding: 5rem 3rem;
+  }
+  .kicker {
+    font-size: 0.75rem;
+    margin-bottom: 0.775rem;
+  }
+  .titleRow {
+    gap: 2.5rem;
+  }
+  .line {
+    width: 5rem;
+  }
+  .sectionTitle,
+  .sectionTitle .span {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .header {
+    margin-bottom: 5rem;
+  }
+  .grid {
+    gap: 2rem;
+  }
+  .imageWrap {
+    margin-bottom: 2.25rem;
+  }
+  .content {
+    padding: 1.5rem;
+  }
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .desc {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .content a {
+    font-size: 0.6rem;
+    font-weight: 400;
+  }
+}
+/* Tablet Responsivness */
+@media (max-width: 1024px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+  .kicker {
+    font-size: 0.575rem;
+    margin-bottom: 0.5rem;
+  }
+  .titleRow {
+    gap: 2rem;
+  }
+  .line {
+    width: 4rem;
+  }
+  .sectionTitle,
+  .sectionTitle .span {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+  }
+  .header {
+    margin-bottom: 3.5rem;
+  }
+  .grid {
+    gap: 2rem;
+    grid-template-columns: 2fr 2fr;
+  }
+}
+/* Mobile Responsivness */
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+  .br {
+    display: block;
+  }
+  .titleRow {
+    gap: 1rem;
+  }
+  .line {
+    width: 2rem;
+  }
+  .sectionTitle,
+  .sectionTitle .span {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    white-space: nowrap;
+  }
+  .header {
+    margin-bottom: 2.7rem;
+  }
+  .br {
+    display: block;
+  }
+  .grid {
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+  .content {
+    padding: 1.5rem;
+    margin-top: -3rem;
+  }
+  .title {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+  .desc {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

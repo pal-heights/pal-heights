@@ -1,0 +1,201 @@
+/* ---------------------------------
+   Toggle Button (Lucide)
+--------------------------------- */
+.toggle {
+  position: fixed;
+  top: 2rem;
+  right: 1.5rem;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  color: #ffffff;
+  z-index: 1100;
+}
+
+.icon {
+  display: inline-flex;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.toggle.open .icon {
+  transform: rotate(90deg);
+}
+
+/* ---------------------------------
+   Overlay
+--------------------------------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------------------------------
+   Sidebar
+--------------------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  height: 100vh;
+  width: 80%;
+  max-width: 360px;
+
+  background: var(--pal-black);
+
+  transform-origin: right center;
+  transform: translateX(100%) scaleX(0.88);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+
+  z-index: 1050;
+  padding: 4rem 2rem;
+}
+
+.sidebar.open {
+  transform: translateX(0) scaleX(1);
+}
+
+/* ---------------------------------
+   Navigation
+--------------------------------- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-family: var(--font-small-heading);
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ---------------------------------
+   Dining Dropdown (Mobile)
+--------------------------------- */
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownTrigger {
+  background: none;
+  border: none;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: var(--font-small-heading);
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform 0.35s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+
+  transition: max-height 0.3s ease-in-out;
+}
+
+.dropdownMenu.show {
+  max-height: 12rem;
+}
+
+.bookNowDropdownMenu {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  background-color: var(--pal-brown);
+
+  transition: max-height 0.35s ease-in-out;
+}
+
+.bookNowDropdownMenu.show {
+  max-height: 12rem;
+}
+
+.bookNowDropdownMenu a:first-child {
+  padding-top: 1rem;
+}
+.bookNowDropdownMenu a:last-child {
+  padding-bottom: 1rem;
+}
+
+.subLinkOne {
+  margin-top: 0.875rem;
+}
+.subLink {
+  font-family: var(--font-small-heading);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.45rem 0;
+  text-decoration: none;
+}
+
+.subLink:hover {
+  color: var(--pal-light);
+}
+
+/* ---------------------------------
+   Book Now Button
+--------------------------------- */
+.bookNow {
+  margin-top: 2.5rem;
+  padding: 0.75rem 1.25rem;
+
+  background: var(--pal-brown);
+  color: #ffffff;
+
+  text-align: center;
+  text-decoration: none;
+
+  font-family: var(--font-small-heading);
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  outline: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .toggle {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+}

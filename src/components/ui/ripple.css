@@ -1,0 +1,80 @@
+/* -------------------------------------------------
+   Wrapper
+------------------------------------------------- */
+.ripple-wrapper {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  user-select: none;
+
+  /* Fade bottom */
+  /* mask-image: linear-gradient(to bottom, #fff, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #fff, transparent); */
+
+  /* Responsive ring sizes (desktop reference) */
+  --ripple-1: clamp(520px, 57vw, 920px);
+  --ripple-2: clamp(640px, 71vw, 1160px);
+  --ripple-3: clamp(760px, 85vw, 1400px);
+}
+
+/* -------------------------------------------------
+   Ripple Circle Base
+------------------------------------------------- */
+.ripple-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  background: #d1d1d1;
+
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 20px 60px rgba(255, 255, 255, 0.15);
+
+  animation: ripple var(--duration, 4s) ease calc(var(--i, 0) * 0.2s) infinite;
+}
+
+/* -------------------------------------------------
+   Individual Rings
+------------------------------------------------- */
+.ripple-circle:nth-child(1) {
+  width: var(--ripple-1);
+  height: var(--ripple-1);
+  opacity: 0.12;
+}
+
+.ripple-circle:nth-child(2) {
+  width: var(--ripple-2);
+  height: var(--ripple-2);
+  opacity: 0.12;
+}
+
+.ripple-circle:nth-child(3) {
+  width: var(--ripple-3);
+  height: var(--ripple-3);
+  opacity: 0.12;
+}
+
+/* -------------------------------------------------
+   Animation
+------------------------------------------------- */
+@keyframes ripple {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .ripple-wrapper {
+    --ripple-1: clamp(260px, 72vw, 400px);
+    --ripple-2: clamp(330px, 82vw, 520px);
+    --ripple-3: clamp(400px, 92vw, 640px);
+  }
+}

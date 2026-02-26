@@ -1,0 +1,145 @@
+/* FULLSCREEN OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  padding: 2rem;
+  background: rgba(20, 20, 20, 0.9);
+  z-index: 9999;
+  animation: overlayFade 0.35s ease forwards;
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* REMOVE MODAL BOX FEEL */
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+/* CLOSE ICON – TOP RIGHT OF SCREEN */
+.close {
+  all: unset;
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 10001;
+}
+
+.close svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* SLIDER CONTAINER */
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* IMAGE WRAP – 16:9 STAGE */
+.imageWrap {
+  position: relative;
+  width: min(75vw, 1400px);
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* IMAGE – FILL 16:9 */
+.image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+  will-change: opacity;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+.nav {
+  all: unset;
+  cursor: pointer;
+  color: #fff;
+  z-index: 10001;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s ease,
+    scale 0.2s ease;
+}
+
+.nav:hover {
+  background: rgba(0, 0, 0, 0.6);
+  scale: 1.1;
+}
+
+.nav svg {
+  width: 32px;
+  height: 32px;
+}
+
+.mobileNavigation {
+  display: none;
+  gap: 1.5rem;
+}
+
+/* Tablet & Mobile: Move nav below */
+@media (max-width: 1024px) {
+  .navLg {
+    display: none;
+  }
+  .mobileNavigation {
+    display: flex;
+  }
+  .imageWrap {
+    width: 92vw;
+    max-height: 60vh;
+  }
+  .nav svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Desktop wide optimization */
+@media (min-width: 1560px) {
+  .imageWrap {
+    width: 1400px;
+  }
+}

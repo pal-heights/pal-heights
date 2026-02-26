@@ -1,0 +1,99 @@
+.header {
+  width: 100%;
+  overflow: visible;
+  background-color: transparent;
+  position: fixed;
+  z-index: 999;
+  transition: background-color 0.35s ease-in-out,
+    backdrop-filter 0.35s ease-in-out;
+}
+
+.inner {
+  max-width: 1920px;
+  height: 8.875rem;
+  margin: 0 auto;
+  padding: 0rem 3rem;
+  transition: height 0.35s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Desktop / Mobile switch */
+.desktopNav {
+  display: block;
+}
+
+.mobileNav {
+  display: none;
+}
+
+/* scroll state */
+.scrolled {
+  background: #9b804eb4;
+  backdrop-filter: blur(20px);
+}
+.innerScrolled {
+  height: 6rem;
+}
+.siteLogo {
+  transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
+}
+.logoScrolled {
+  width: 9.25rem;
+  height: 2.875rem;
+}
+
+/* Scaled devices Responsivness */
+@media (max-width: 1536px) {
+  .inner {
+    padding: 0rem 3rem;
+    height: 6rem;
+  }
+  .siteLogo {
+    width: 9rem;
+    height: 2.75rem;
+  }
+  .innerScrolled {
+    height: 4.5rem;
+  }
+  .siteLogo {
+    transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
+  }
+  .logoScrolled {
+    width: 7rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktopNav {
+    display: none;
+  }
+  .mobileNav {
+    display: block;
+  }
+  .siteLogo {
+    width: 7.25rem;
+    height: 2.25rem;
+  }
+  .inner {
+    height: auto;
+    padding: 1.9rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 1.25rem 1.25rem;
+  }
+  .siteLogo {
+    width: 6.25rem;
+    height: 1.875rem;
+  }
+}
