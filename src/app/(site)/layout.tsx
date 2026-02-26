@@ -7,7 +7,7 @@ import Header from "src/components/layout/Header/Header";
 import Footer from "src/components/layout/Footer/Footer";
 import FooterCta from "src/components/layout/Footer/FooterCta";
 import RouteLoader from "src/components/loaders/RouteLoader";
-import PopUp from "src/components/popup/kidney";
+// import PopUp from "src/components/popup/kidney";
 import PageTransition from "src/components/loaders/PageTransition";
 import { Toaster } from "react-hot-toast";
 import { LoadingProvider } from "src/context/LoadingContext";
@@ -131,7 +131,7 @@ export default function RootLayout({
           {/* <PageTransition /> */}
           <Toaster position="top-right" />
           <Cursor />
-          <PopUp />
+           {/* <PopUp /> */}
           <Header />
           {children}
           <Script src="/scripts/lightbox.js" strategy="afterInteractive" />
