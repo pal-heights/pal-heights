@@ -1,0 +1,5 @@
+.leftTall:hover .overlay,
+.rightLarge:hover .overlay,
+.smallImage:hover .overlay {
+  opacity: 0;
+}

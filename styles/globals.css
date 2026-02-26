@@ -1,0 +1,114 @@
+/* Light theme only */
+:root {
+  --background: #ffffff;
+  --foreground: #141414;
+}
+
+/* Core browser resets */
+html,
+body {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styling */
+body {
+  background: var(--background);
+  color: var(--foreground);
+
+  /* Pal Heights Fonts */
+  font-family: var(--font-paragraph), sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Anchor default */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ripple animation */
+:root {
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s)
+    infinite;
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+/* Lightbox cs */
+#global-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+#global-lightbox.active {
+  display: block;
+}
+
+#global-lightbox .lb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#global-lightbox .lb-image {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+#global-lightbox .lb-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 2;
+
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+#global-lightbox .lb-close:hover {
+  opacity: 1;
+}
+/* Lightbox css ends here */

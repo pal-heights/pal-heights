@@ -1,0 +1,26 @@
+@keyframes lineShiftFade {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation when triggered */
+.lineAnimate {
+  animation: lineShiftFade 1.8s ease forwards;
+}
