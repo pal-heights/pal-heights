@@ -1,0 +1,401 @@
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--pal-brown);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner container */
+.inner {
+  max-width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 6rem 3rem 0;
+  position: relative;
+}
+
+/* RIGHT EDGE STRIP */
+.inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -6rem;
+  width: 7rem;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+/* RADIAL BLOB – TEMP VISIBLE VERSION */
+.inner::after {
+  content: "";
+  position: absolute;
+  left: -26rem;
+  bottom: -20rem;
+  width: 52rem;
+  height: 52rem;
+  background: radial-gradient(circle, #fff189 0%, rgba(255, 241, 137, 0) 70%);
+  opacity: 0.35;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Brown background block */
+.wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* CONTENT */
+.content {
+  position: relative;
+  z-index: 1;
+  width: 40%;
+  color: #ffffff;
+}
+
+/* KICKER */
+.kicker {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 1.125rem;
+  color: var(--pal-soft-light);
+  margin-bottom: 0.875rem;
+}
+
+/* MAIN HEADING */
+.title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 4.25rem;
+  line-height: 4.875rem;
+  margin-bottom: 5rem;
+}
+
+/* SUBTITLE ROW */
+.subRow {
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 2.875rem;
+  line-height: 3.35rem;
+  letter-spacing: 0.07rem;
+  color: var(--pal-soft-light);
+  white-space: nowrap;
+  margin-bottom: 0.4rem;
+}
+
+/* LINE */
+.line {
+  flex: 1;
+  max-width: 6.5rem;
+  height: 1px;
+  background-color: var(--pal-soft-light);
+  opacity: 0.8;
+}
+
+/* PARAGRAPHS */
+.paragraph {
+  font-family: var(--font-paragraph);
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* IMAGE */
+.imageWrapper {
+  position: relative;
+  max-width: 65rem;
+  width: 60%;
+  aspect-ratio: 16 / 9;
+  margin-right: -5rem;
+  z-index: 1;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Scaled devices Responsivness */
+@media (max-width: 1536px) {
+  .inner {
+    padding: 4rem 3rem 0;
+  }
+  .inner::before {
+    right: -4.5rem;
+  }
+  .content {
+    width: 45%;
+  }
+  .imageWrapper {
+    width: 55%;
+    margin-right: -2rem;
+  }
+  .kicker {
+    font-size: 0.9rem;
+    margin-bottom: 0rem;
+  }
+  .title {
+    font-size: 3rem;
+    line-height: 4rem;
+    margin-bottom: 2rem;
+  }
+  .subtitle {
+    font-size: 1.875rem;
+    line-height: 2.5rem;
+    margin-bottom: 0rem;
+  }
+  .line {
+    max-width: 5rem;
+  }
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Tablet Responsivness */
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+  }
+  .inner {
+    padding: 8rem 3rem 4rem;
+  }
+  .inner::before {
+    right: 0;
+    top: 80%;
+    width: 100%;
+    height: 20%;
+  }
+  .wrapper {
+    gap: 3rem;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+  }
+  .imageWrapper {
+    width: 100%;
+    margin-right: 0rem;
+  }
+  .title {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .subtitle {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+  .line {
+    max-width: 5rem;
+  }
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-bottom: 0.875rem;
+  }
+  .controlBg {
+    width: 5rem;
+    height: 5rem;
+  }
+  .controlInner {
+    padding: 1rem;
+  }
+  .controlInner svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Mobile Responsivness */
+@media (max-width: 768px) {
+  .inner {
+    padding: 6rem 1rem 4rem;
+  }
+  .wrapper {
+    gap: 2.5rem;
+  }
+  .title {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+  }
+  .line {
+    max-width: 3rem;
+  }
+  .paragraph {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin-bottom: 0.775rem;
+  }
+  .controlBg {
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+
+  .controlInner {
+    padding: 0.5rem;
+  }
+  .controlInner svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Animations */
+/* ===============================
+   TRUE UNMASK — CLIP-PATH WIPE
+   =============================== */
+
+.title,
+.subtitle,
+.kicker {
+  overflow: hidden;
+}
+
+.kicker .mask,
+.title .mask,
+.subtitle .mask {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  animation: unmask-wipe 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: clip-path;
+}
+
+/* stagger order */
+.title .mask {
+  animation-delay: 0.2s;
+}
+
+.subtitle:first-of-type .mask {
+  animation-delay: 0.4s;
+}
+
+.subtitle:last-of-type .mask {
+  animation-delay: 0.5s;
+}
+
+@keyframes unmask-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ===============================
+   LINE — REVEAL FROM LEFT
+   =============================== */
+
+.line {
+  display: inline-block;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: line-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.45s;
+}
+
+@keyframes line-reveal {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ===============================
+   PARAGRAPHS — SOFT FADE UP
+   =============================== */
+
+.paragraph {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.paragraph:nth-of-type(1) {
+  animation-delay: 0.6s;
+}
+
+.paragraph:nth-of-type(2) {
+  animation-delay: 0.7s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   IMAGE — DESKTOP (FADE FROM RIGHT)
+   =============================== */
+
+.imageWrapper {
+  opacity: 0;
+  transform: translateX(48px);
+  animation: image-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes image-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===============================
+   IMAGE — TABLET & MOBILE (FADE UP)
+   =============================== */
+
+@media (max-width: 1024px) {
+  .imageWrapper {
+    transform: translateY(48px);
+    animation: image-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes image-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(48px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

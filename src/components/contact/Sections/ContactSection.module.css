@@ -1,0 +1,469 @@
+.section {
+  width: 100%;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 8rem 6rem;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.kickerWrap {
+  display: block;
+  overflow: hidden;
+}
+
+.kicker {
+  font-family: var(--font-allcaps);
+  color: var(--pal-brown);
+  margin-bottom: 1rem;
+  line-height: 0.9rem;
+  display: block;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  overflow: hidden;
+}
+
+.line {
+  width: 6.5rem;
+  height: 1px;
+  background: var(--pal-brown);
+  opacity: 0.6;
+}
+
+.title {
+  font-family: var(--font-small-heading);
+  font-weight: 300;
+  font-size: 4rem;
+  color: var(--pal-black);
+  overflow: hidden;
+  display: block;
+}
+
+.title span {
+  display: inline-block;
+  will-change: transform;
+}
+.title .span {
+  color: var(--pal-brown);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+}
+
+/* FORM */
+.form {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+.field {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.field svg {
+  position: absolute;
+  left: 1rem;
+  top: 1.15rem;
+  color: var(--pal-brown);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  height: 54px;
+  padding: 0 1rem 0 3rem;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  font-family: var(--font-small-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9c9c9c;
+  font-weight: 500;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--pal-brown);
+  box-shadow: inset 0 0 0 1px rgba(155, 128, 78, 0.35);
+}
+
+/* DROPDOWN */
+.dropdown {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.dropdownValue {
+  height: 54px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: var(--font-small-heading);
+  font-size: 0.95rem;
+  color: #9c9c9c;
+  transition: border-color 0.25s ease;
+}
+
+.dropdownValue.selected {
+  color: #444;
+}
+
+.dropdown:hover .dropdownValue {
+  border-color: var(--pal-brown);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdownMenu button {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: var(--font-small-heading);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.dropdownMenu button:hover {
+  background: rgba(155, 128, 78, 0.08);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* TEXTAREA */
+.textareaField textarea {
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  min-height: 150px;
+  padding-top: 1rem;
+  z-index: 0;
+}
+.textareaField svg {
+  top: 1.2rem;
+}
+.charCount {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  font-family: var(--font-small-heading);
+  color: #9c9c9c;
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.submit {
+  background: var(--pal-brown);
+  color: #fff;
+  padding: 0.95rem 2.4rem;
+  border-radius: 12px;
+  border: none;
+  font-family: var(--font-small-heading);
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.submit:hover {
+  background: #8f7343;
+  box-shadow: 0 6px 18px rgba(155, 128, 78, 0.35);
+}
+
+.cancel {
+  background: transparent;
+  color: var(--pal-brown);
+  border: 1px solid var(--pal-brown);
+  padding: 0.95rem 2.4rem;
+  border-radius: 12px;
+  font-family: var(--font-small-heading);
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.cancel:hover {
+  background: rgba(155, 128, 78, 0.08);
+}
+
+/* INFO */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  font-size: 1.75rem;
+  font-family: var(--font-heading);
+  color: var(--pal-brown);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.linkRow {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-family: var(--font-small-heading);
+  font-size: 1rem;
+  color: var(--pal-grey);
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.linkRow:hover {
+  color: var(--pal-brown);
+}
+
+.linkRow svg {
+  color: var(--pal-brown);
+}
+
+/* MAP */
+.map {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  height: 16rem;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ERROR STATES (already added earlier) */
+.error input,
+.error textarea,
+.error .dropdownValue {
+  border-color: #d64545;
+}
+
+.error svg {
+  color: #d64545;
+}
+
+.errorText {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  font-family: var(--font-small-heading);
+  color: #d64545;
+}
+
+/* Scaled devices Responsivness */
+@media (max-width: 1536px) {
+  .container {
+    padding: 5rem 3rem;
+  }
+  .kicker {
+    font-size: 0.75rem;
+    margin-bottom: 0.775rem;
+  }
+  .titleRow {
+    gap: 2.5rem;
+  }
+  .line {
+    width: 5rem;
+  }
+  .title,
+  .title .span {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .header {
+    margin-bottom: 5rem;
+  }
+  .grid {
+    gap: 2rem;
+  }
+  .form {
+    padding: 2rem;
+  }
+  .card h3 {
+    font-size: 1.25rem;
+  }
+  .linkRow {
+    font-size: 0.9rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+}
+/* Tablet Responsivness */
+@media (max-width: 1024px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+  .kicker {
+    font-size: 0.575rem;
+    margin-bottom: 0.5rem;
+  }
+  .titleRow {
+    gap: 2rem;
+  }
+  .line {
+    width: 4rem;
+  }
+  .title,
+  .title .span {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+  }
+  .header {
+    margin-bottom: 3.5rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 2rem;
+  }
+}
+/* Mobile Responsivness */
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+  .br {
+    display: block;
+  }
+  .titleRow {
+    gap: 1rem;
+  }
+  .line {
+    width: 2rem;
+  }
+  .title,
+  .title .span {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    white-space: nowrap;
+  }
+  .header {
+    margin-bottom: 2.7rem;
+  }
+  .grid {
+    gap: 2rem;
+  }
+  .form {
+    padding: 1rem;
+    border-radius: 7px;
+  }
+  .field {
+    margin-bottom: 1rem;
+  }
+  .field input,
+  .field textarea {
+    height: 40px;
+    padding: 0 1rem 0 3rem;
+    font-size: 0.7rem;
+    border-radius: 7px;
+  }
+  .dropdownValue {
+    height: 40px;
+    border-radius: 7px;
+    font-size: 0.7rem;
+  }
+  .dropdownMenu {
+    border-radius: 7px;
+  }
+  .dropdownMenu button {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.7rem;
+  }
+  .textareaField textarea {
+    min-height: 100px;
+    padding-top: 0.7rem;
+  }
+  .textareaField svg {
+    top: 1rem;
+  }
+  .actions {
+    margin-top: 2rem;
+  }
+  .submit {
+    padding: 0.5rem 1.5rem;
+    border-radius: 7px;
+  }
+  .cancel {
+    padding: 0.5rem 1.5rem;
+    border-radius: 7px;
+  }
+  .field svg {
+    top: 0.875rem;
+  }
+  .svg {
+    width: 0.75rem;
+    height: auto;
+  }
+
+  .card {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  .card h3 {
+    font-size: 1.25rem;
+  }
+  .linkRow {
+    font-size: 0.9rem;
+  }
+  .map {
+    border-radius: 1rem;
+  }
+}
