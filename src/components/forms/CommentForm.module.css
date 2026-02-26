@@ -1,0 +1,164 @@
+/* ----------------------------------------------
+   Container & Typography
+---------------------------------------------- */
+
+.formContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0rem 4rem 4rem;
+  border-radius: 14px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--pal-black);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-family: var(--font-pal-body);
+  font-size: 0.95rem;
+  color: var(--pal-grey);
+  margin-bottom: 2rem;
+}
+
+/* ----------------------------------------------
+   Form Layout
+---------------------------------------------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------------------------------------------
+   Inputs
+---------------------------------------------- */
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inputGroup label {
+  font-family: var(--font-allcaps);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pal-grey);
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  font-family: var(--font-paragraph);
+  font-size: 0.95rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  color: var(--pal-black);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inputGroup textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--pal-brown);
+  box-shadow: 0 0 0 2px rgba(155, 128, 78, 0.15);
+}
+
+/* ----------------------------------------------
+   Errors
+---------------------------------------------- */
+
+.errorInput {
+  border-color: #c04a4a !important;
+}
+
+.errorMessage {
+  font-family: var(--font-pal-body);
+  font-size: 0.8rem;
+  color: #c04a4a;
+  margin-top: 0.15rem;
+}
+
+/* ----------------------------------------------
+   Checkbox
+---------------------------------------------- */
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.checkboxWrapper input {
+  accent-color: var(--pal-brown);
+}
+
+.checkboxWrapper label {
+  font-family: var(--font-pal-body);
+  font-size: 0.85rem;
+  color: var(--pal-grey);
+}
+
+/* ----------------------------------------------
+   Submit Button
+---------------------------------------------- */
+
+.submitButton {
+  align-self: flex-start;
+  margin-top: 0.75rem;
+  font-family: var(--font-allcaps);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--pal-brown);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  opacity: 0.95;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .formContainer {
+    padding: 4rem 2rem 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .formContainer {
+    padding: 2rem 1rem 4rem;
+  }
+}

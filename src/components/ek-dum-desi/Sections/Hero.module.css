@@ -1,0 +1,164 @@
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+/* BG ISOLATION */
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+/* BG IMAGE SLIDER */
+.bg {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+  will-change: clip-path;
+}
+
+/* SUBTLE TEXT BACKDROP */
+.bgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  /* bottom-left → top-right dark fade */
+  background: linear-gradient(
+    35deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.25) 30%,
+    rgba(0, 0, 0, 0.15) 55%,
+    rgba(0, 0, 0, 0) 75%
+  );
+}
+
+/* CONTENT */
+.inner {
+  max-width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 3rem 7.5rem;
+
+  display: flex;
+  align-items: flex-end;
+
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 40rem;
+  z-index: 4;
+}
+
+/* HEADING */
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 200;
+  font-size: 4rem;
+  line-height: 5rem;
+  color: #fffffe;
+  margin-bottom: 1.5rem;
+}
+
+/* MASK FOR TEXT */
+.mask {
+  display: block;
+  overflow: hidden;
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+/* PARAGRAPH */
+.paragraph {
+  font-family: var(--font-small-heading);
+  font-weight: 300;
+  font-size: 1.75rem;
+  color: #ffe8c3;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 1536px) {
+  .inner {
+    padding: 0 3rem 5rem;
+  }
+  .content {
+    max-width: 40rem;
+  }
+
+  .heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .paragraph {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    padding: 0 2rem 7.5rem;
+  }
+  .heading {
+    font-size: 3.75rem;
+    line-height: 4.5rem;
+  }
+  .paragraph {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 1.5rem 6rem;
+  }
+  .heading {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+  .paragraph {
+    font-size: 0.9rem;
+  }
+}
+
+/* SLIDER CONTROLS */
+.controls {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: rgba(0, 0, 0, 0.55);
+}

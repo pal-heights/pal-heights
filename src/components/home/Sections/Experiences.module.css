@@ -1,0 +1,347 @@
+.section {
+  width: 100%;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 8rem 6rem 6rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.kickerWrapper {
+  overflow: hidden;
+}
+
+.kicker {
+  font-family: var(--font-allcaps);
+  color: var(--pal-brown);
+  margin-bottom: 1rem;
+  line-height: 0.9rem;
+  display: block;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  overflow: hidden;
+}
+
+.line {
+  width: 6.5rem;
+  height: 2px;
+  background: var(--pal-brown);
+  opacity: 0.6;
+}
+
+.br {
+  display: none;
+}
+
+.title {
+  font-family: var(--font-small-heading);
+  font-weight: 300;
+  font-size: 4rem;
+  color: var(--pal-black);
+  overflow: hidden;
+}
+
+.title span {
+  display: inline-block;
+  will-change: transform;
+}
+
+.title .span {
+  color: var(--pal-brown);
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.mainVideo {
+  flex: 1;
+  aspect-ratio: 2 / 1;
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+.mainVideo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  border: 10px solid rgba(170, 139, 88, 0.5);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.mainVideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main overlay */
+.mainOverlay {
+  position: absolute;
+  inset: 0;
+  padding: 0rem 3rem 3rem 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: linear-gradient(to top, rgba(20, 20, 20, 0.7), transparent);
+}
+
+.mainOverlay h3 {
+  max-width: 35rem;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 3.25rem;
+  color: #ffffff;
+}
+
+.exploreBtn {
+  width: 13rem;
+  height: 3.5rem;
+  font-family: var(--font-small-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  background: var(--pal-brown);
+  color: #ffffff;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+  flex: 0 0 clamp(9rem, 16vw, 14rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.tabImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.tabImage img {
+  object-fit: cover;
+}
+
+/* Play */
+.playWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom overlay */
+.tabOverlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to top, rgba(20, 20, 20, 0.7), transparent);
+}
+
+.tabLabel {
+  font-family: var(--font-small-heading);
+  text-align: start;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* Scaled devices Responsivness */
+@media (max-width: 1536px) {
+  .container {
+    padding: 5rem 3rem;
+  }
+  .kicker {
+    font-size: 0.75rem;
+    margin-bottom: 0.775rem;
+  }
+  .titleRow {
+    gap: 2.5rem;
+  }
+  .line {
+    width: 5rem;
+  }
+  .title,
+  .title .span {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+  .header {
+    margin-bottom: 5rem;
+  }
+  .layout {
+    gap: 1rem;
+  }
+  .tabs {
+    flex: 0 0 clamp(9rem, 16vw, 10rem);
+    gap: 1rem;
+  }
+}
+/* Tablet Responsivness */
+@media (max-width: 1024px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+  .kicker {
+    font-size: 0.575rem;
+    margin-bottom: 0.5rem;
+  }
+  .titleRow {
+    gap: 2rem;
+  }
+  .line {
+    width: 4rem;
+  }
+  .title,
+  .title .span {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+  .header {
+    margin-bottom: 3.5rem;
+  }
+  .tabs {
+    flex: 0 0 clamp(6rem, 16vw, 6rem);
+    gap: 1rem;
+  }
+  .mainVideo {
+    border-radius: 1rem;
+  }
+  .mainOverlay {
+    border-radius: 1rem;
+    padding: 0rem 2rem 2rem 2rem;
+  }
+  .mainOverlay h3 {
+    max-width: 20rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .exploreBtn {
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+  .mainVideo::after {
+    border: 8px;
+  }
+  .layout {
+    gap: 0.5rem;
+  }
+  .tabs {
+    gap: 0.5rem;
+  }
+  .tabImage {
+    border-radius: 0.75rem;
+  }
+  .tabOverlay {
+    padding: 0.5rem;
+  }
+  .playButton {
+    width: 1rem;
+    height: auto;
+  }
+  .tabLabel {
+    font-size: 0.65rem;
+    margin-bottom: 0.2rem;
+  }
+  .stars .star {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}
+/* Mobile Responsivness */
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+  .br {
+    display: block;
+  }
+  .titleRow {
+    gap: 1rem;
+  }
+  .line {
+    width: 2rem;
+  }
+  .title,
+  .title .span {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    white-space: nowrap;
+  }
+  .header {
+    margin-bottom: 2.7rem;
+  }
+  .layout {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tabs {
+    flex: 0 0 clamp(4rem, 10vw, 4rem);
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .mainVideo {
+    border-radius: 0.7rem;
+  }
+  .mainOverlay {
+    border-radius: 0.7rem;
+    padding: 1rem;
+  }
+  .mainOverlay h3 {
+    max-width: 12rem;
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+  .exploreBtn {
+    width: 8rem;
+    height: 1.7rem;
+    border-radius: 0.2rem;
+    font-size: 0.6rem;
+  }
+  .mainVideo::after {
+    border: 8px;
+  }
+}
