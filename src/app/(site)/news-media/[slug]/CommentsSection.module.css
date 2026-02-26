@@ -1,0 +1,86 @@
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem 3rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--pal-black);
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ---------- Individual Comment ---------- */
+.comment {
+  position: relative;
+  padding-left: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* vertical marker */
+.comment::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.35rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--pal-brown);
+  opacity: 0.85;
+}
+
+/* ---------- Author ---------- */
+.name {
+  font-family: var(--font-small-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--pal-black);
+  display: block;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Comment text ---------- */
+.text {
+  font-family: var(--font-paragraph);
+  font-size: 0.95rem;
+  line-height: 1.65rem;
+  color: var(--pal-grey);
+  max-width: 85ch;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 0 2rem 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 0 1rem 2rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .comment {
+    padding-left: 1.75rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
