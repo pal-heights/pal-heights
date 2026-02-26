@@ -23,7 +23,7 @@
       "@/*": ["src/*"],
       "@animations/*": ["animations/*"],
       "@lib/*": ["lib/*"],
-      "@models/*": ["models/*"],
+      "@models/*": ["src/models/*"],
       "@styles/*": ["styles/*"],
       "@types/*": ["types/*"]
     }
