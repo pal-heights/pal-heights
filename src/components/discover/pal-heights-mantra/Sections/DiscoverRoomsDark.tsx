@@ -12,12 +12,12 @@ const ROOM_SETS = [
     images: [
       {
         label: "Couple Simple Room",
-        src: "/discover/pal-heights/pal-royale-1.jpg",
+        src: "/discover/pal-heights/pal-royal-1.webp",
       },
-      { label: "Luxe Room", src: "/discover/pal-heights/pal-royale-2.jpg" },
-      { label: "Premium Room", src: "/discover/pal-heights/pal-royale-3.jpg" },
-      { label: "Master Room", src: "/discover/pal-heights/pal-royale-4.jpeg" },
-      { label: "Family Luxe", src: "/discover/pal-heights/pal-royale-5.jpeg" },
+      { label: "Luxe Room", src: "/discover/pal-heights/pal-royal-2.webp" },
+      { label: "Premium Room", src: "/discover/pal-heights/pal-royal-3.webp" },
+      { label: "Master Room", src: "/discover/pal-heights/pal-royal-4.webp" },
+      { label: "Family Luxe", src: "/discover/pal-heights/pal-royal-5.webp" },
     ],
   },
 ];

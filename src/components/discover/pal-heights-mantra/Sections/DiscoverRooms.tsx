@@ -14,13 +14,19 @@ const ROOM_SETS = [
         label: "Couple Simple Room",
         src: "/discover/pal-heights-mantra/grand-1.jpg",
       },
-      { label: "Luxe Room", src: "/discover/pal-heights-mantra/grand-2.jpg" },
+      {
+        label: "Luxe Room",
+        src: "/discover/pal-heights-mantra/pal-grand-2.webp",
+      },
       {
         label: "Premium Room",
         src: "/discover/pal-heights-mantra/grand-3.jpg",
       },
       { label: "Master Room", src: "/discover/pal-heights-mantra/grand-4.jpg" },
-      { label: "Family Luxe", src: "/discover/pal-heights-mantra/grand-5.jpg" },
+      {
+        label: "Family Luxe",
+        src: "/discover/pal-heights-mantra/pal-grand-5.webp",
+      },
     ],
   },
 ];

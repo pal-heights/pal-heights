@@ -3,7 +3,15 @@ import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
-  const brandLogos = Array(10).fill("/site-logos/logo.png");
+  const brandLogos = [
+    "/brands/1.webp",
+    "/brands/2.webp",
+    "/brands/3.webp",
+    "/brands/4.webp",
+    "/brands/5.webp",
+    "/brands/6.webp",
+    "/brands/7.webp",
+  ];
 
   return (
     <footer className={styles.footer}>
@@ -173,16 +181,7 @@ export default function Footer() {
                 <img
                   key={index}
                   src={logo}
-                  alt={`Brand ${index + 1}`}
-                  className={styles.brandLogo}
-                />
-              ))}
-              {/* Duplicating for double as requested */}
-              {brandLogos.map((logo, index) => (
-                <img
-                  key={index + 10}
-                  src={logo}
-                  alt={`Brand ${index + 1}`}
+                  alt={`Brand ${index}`}
                   className={styles.brandLogo}
                 />
               ))}
