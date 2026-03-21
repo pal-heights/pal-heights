@@ -38,7 +38,7 @@ export default function CorporateGallery() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           descRef.current,
@@ -47,7 +47,7 @@ export default function CorporateGallery() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.35"
+          "-=0.35",
         )
         .from(
           gridRef.current?.children || [],
@@ -58,7 +58,7 @@ export default function CorporateGallery() {
             ease: "power3.out",
             stagger: 0.1,
           },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -91,7 +91,7 @@ export default function CorporateGallery() {
         <div className={styles.gridWrapper}>
           <div className={styles.bgPanel} />
           <div ref={gridRef} className={styles.grid}>
-            {Array.from({ length: 6 }).map((_, i) => (
+            {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className={styles.imageWrap}>
                 <Image
                   src={`/banquets/pal-heights/corporate-${i + 1}.jpeg`}
