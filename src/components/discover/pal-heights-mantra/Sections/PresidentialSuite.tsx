@@ -11,12 +11,12 @@ const ROOM_SETS = [
   {
     images: [
       {
-        label: "Couple Simple Room",
-        src: "/discover/pal-heights-mantra/presedential-suite-1.jpg",
-      },
-      {
         label: "Luxe Room",
         src: "/discover/pal-heights-mantra/presedential-suite-2.jpg",
+      },
+      {
+        label: "Couple Simple Room",
+        src: "/presidential-suite.JPG",
       },
       {
         label: "Premium Room",
