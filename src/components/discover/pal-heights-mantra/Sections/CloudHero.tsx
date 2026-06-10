@@ -33,35 +33,39 @@ export default function Hero() {
             </span>
 
             <h1 className={styles.title}>
-              <span className={styles.mask}>PAL HEIGHTS </span>
+              <span className={styles.mask}>PAL HEIGHTS MANTRA</span>
             </h1>
 
             <div className={styles.subRow}>
               <h2 className={styles.subtitle}>
-                <span className={styles.mask}>Have a truly memorable</span>
+                <span className={styles.mask}>Luxury Has Never</span>
               </h2>
               <h2 className={styles.subtitle}>
-                <span className={styles.mask}>experience</span>
+                <span className={styles.mask}>Looked Better</span>
                 <span className={styles.line} />
               </h2>
             </div>
 
             <p className={styles.paragraph}>
-              Pal Heights, the centrepiece of Bhubaneswar, is a luxury 4 Star
-              hotel beside a new-age shopping mall making it the perfect
-              location for your stay. We welcome our guests to the rich cultural
-              heritage of Odisha while being accessible and ready to cater to
-              all your needs
+              Located in the heart of the Twin Cities; Bhubaneswar and Cuttack,
+              our hotel, Pal Heights Mantra is a luxury hotel with
+              state-of-the-art services and amenities. A premium business and
+              luxury hotel, Pal Heights Mantra Bhubaneswar is the next
+              generation of world-class hospitality. This luxurious property
+              overlooks the bustling NH5 on one side and the green space on the
+              other. PAL Heights Mantra is packed with amenities with several
+              restaurants, cafes, bars, gyms and swimming pools, all in one
+              place.
             </p>
 
             <p className={styles.paragraph}>
-              At Pal Heights Bhubaneswar, we take immense pleasure in
-              introducing you to a world of exemplary hospitality. We adhere to
-              the international standards of service and offer you a truly
-              business-class experience in the center of the templecity with
-              every amenity you need. Whether on a vacation, business trip or a
-              short getaway, Pal Heights, Bhubaneswar looks forward to adding a
-              deeper meaning and satisfaction to your journey.
+              Mantra and the Twin Cities bring to you a variety of exciting
+              adventures, making for a great destination for short business
+              trips, honeymoons, vacations, weddings and meetings. We at PAL
+              Mantra Bhubaneswar also have the best banquet halls for marriage
+              functions, events and corporate events, making it easier for
+              guests to seamlessly organize their special days without
+              compromising on quality or experience.
             </p>
           </div>
 
@@ -75,8 +79,8 @@ export default function Hero() {
             <video
               ref={playerRef}
               className={styles.video}
-              src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781014555/Pal_Heights_POV_1_1_ofzott.mp4"
-              poster="https://res.cloudinary.com/dfx58zgtm/image/upload/q_auto/f_auto/v1781014640/Screenshot_2026-06-09_194703_vxdlld.png"
+              src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781009703/PAL_Mantra_POV_V3_1_l956p9.mp4"
+              poster="https://res.cloudinary.com/dfx58zgtm/image/upload/q_auto/f_auto/v1781015969/66ba789f-131e-4702-98a1-db65869eca54.png"
               loop
               muted
               playsInline
