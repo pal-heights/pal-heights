@@ -1,4 +1,4 @@
-import Hero from "./Sections/Hero";
+import Hero from "./Sections/VideoHero";
 import SectionOne from "./Sections/Properties";
 // import SectionTwo from "./Sections/ExperiencesSlider";
 import SectionThree from "./Sections/Products";
