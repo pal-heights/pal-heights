@@ -10,11 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 const ROOM_SETS = [
   {
     images: [
+      { label: "Luxe Room", src: "/discover/pal-heights/pal-royal-2.webp" },
       {
         label: "Couple Simple Room",
         src: "/discover/pal-heights/pal-royal-1.webp",
       },
-      { label: "Luxe Room", src: "/discover/pal-heights/pal-royal-2.webp" },
       { label: "Premium Room", src: "/discover/pal-heights/pal-royal-3.webp" },
       { label: "Master Room", src: "/discover/pal-heights/pal-royal-4.webp" },
       { label: "Family Luxe", src: "/discover/pal-heights/pal-royal-5.webp" },
