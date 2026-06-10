@@ -22,6 +22,7 @@ const ROOM_SETS = [
   },
 ];
 
+
 const ICONS = [
   { label: "Mini Bar", icon: "minibar-light.png" },
   { label: "Hair dryer", icon: "hair-dryer-light.png" },
