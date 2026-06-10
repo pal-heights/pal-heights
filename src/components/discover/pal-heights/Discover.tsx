@@ -1,4 +1,4 @@
-import Hero from "./Sections/Hero";
+import Hero from "./Sections/CloudHero";
 import SectionOne from "./Sections/DiscoverRooms";
 import SectionTwo from "./Sections/DiscoverRoomsDark";
 import SectionThree from "./Sections/PalSuites";
