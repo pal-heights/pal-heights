@@ -176,7 +176,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/dining/pal-heights/breeze-1.jpeg"
+                src="/home/breeze-1.jpg"
                 data-lightbox
                 alt="Breeze Dining Area"
                 fill
@@ -190,7 +190,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/dining/pal-heights/breeze-2.jpeg"
+                src="/home/breeze-2.jpg"
                 data-lightbox
                 alt="Breeze Seating"
                 fill
