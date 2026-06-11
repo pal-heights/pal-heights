@@ -249,7 +249,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/home/public/home/zaika-people-eating-food.jpg"
+                src="/home/zaika-people-eating-food.jpg"
                 data-lightbox
                 alt="Zaika Seating Area"
                 fill
