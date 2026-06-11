@@ -15,6 +15,7 @@ const clamp = (v: number, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * clamp(t);
 
 export default function CustomCursor() {
+  const [isDesktop, setIsDesktop] = useState(false);
   const innerRef = useRef<Nullable<HTMLDivElement>>(null);
   const outlineRef = useRef<Nullable<HTMLDivElement>>(null);
 
@@ -42,6 +43,16 @@ export default function CustomCursor() {
 
   const rafRef = useRef<number | null>(null);
   const hasMoved = useRef(false);
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
 
   function findHoverAncestor(el: Element | null): Element | null {
     while (el) {
@@ -121,6 +132,8 @@ export default function CustomCursor() {
     rafRef.current = requestAnimationFrame(animate);
   }
   useEffect(() => {
+    if (!isDesktop) return;
+
     rafRef.current = requestAnimationFrame(animate);
 
     const onMove = (e: MouseEvent) => {
@@ -174,7 +187,9 @@ export default function CustomCursor() {
       window.removeEventListener("mouseup", onUp);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [isDesktop]);
+
+  if (!isDesktop) return null;
 
   return (
     <div
@@ -190,3 +205,4 @@ export default function CustomCursor() {
     </div>
   );
 }
+
