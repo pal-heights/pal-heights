@@ -208,7 +208,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/tea-1.jpg"
+                src="/tea-kettle-1.jpg"
                 data-lightbox
                 alt="Desire Restaurant Interior"
                 fill
