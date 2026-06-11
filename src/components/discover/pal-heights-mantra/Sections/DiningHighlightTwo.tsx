@@ -14,14 +14,14 @@ const DATA = [
     tab: "Cabana",
     heroTitle: "Dine In The Best Way",
     title: "Cabana",
-    image: "/discover/pal-heights/zaika.jpg",
+    image: "/cabana-1.jpg",
     desc: "Step into the terrace beauty of Mantra, replete with delectable food and relaxing ambience, Cabana is one of our jewels. With its poolside deck, live grill, a stocked bar and lounge along with the gorgeous Cabanas make for a effortless dining experience. Sunrise to a moonlight night, Cabana and a view of the twin-cityscape is a pleasure to watch.",
   },
   {
     tab: "Rodeo Bar",
     heroTitle: "Dine In The Best Way",
     title: "Rodeo Bar",
-    image: "/discover/pal-heights/breeze.jpg",
+    image: "/cabana-2.jpg",
     desc: "Choose from an extensive menu that boasts of house infusion cocktails; all with a flair that has become Rodeo’s signature style. Contemporary surroundings combined with prim decor create a delightful affair.",
   },
 ];
