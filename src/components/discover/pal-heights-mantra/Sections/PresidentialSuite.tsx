@@ -12,7 +12,7 @@ const ROOM_SETS = [
     images: [
       {
         label: "Luxe Room",
-        src: "/discover/pal-heights-mantra/presedential-suite-2.jpg",
+        src: "/discover/pal-heights-mantra/presedential-suite-3.jpg",
       },
       {
         label: "Couple Simple Room",
@@ -24,11 +24,11 @@ const ROOM_SETS = [
       },
       {
         label: "Master Room",
-        src: "/discover/pal-heights-mantra/presedential-suite-4.jpg",
+        src: "/discover/pal-heights-mantra/presedential-suite-3.jpg",
       },
       {
         label: "Family Luxe",
-        src: "/discover/pal-heights-mantra/presedential-suite-5.jpg",
+        src: "/discover/pal-heights-mantra/presedential-suite-3.jpg",
       },
     ],
   },
