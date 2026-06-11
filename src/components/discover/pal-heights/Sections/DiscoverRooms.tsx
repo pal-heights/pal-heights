@@ -16,7 +16,7 @@ const ROOM_SETS = [
         src: "/discover/pal-heights/pal-grande-1.webp",
       },
       { label: "Premium Room", src: "/discover/pal-heights/pal-grande-3.webp" },
-      { label: "Luxe Room", src: "/discover/pal-heights/pal-grande-2.webp" },
+      { label: "Luxe Room", src: "/discover/pal-heights/pal-grande-4.webp" },
       { label: "Family Luxe", src: "/discover/pal-heights/pal-grande-5.webp" },
     ],
   },
