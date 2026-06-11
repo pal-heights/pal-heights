@@ -64,7 +64,7 @@
   top: 50%;
   transform: translateY(-50%);
 
-  height: 70%;
+  height: 72%;
   width: 400px;
   display: flex;
   align-items: center;
@@ -127,7 +127,7 @@
 .center {
   position: relative;
   width: 720px;
-  height: 70%; /* match navigation height */
+  height: 72%; /* match navigation height */
   z-index: 5;
 }
 
@@ -293,12 +293,12 @@
 
   .nav {
     width: 300px;
-    height: 80%; /* increase BOTH */
+    height: 82%; /* increase BOTH */
   }
 
   .center {
     max-width: 550px;
-    height: 80%; /* match nav */
+    height: 82%; /* match nav */
   }
 
   .navContent {
@@ -324,7 +324,7 @@
 
   .cardBody p {
     font-size: 0.88rem;
-    line-height: 1.5;
+    line-height: 1.4;
     margin-bottom: 0.9rem;
   }
 
