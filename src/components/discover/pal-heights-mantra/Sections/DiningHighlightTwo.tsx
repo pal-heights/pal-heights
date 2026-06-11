@@ -21,7 +21,7 @@ const DATA = [
     tab: "Rodeo Bar",
     heroTitle: "Dine In The Best Way",
     title: "Rodeo Bar",
-    image: "/cabana-2.jpg",
+    image: "/discover/pal-heights/breeze.jpg",
     desc: "Choose from an extensive menu that boasts of house infusion cocktails; all with a flair that has become Rodeo’s signature style. Contemporary surroundings combined with prim decor create a delightful affair.",
   },
 ];
