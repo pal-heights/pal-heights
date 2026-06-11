@@ -252,7 +252,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/cabana-1.jpeg"
+                src="/home/cabana-1.jpeg"
                 data-lightbox
                 alt="Desire Restaurant Interior"
                 fill
@@ -266,7 +266,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/cabana-2.jpg"
+                src="/home/cabana-2.jpg"
                 data-lightbox
                 alt="Desire Seating Area"
                 fill
