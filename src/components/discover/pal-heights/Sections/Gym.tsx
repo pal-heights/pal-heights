@@ -10,9 +10,9 @@ import styles from "./Gym.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const SLIDES = [
-  { image: "/discover/pal-heights/gym-3.webp" },
+  { image: "/discover/pal-heights/gym-3.jpg" },
   { image: "/discover/pal-heights/gym-2.webp" },
-  { image: "/discover/pal-heights/gym-1.jpg" },
+  { image: "/discover/pal-heights/gym-1.webp" },
 ];
 
 export default function Wellness() {
