@@ -384,6 +384,9 @@
     font-size: 0.6rem;
   }
   .iconBar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 2rem;
   }
   .bottomRow {
