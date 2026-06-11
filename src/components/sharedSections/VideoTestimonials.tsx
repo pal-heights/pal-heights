@@ -163,7 +163,7 @@ export default function DiningHighlight() {
               <div className={styles.media}>
                 <video
                   className={styles.video}
-                  src="https://www.palheights.com/wp-content/uploads/2021/02/Testimonial-one.mp4?_=1"
+                  src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781178425/review-1_meummv.mp4"
                   playsInline
                 />
 
@@ -203,7 +203,7 @@ export default function DiningHighlight() {
               <div className={styles.media}>
                 <video
                   className={styles.video}
-                  src="https://www.palheights.com/wp-content/uploads/2021/02/Testimonial-two.mp4?_=2"
+                  src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781178425/review-2_m14db7.mp4"
                   playsInline
                 />
 
