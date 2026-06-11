@@ -187,7 +187,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/desire/desire-1.jpg"
+                src="/desire-1.jpg"
                 data-lightbox
                 alt="Desire Restaurant Interior"
                 fill
@@ -201,7 +201,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/desire/desire-2.jpeg"
+                src="/desire-2.jpeg"
                 data-lightbox
                 alt="Desire Seating Area"
                 fill
