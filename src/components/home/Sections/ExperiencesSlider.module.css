@@ -176,7 +176,7 @@
 }
 
 .cardBody h3 {
-  font-family: var(--font-small-heading);
+  font-family: var(--font-heading);
   font-size: 1.85rem;
   font-weight: 400;
   color: var(--pal-brown);
