@@ -56,7 +56,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.8,
         ease: "power3.out",
-      }
+      },
     );
 
     // line
@@ -68,7 +68,7 @@ export default function DiningHighlight() {
         transformOrigin: "left center",
         duration: 0.8,
         ease: "power2.out",
-      }
+      },
     );
 
     // text title
@@ -85,7 +85,7 @@ export default function DiningHighlight() {
         duration: 0.8,
         stagger: 0.035,
         ease: "power3.out",
-      }
+      },
     );
 
     // paragraph
@@ -97,7 +97,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.8,
         ease: "power2.out",
-      }
+      },
     );
 
     // image
@@ -109,7 +109,7 @@ export default function DiningHighlight() {
         x: 0,
         duration: 0.8,
         ease: "power3.out",
-      }
+      },
     );
   };
 
@@ -150,7 +150,7 @@ export default function DiningHighlight() {
           duration: 0.35,
           ease: "power2.in",
         },
-        0
+        0,
       )
 
       // text OUT (fast)
@@ -162,7 +162,7 @@ export default function DiningHighlight() {
           stagger: 0.025,
           ease: "power3.in",
         },
-        0
+        0,
       )
 
       .to(
@@ -173,7 +173,7 @@ export default function DiningHighlight() {
           duration: 0.25,
           ease: "power2.in",
         },
-        0
+        0,
       );
   };
 
@@ -191,7 +191,7 @@ export default function DiningHighlight() {
         x: 0,
         duration: 0.45,
         ease: "power3.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -202,7 +202,7 @@ export default function DiningHighlight() {
         duration: 0.35,
         stagger: 0.03,
         ease: "power3.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -213,7 +213,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.3,
         ease: "power2.out",
-      }
+      },
     );
   };
 
