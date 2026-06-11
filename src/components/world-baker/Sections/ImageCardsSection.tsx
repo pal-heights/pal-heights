@@ -115,7 +115,7 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/dining/world-baker/section-1.jpg"
+                src="/pal-heights-mantra.jpg"
                 alt=""
                 fill
                 data-lightbox
@@ -151,7 +151,7 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/dining/world-baker/section-2.jpg"
+                src="/pal-heights.jpg"
                 data-lightbox
                 alt=""
                 fill
