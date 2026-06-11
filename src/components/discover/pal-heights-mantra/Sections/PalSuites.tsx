@@ -12,23 +12,23 @@ const ROOM_SETS = [
     images: [
       {
         label: "Couple Simple Room",
-        src: "mantra-suite-1",
+        src: "/mantra-suite-1.JPG",
       },
       {
         label: "Luxe Room",
-        src: "mantra-suite-2",
+        src: "/mantra-suite-2.JPG",
       },
       {
         label: "Premium Room",
-        src: "mantra-suite-1",
+        src: "/mantra-suite-1.JPG",
       },
       {
         label: "Master Room",
-        src: "mantra-suite-2",
+        src: "/mantra-suite-2.JPG",
       },
       {
         label: "Family Luxe",
-        src: "mantra-suite-1",
+        src: "/mantra-suite-1.JPG",
       },
     ],
   },
