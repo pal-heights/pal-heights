@@ -14,7 +14,7 @@ const DATA = [
     tab: "Pind Da Dhaba",
     heroTitle: "Dine In The Best Way",
     title: "Pind Da Dhaba",
-    image: "/discover/pal-heights/zaika.jpg",
+    image: "/discover/pal-heights-mantra/dhaba.jpg",
     desc: "Experience the essence of an authentic Punjabi dhaba at Pind Da Dhaba - the best and most genuine family restaurant. This exclusive establishment is thoughtfully decorated to transport you back to the nostalgic charm of Punjab's dhabas. Ideal for cherished get-togethers, Pind Da Dhaba flawlessly combines rustic and refined elements, providing a perfect ambiance for relishing a scrumptious meal.",
   },
   {
@@ -28,10 +28,11 @@ const DATA = [
     tab: "Courtyard",
     heroTitle: "Dine In The Best Way",
     title: "Courtyard",
-    image: "/discover/pal-heights/desire.jpg",
+    image: "/discover/pal-heights-mantra/courtyard.jpg",
     desc: "The courtyard is the heart of Pal Heights Mantra. A signature outlet with a contemporary European setting and a scrumptious menu makes it a blend to savour. With its elegant design, it truly offers one of the best fine dining experiences in the city while offering a host of cuisines for your palette.",
   },
 ];
+
 
 export default function DiningHighlight() {
   const [active, setActive] = useState(0);
