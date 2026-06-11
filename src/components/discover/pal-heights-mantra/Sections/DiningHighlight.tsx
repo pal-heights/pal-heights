@@ -21,7 +21,7 @@ const DATA = [
     tab: "Tea Kettle",
     heroTitle: "Dine In The Best Way",
     title: "Tea Kettle",
-    image: "/discover/pal-heights/breeze.jpg",
+    image: "/tea-katle.jpg",
     desc: "Coffee beans & Tea leaves from around the world are here for you to choose your cup at the Tea Kettle, a quaint cafe on the highway. Served along with freshly baked cookies and snacks, it makes a great place for journey breaks and having a laugh with friends & family.",
   },
   {
