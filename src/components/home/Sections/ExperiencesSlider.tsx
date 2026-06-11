@@ -16,22 +16,52 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    title: "Romantic Stays",
+    title: "Pal Heights",
     description:
-      "From quiet mornings to lingering sunsets, romance unfolds in its own rhythm. Let Taj craft a celebration of love that feels timeless in spirit and unforgettable in experience.",
-    image: "/home/hero-image-1.jpg",
+      "At Pal, every gathering unfolds into a thoughtfully curated experience. From corporate meetings and conferences to incentive celebrations and social events, our versatile venues, refined hospitality and seamless service create the perfect setting for meaningful connections and memorable occasions.",
+    image: "/home/meetings.jpg",
   },
   {
     title: "Timeless Weddings",
     description:
-      "Celebrate your special day in elegance and grandeur, where every detail is crafted to perfection.",
-    image: "/home/blog-2.jpg",
+      "Celebrate the beginning of your forever at Pal. From vibrant pre-wedding festivities to elegant receptions, our beautiful venues, personalised planning and warm hospitality come together to create wedding celebrations that remain cherished for a lifetime.",
+    image: "/home/grand-weddings-celebrations.jpg",
   },
   {
-    title: "Taj Holidays",
+    title: "Holidays",
     description:
-      "Indulge in curated escapes designed to rejuvenate, inspire, and create lasting memories.",
-    image: "/home/blog-3.jpg",
+      "Create lasting memories with the ones who matter most. Spacious stays, thoughtful experiences and warm hospitality ensure every family holiday at Pal is filled with comfort, joy and togetherness.",
+    image: "/home/holidays.jpg",
+  },
+  {
+    title: "Family Holidays",
+    description:
+      "Create lasting memories with the ones who matter most. Spacious stays, thoughtful experiences and warm hospitality ensure every family holiday at Pal is filled with comfort, joy and togetherness.",
+    image: "/home/family-holidays.jpg",
+  },
+  {
+    title: "Couple Holidays",
+    description:
+      "Escape into moments of quiet romance and shared discovery. Whether it is a weekend retreat or a leisurely getaway, Pal offers the perfect setting for couples to unwind, reconnect and celebrate their time together.",
+    image: "/home/honeymoon-stay.jpg",
+  },
+  {
+    title: "Bachelorette Getaways",
+    description:
+      "Celebrate friendship and the spirit of new beginnings with an unforgettable bachelorette escape. From lively evenings to indulgent stays, Pal sets the stage for a celebration filled with laughter and lasting memories.",
+    image: "/home/bachelorette.jpg",
+  },
+  {
+    title: "Corporate Incentive Holidays",
+    description:
+      "Reward achievement with experiences that inspire. Curated stays, engaging activities and seamless service make Pal an ideal destination for corporate incentive trips that motivate teams and celebrate success.",
+    image: "/home/corporate-incentive-holiday.jpg",
+  },
+  {
+    title: "Restaurants",
+    description:
+      "Discover a culinary journey where flavours, creativity and hospitality come together. At Pal, each dining experience celebrates fresh ingredients, thoughtful preparation and inviting ambience, offering guests memorable moments around the table.",
+    image: "/home/zaika-people-eating-food.jpg",
   },
 ];
 
@@ -172,7 +202,7 @@ export default function ExperiencesSlider() {
                   <p>{slide.description}</p>
                 </div>
 
-                <a href="#" className={styles.more}>
+                <a href="#" className={styles.more} data-cursor="hover">
                   More <ArrowRight size={16} />
                 </a>
               </div>
