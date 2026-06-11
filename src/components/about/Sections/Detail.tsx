@@ -39,7 +39,7 @@ export default function DetailSection() {
             duration: 0.7,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.3",
         )
         .from(
           lineRef.current,
@@ -49,7 +49,7 @@ export default function DetailSection() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           paragraphRef.current,
@@ -58,7 +58,7 @@ export default function DetailSection() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.35"
+          "-=0.35",
         )
         .from(
           bottomImagesRef.current?.children || [],
@@ -69,7 +69,7 @@ export default function DetailSection() {
             ease: "power3.out",
             stagger: 0.12,
           },
-          "-=0.3"
+          "-=0.3",
         )
         .from(
           rightImageRef.current,
@@ -80,7 +80,7 @@ export default function DetailSection() {
             ease: "power3.out",
             clearProps: "opacity,transform",
           },
-          "-=0.6"
+          "-=0.6",
         );
     }, sectionRef);
 
@@ -114,12 +114,18 @@ export default function DetailSection() {
               </div>
 
               <p ref={paragraphRef} className={styles.paragraph}>
-                Inspired by architectural detail, cultural nuance, and an
-                appreciation for things that age well.
+                ROOTED IN CRAFT, GUIDED BY TIME- What began with Inside China
+                Restaurant, has grown into one of Odisha's most celebrated
+                hospitality brands. From the landmark presence of Pal Heights to
+                the contemporary charm of Pal Heights Mantra, every chapter has
+                been built on exceptional experiences and warm hospitality. As
+                we expand with our upcoming Beachfront Resort in Puri, the
+                journey continues, creating destinations that guests love to
+                return to.
               </p>
             </div>
 
-            <div ref={bottomImagesRef} className={styles.bottomImages}>
+            {/* <div ref={bottomImagesRef} className={styles.bottomImages}>
               <div className={styles.imageBox} data-cursor-theme="light">
                 <Image
                   src="/about/small-left.jpg"
@@ -139,11 +145,11 @@ export default function DetailSection() {
                   className={styles.image}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* RIGHT COLUMN */}
-          <div
+          {/* <div
             ref={rightImageRef}
             className={styles.rightCol}
             data-cursor-theme="light"
@@ -155,7 +161,7 @@ export default function DetailSection() {
               fill
               className={styles.image}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
