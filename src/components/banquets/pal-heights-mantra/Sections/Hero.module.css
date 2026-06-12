@@ -1,0 +1,140 @@
+.hero {
+  width: 100%;
+  height: 100vh;
+
+  /* background-image: url("/home/hero.jpg"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+.bgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: opacity;
+}
+
+.bgOne {
+  background-image: url("/home/grand-weddings-celebrations.jpg");
+  opacity: 1;
+}
+
+/* Inner wrapper controls padding + alignment */
+.inner {
+  max-width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 3rem 7.5rem;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 10;
+}
+
+/* Content container */
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.visualLine {
+  width: 5rem;
+  height: 1.5px;
+  background: #45443f;
+  opacity: 0.6;
+}
+
+/* Heading */
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 100;
+  font-size: 4.5rem;
+  line-height: 5.5rem;
+  color: #45443f;
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+/* Mask wrapper */
+.mask {
+  overflow: hidden;
+}
+
+/* Paragraph */
+.paragraph {
+  display: none;
+}
+.fadeUpOnce {
+  display: block;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Scaled devices Responsivness */
+@media (max-width: 1536px) {
+  .inner {
+    padding: 0 3rem 5rem;
+  }
+  .heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+  /* Paragraph */
+  .paragraph {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .inner {
+    padding: 0 2rem 7.5rem;
+  }
+  .heading {
+    font-size: 3.75rem;
+    line-height: 4.75rem;
+  }
+  /* Paragraph */
+  .paragraph {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 1.5rem 4rem;
+  }
+  .titleWrapper {
+    gap: 1rem;
+  }
+  .visualLine {
+    width: 2.5rem;
+  }
+  .heading {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+  /* Paragraph */
+  .paragraph {
+    font-size: 0.9rem;
+  }
+}
