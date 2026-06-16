@@ -252,7 +252,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/home/cabana-1.jpeg"
+                src="/home/cabana-1.jpg"
                 data-lightbox
                 alt="Desire Restaurant Interior"
                 fill
