@@ -191,8 +191,11 @@ export default function DiningHighlight() {
                 Cabana
               </h3>
             </span>
-            <span className={styles.subTitleWrap} style={{marginBottom: "0.5rem"}}>
-              <h4 ref={subTitleOneRef} className={styles.subTitle} >
+            <span
+              className={styles.subTitleWrap}
+              style={{ marginBottom: "0.5rem" }}
+            >
+              <h4 ref={subTitleOneRef} className={styles.subTitle}>
                 (Breakfast- 7 am to 10.30 am)
               </h4>
             </span>
@@ -234,7 +237,7 @@ export default function DiningHighlight() {
               </a>
               <a
                 ref={buttonRef}
-                href="/menus/Cabana.pdf"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/Cabana.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
@@ -252,7 +255,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/home/cabana-1.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-9.jpg"
                 data-lightbox
                 alt="Desire Restaurant Interior"
                 fill
@@ -266,7 +269,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/home/cabana-2.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-10.jpg"
                 data-lightbox
                 alt="Desire Seating Area"
                 fill

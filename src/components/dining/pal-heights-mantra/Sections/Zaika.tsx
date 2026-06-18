@@ -39,7 +39,7 @@ export default function DiningHighlight() {
         stagger: 0.18,
         ease: "power3.out",
       },
-      0
+      0,
     )
       .fromTo(
         titleSplit.current.chars ?? [],
@@ -50,9 +50,9 @@ export default function DiningHighlight() {
           stagger: 0.045,
           ease: "power4.out",
         },
-        0
+        0,
       )
-      
+
       // subheading
       .fromTo(
         subTitleRef.current,
@@ -63,7 +63,7 @@ export default function DiningHighlight() {
           duration: 0.55,
           ease: "power2.out",
         },
-        ">-0.5"
+        ">-0.5",
       )
 
       // PARAGRAPH (AFTER)
@@ -76,7 +76,7 @@ export default function DiningHighlight() {
           duration: 0.55,
           ease: "power2.out",
         },
-        ">-0.5"
+        ">-0.5",
       )
 
       // BUTTON (LAST)
@@ -89,7 +89,7 @@ export default function DiningHighlight() {
           duration: 0.45,
           ease: "power2.out",
         },
-        ">-0.3"
+        ">-0.3",
       )
 
       // BUTTON (LAST)
@@ -102,7 +102,7 @@ export default function DiningHighlight() {
           duration: 0.45,
           ease: "power2.out",
         },
-        ">-0.3"
+        ">-0.3",
       );
   };
 
@@ -157,14 +157,20 @@ export default function DiningHighlight() {
             </span>
 
             <p ref={descRef} className={styles.desc}>
-<span>
+              <span>
+                Experience the warmth of an authentic dhaba at Pind Da Dhaba — a
+                place made for good food and good company. While we’re known for
+                our Punjabi flavours, our menu goes beyond that, offering a wide
+                variety of dishes to suit every taste.
+              </span>
 
-              Experience the warmth of an authentic dhaba at Pind Da Dhaba — a place made for good food and good company. While we’re known for our Punjabi flavours, our menu goes beyond that, offering a wide variety of dishes to suit every taste.
-</span>
-              
-<span>
-              Thoughtfully designed with rustic charm and a comfortable setting, Pind Da Dhaba brings together the feel of a traditional dhaba with the ease of a modern family restaurant. Perfect for casual meals, celebrations, and get-togethers, it’s a space where everyone feels welcome and every meal feels satisfying.
-</span>
+              <span>
+                Thoughtfully designed with rustic charm and a comfortable
+                setting, Pind Da Dhaba brings together the feel of a traditional
+                dhaba with the ease of a modern family restaurant. Perfect for
+                casual meals, celebrations, and get-togethers, it’s a space
+                where everyone feels welcome and every meal feels satisfying.
+              </span>
             </p>
             <div className={styles.btnWrapper}>
               <a
@@ -179,7 +185,7 @@ export default function DiningHighlight() {
               </a>
               <a
                 ref={buttonRef}
-                href="/menus/PalDaDhaba.pdf"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/PalDaDhaba.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
@@ -196,7 +202,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/dhaba-1.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-1.webp"
                 data-lightbox
                 alt="Zaika Restaurant Interior"
                 fill
@@ -210,7 +216,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/dhaba-2.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-2.webp"
                 data-lightbox
                 alt="Zaika Seating Area"
                 fill

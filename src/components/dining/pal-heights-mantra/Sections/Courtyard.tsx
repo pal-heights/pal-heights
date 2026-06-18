@@ -64,7 +64,7 @@ export default function DiningHighlight() {
           duration: 0.55,
           ease: "power2.out",
         },
-        ">-0.5"
+        ">-0.5",
       )
 
       // subheading
@@ -77,7 +77,7 @@ export default function DiningHighlight() {
           duration: 0.55,
           ease: "power2.out",
         },
-        ">-0.5"
+        ">-0.5",
       )
 
       // PARAGRAPH
@@ -192,7 +192,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/courtyard-1.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-7.webp"
                 data-lightbox
                 alt="Breeze Dining Area"
                 fill
@@ -206,7 +206,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/courtyard-2.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-8.webp"
                 data-lightbox
                 alt="Breeze Seating"
                 fill
@@ -222,8 +222,11 @@ export default function DiningHighlight() {
                 Courtyard
               </h3>
             </span>
-            <span className={styles.subTitleWrap} style={{marginBottom: "0.5rem"}}>
-              <h4 ref={subTitleOneRef} className={styles.subTitle} >
+            <span
+              className={styles.subTitleWrap}
+              style={{ marginBottom: "0.5rem" }}
+            >
+              <h4 ref={subTitleOneRef} className={styles.subTitle}>
                 (Lunch -12.30 pm to 3. 30 pm)
               </h4>
             </span>
@@ -265,7 +268,7 @@ export default function DiningHighlight() {
               </a>
               <a
                 ref={buttonRef}
-                href="/menus/Courtyard.pdf"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/Courtyard.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}

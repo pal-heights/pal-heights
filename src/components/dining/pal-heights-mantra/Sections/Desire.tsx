@@ -38,7 +38,7 @@ export default function DiningHighlight() {
         stagger: 0.18,
         ease: "power3.out",
       },
-      0
+      0,
     )
       .fromTo(
         titleSplit.current.chars ?? [],
@@ -49,7 +49,7 @@ export default function DiningHighlight() {
           stagger: 0.045,
           ease: "power4.out",
         },
-        0
+        0,
       )
 
       // PARAGRAPH
@@ -62,7 +62,7 @@ export default function DiningHighlight() {
           duration: 0.55,
           ease: "power2.out",
         },
-        ">-0.5"
+        ">-0.5",
       )
 
       // BUTTON
@@ -75,7 +75,7 @@ export default function DiningHighlight() {
           duration: 0.45,
           ease: "power2.out",
         },
-        ">-0.3"
+        ">-0.3",
       )
       // BUTTON
       .fromTo(
@@ -87,7 +87,7 @@ export default function DiningHighlight() {
           duration: 0.45,
           ease: "power2.out",
         },
-        ">-0.3"
+        ">-0.3",
       );
   };
 
@@ -208,7 +208,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/tea-kettle-1.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-5.jpg"
                 data-lightbox
                 alt="Desire Restaurant Interior"
                 fill
@@ -222,7 +222,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/tea-katle.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-6.jpg"
                 data-lightbox
                 alt="Desire Seating Area"
                 fill

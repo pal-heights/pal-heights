@@ -38,7 +38,7 @@ export default function DiningHighlight() {
         stagger: 0.18,
         ease: "power3.out",
       },
-      0
+      0,
     )
       .fromTo(
         titleSplit.current.chars ?? [],
@@ -49,7 +49,7 @@ export default function DiningHighlight() {
           stagger: 0.045,
           ease: "power4.out",
         },
-        0
+        0,
       )
 
       // PARAGRAPH
@@ -62,7 +62,7 @@ export default function DiningHighlight() {
           duration: 0.55,
           ease: "power2.out",
         },
-        ">-0.5"
+        ">-0.5",
       )
 
       // BUTTON
@@ -75,7 +75,7 @@ export default function DiningHighlight() {
           duration: 0.45,
           ease: "power2.out",
         },
-        ">-0.3"
+        ">-0.3",
       )
 
       // BUTTON
@@ -88,7 +88,7 @@ export default function DiningHighlight() {
           duration: 0.45,
           ease: "power2.out",
         },
-        ">-0.3"
+        ">-0.3",
       );
   };
 
@@ -162,7 +162,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/bar-1.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-3.webp"
                 data-lightbox
                 alt="Breeze Dining Area"
                 fill
@@ -176,7 +176,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/dining/pal-heights-mantra/bar-2.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/image-4.webp"
                 data-lightbox
                 alt="Breeze Seating"
                 fill
@@ -221,7 +221,7 @@ export default function DiningHighlight() {
               </a>
               <a
                 ref={buttonRef}
-                href="/menus/PalBarMenu.pdf"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/PalBarMenu.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
