@@ -218,7 +218,7 @@ export default function DiningHighlight() {
               </a>
               <a
                 ref={buttonRef}
-                href="/menus/Zaika.pdf"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/Zaika.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
@@ -235,11 +235,10 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/home/zaika.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/image-1.jpg"
                 data-lightbox
                 alt="Zaika Restaurant Interior"
                 fill
-                priority
                 className={styles.image}
               />
             </div>
@@ -249,7 +248,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/home/zaika-people-eating-food.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/image-2.jpg"
                 data-lightbox
                 alt="Zaika Seating Area"
                 fill

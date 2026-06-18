@@ -176,11 +176,10 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.large}`}
             >
               <Image
-                src="/home/breeze-1.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/image-3.jpg"
                 data-lightbox
                 alt="Breeze Dining Area"
                 fill
-                priority
                 className={styles.image}
               />
             </div>
@@ -190,7 +189,7 @@ export default function DiningHighlight() {
               className={`${styles.imageWrap} ${styles.small}`}
             >
               <Image
-                src="/home/breeze-2.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/image-4.jpg"
                 data-lightbox
                 alt="Breeze Seating"
                 fill
@@ -242,7 +241,7 @@ export default function DiningHighlight() {
               </a>
               <a
                 ref={buttonRef}
-                href="/menus/Breeze.pdf"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/Breeze.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
