@@ -17,6 +17,7 @@ const RESTAURANTS_DATA = [
     images: [
       "/home/zaika.jpg",
       "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-11.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-19.jpg",
     ],
     description:
       "A celebration of rich Indian flavours and timeless recipes, Zaika brings together aromatic spices, traditional techniques and contemporary presentation. Every dish is crafted to offer a comforting yet refined dining experience.",
@@ -47,7 +48,9 @@ const RESTAURANTS_DATA = [
   {
     id: 4,
     name: "Pind Da Dhaba",
-    images: ["/home/pind-da-dhaba.jpg"],
+    images: [
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-16.jpg",
+    ],
     description:
       "Rooted in the rustic charm of North Indian highways, Pind Da Dhaba celebrates hearty Punjabi flavours and authentic cooking traditions. Warm, bold and soulful, it brings the spirit of a lively dhaba to your dining experience.",
     link: "https://api.whatsapp.com/send/?phone=918342000662&text&type=phone_number&app_absent=0",
