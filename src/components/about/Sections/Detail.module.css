@@ -121,7 +121,7 @@
 /* Scaled devices Responsivness */
 @media (max-width: 1536px) {
   .container {
-    height: 70rem;
+    /* height: 70rem; */
     padding: 8rem 3rem 5rem;
   }
   .kicker {
@@ -156,7 +156,7 @@
 /* Tablet Responsivness */
 @media (max-width: 1024px) {
   .container {
-    height: 50rem;
+    /* height: 50rem; */
     padding: 4rem 2rem;
   }
   .header {
@@ -186,7 +186,7 @@
 /* Mobile Responsivness */
 @media (max-width: 768px) {
   .container {
-    height: 60rem;
+    /* height: 60rem; */
     padding: 3rem 1.5rem;
   }
   .layout {
