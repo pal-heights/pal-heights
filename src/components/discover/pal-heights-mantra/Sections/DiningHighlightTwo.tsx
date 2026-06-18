@@ -30,6 +30,7 @@ const DATA = [
 
 export default function DiningHighlight() {
   const [active, setActive] = useState(0);
+  const [inView, setInView] = useState(false);
   const animating = useRef(false);
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -120,7 +121,10 @@ export default function DiningHighlight() {
         trigger: sectionRef.current,
         start: "top 70%",
         once: true,
-        onEnter: animateIn,
+        onEnter: () => {
+          setInView(true);
+          animateIn();
+        },
       });
     }, sectionRef);
 
@@ -226,12 +230,6 @@ export default function DiningHighlight() {
   };
 
   const current = DATA[active];
-  useEffect(() => {
-    DATA.forEach((item) => {
-      const img = new window.Image();
-      img.src = item.image;
-    });
-  }, []);
 
   return (
     <section
@@ -267,6 +265,18 @@ export default function DiningHighlight() {
               className={styles.image}
               data-cursor-theme="light"
             />
+            {inView &&
+              DATA.map((item, i) => (
+                <Image
+                  key={`preload-${i}`}
+                  src={item.image}
+                  alt="preload"
+                  width={960}
+                  height={540}
+                  style={{ display: "none" }}
+                  priority
+                />
+              ))}
           </div>
 
           <div className={styles.tabs}>

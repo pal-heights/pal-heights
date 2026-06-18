@@ -12,11 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 const SLIDES = [
   {
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-21.webp",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-22.webp",
   },
   {
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-22.webp",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-21.webp",
   },
   {
     image:
