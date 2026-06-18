@@ -155,6 +155,12 @@
   opacity: 0;
 }
 
+@media (max-width: 1024px) {
+  .overlay {
+    opacity: 0;
+  }
+}
+
 .label {
   position: absolute;
   left: 1.5rem;

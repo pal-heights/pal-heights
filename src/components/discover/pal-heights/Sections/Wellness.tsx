@@ -22,6 +22,7 @@ const SLIDES = [
 
 export default function Wellness() {
   const [active, setActive] = useState(0);
+  const [inView, setInView] = useState(false);
   const animating = useRef(false);
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -136,7 +137,10 @@ export default function Wellness() {
         trigger: sectionRef.current,
         start: "top 70%",
         once: true,
-        onEnter: animateIn,
+        onEnter: () => {
+          setInView(true);
+          animateIn();
+        },
       });
     }, sectionRef);
 
@@ -178,12 +182,6 @@ export default function Wellness() {
       },
     });
   };
-  useEffect(() => {
-    SLIDES.forEach((slide) => {
-      const img = new window.Image();
-      img.src = slide.image;
-    });
-  }, []);
   return (
     <section ref={sectionRef} className={styles.hero}>
       <div className={styles.inner}>
@@ -228,7 +226,18 @@ export default function Wellness() {
               priority
               className={styles.image}
             />
-
+            {inView &&
+              SLIDES.map((item, i) => (
+                <Image
+                  key={`preload-${i}`}
+                  src={item.image}
+                  alt="preload"
+                  width={960}
+                  height={540}
+                  style={{ display: "none" }}
+                  priority
+                />
+              ))}
             <div className={styles.slideIcons}>
               <button
                 className={styles.slideIcon}
