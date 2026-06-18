@@ -14,7 +14,10 @@ const RESTAURANTS_DATA = [
   {
     id: 1,
     name: "Zaika",
-    images: ["/home/zaika.jpg", "/home/zaika-people-eating-food.jpg"],
+    images: [
+      "/home/zaika.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-11.jpg",
+    ],
     description:
       "A celebration of rich Indian flavours and timeless recipes, Zaika brings together aromatic spices, traditional techniques and contemporary presentation. Every dish is crafted to offer a comforting yet refined dining experience.",
     link: "#",
@@ -22,7 +25,10 @@ const RESTAURANTS_DATA = [
   {
     id: 2,
     name: "Breeze",
-    images: ["/home/breeze-1.jpg", "/home/breeze-2.jpg"],
+    images: [
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-12.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-13.jpg",
+    ],
     description:
       "Set against an open and refreshing ambience, Breeze is where relaxed evenings meet vibrant flavours. From leisurely lunches to sunset gatherings, it offers the perfect setting to unwind and savour delightful culinary creations.",
     link: "https://api.whatsapp.com/send/?phone=918342000662&text&type=phone_number&app_absent=0",
@@ -30,7 +36,10 @@ const RESTAURANTS_DATA = [
   {
     id: 3,
     name: "Cabana",
-    images: ["/home/cabana-1.jpg", "/home/cabana-2.jpg"],
+    images: [
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-14.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-15.jpg",
+    ],
     description:
       "An inviting escape designed for laid-back indulgence, Cabana pairs a stylish setting with flavourful bites and refreshing beverages. It is the ideal spot for casual conversations, relaxed moments and memorable evenings.",
     link: "https://api.whatsapp.com/send/?phone=918342000662&text&type=phone_number&app_absent=0",
@@ -92,8 +101,10 @@ const RotatingImage = ({
             src={images[index]}
             alt={name}
             fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            quality={70}
+            loading="lazy"
             data-lightbox
-            priority
             style={{ objectFit: "cover" }}
           />
         </motion.div>

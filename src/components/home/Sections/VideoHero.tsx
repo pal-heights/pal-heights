@@ -48,8 +48,8 @@ export default function Hero() {
       <div className={styles.bgWrapper}>
         <video
           className={styles.bgVideo}
-          src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781009387/hero_1_1_njdgys.mp4"
-          poster="https://res.cloudinary.com/dfx58zgtm/image/upload/q_auto/f_auto/v1781010794/Screenshot_2026-06-09_184201_rmag3r.png"
+          src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/Hero.mp4"
+          poster="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/Hero.jpg"
           autoPlay
           loop
           muted

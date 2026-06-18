@@ -90,10 +90,10 @@
 
 /* Images */
 .cardOne {
-  background-image: url("/home/property-1.jpg");
+  background-image: url("https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-1.jpg");
 }
 .cardTwo {
-  background-image: url("/home/property-2.jpg");
+  background-image: url("https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-2.jpg");
 }
 
 /* Gradient overlay for text */

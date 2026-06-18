@@ -19,49 +19,57 @@ const slides: Slide[] = [
     title: "Pal Heights",
     description:
       "At Pal, every gathering unfolds into a thoughtfully curated experience. From corporate meetings and conferences to incentive celebrations and social events, our versatile venues, refined hospitality and seamless service create the perfect setting for meaningful connections and memorable occasions.",
-    image: "/home/meetings.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-4.jpg",
   },
   {
     title: "Timeless Weddings",
     description:
       "Celebrate the beginning of your forever at Pal. From vibrant pre-wedding festivities to elegant receptions, our beautiful venues, personalised planning and warm hospitality come together to create wedding celebrations that remain cherished for a lifetime.",
-    image: "/home/grand-weddings-celebrations.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-5.jpg",
   },
   {
     title: "Holidays",
     description:
       "Create lasting memories with the ones who matter most. Spacious stays, thoughtful experiences and warm hospitality ensure every family holiday at Pal is filled with comfort, joy and togetherness.",
-    image: "/home/holidays.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-6.jpg",
   },
   {
     title: "Family Holidays",
     description:
       "Create lasting memories with the ones who matter most. Spacious stays, thoughtful experiences and warm hospitality ensure every family holiday at Pal is filled with comfort, joy and togetherness.",
-    image: "/home/family-holidays.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-7.jpg",
   },
   {
     title: "Couple Holidays",
     description:
       "Escape into moments of quiet romance and shared discovery. Whether it is a weekend retreat or a leisurely getaway, Pal offers the perfect setting for couples to unwind, reconnect and celebrate their time together.",
-    image: "/home/honeymoon-stay.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-8.jpg",
   },
   {
     title: "Bachelorette Getaways",
     description:
       "Celebrate friendship and the spirit of new beginnings with an unforgettable bachelorette escape. From lively evenings to indulgent stays, Pal sets the stage for a celebration filled with laughter and lasting memories.",
-    image: "/home/bachelorette.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-9.jpg",
   },
   {
     title: "Corporate Incentive Holidays",
     description:
       "Reward achievement with experiences that inspire. Curated stays, engaging activities and seamless service make Pal an ideal destination for corporate incentive trips that motivate teams and celebrate success.",
-    image: "/home/corporate-incentive-holiday.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-10.jpg",
   },
   {
     title: "Restaurants",
     description:
       "Discover a culinary journey where flavours, creativity and hospitality come together. At Pal, each dining experience celebrates fresh ingredients, thoughtful preparation and inviting ambience, offering guests memorable moments around the table.",
-    image: "/home/zaika-people-eating-food.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-11.jpg",
   },
 ];
 
