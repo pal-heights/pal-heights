@@ -45,7 +45,7 @@ export default function Hero() {
           {/* Right Image (keeps video sizing) */}
           <div className={styles.videoWrapper}>
             <img
-              src="/news-media/hero.jpg"
+              src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/News%20&%20Media/Hero.jpg"
               data-lightbox
               alt="Pal Heights Restaurant"
               className={styles.video}
