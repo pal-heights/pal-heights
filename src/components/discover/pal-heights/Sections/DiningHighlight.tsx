@@ -14,21 +14,24 @@ const DATA = [
     tab: "Zaika",
     heroTitle: "Dine In The Best Way",
     title: "Zaika",
-    image: "/home/zaika.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-14.jpg",
     desc: "A lounge bar with an extensive choice of revival cocktails; all with a flair that has become its signature style enough to attract crowds from all over the city.",
   },
   {
     tab: "Breeze",
     heroTitle: "Dine In The Best Way",
     title: "Breeze",
-    image: "/home/breeze-1.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-15.jpg",
     desc: "The Penthouse restaurant is our Haute asset and an absolute visual treat. Adorned with exceptional style and rogue, this open-air kitchen is replete with energy and exuberance where the soothing breeze will fade your blues away.",
   },
   {
     tab: "Desire",
     heroTitle: "Dine In The Best Way",
     title: "Desire",
-    image: "/home/desire.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-16.jpg",
     desc: "A lounge bar with an extensive choice of revival cocktails; all with a flair that has become its signature style enough to attract crowds from all over the city.",
   },
 ];

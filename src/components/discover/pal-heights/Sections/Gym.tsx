@@ -10,9 +10,18 @@ import styles from "./Gym.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const SLIDES = [
-  { image: "/discover/pal-heights/gym-3.jpg" },
-  { image: "/discover/pal-heights/gym-2.webp" },
-  { image: "/discover/pal-heights/gym-1.webp" },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-20.webp",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-21.webp",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-19.jpg",
+  },
 ];
 
 export default function Wellness() {
@@ -33,7 +42,7 @@ export default function Wellness() {
     // reveal text wrappers (prevents flash)
     gsap.set(titleRef.current, { visibility: "visible" });
     subtitleRefs.current.forEach((el) =>
-      gsap.set(el, { visibility: "visible" })
+      gsap.set(el, { visibility: "visible" }),
     );
 
     // cleanup previous splits
@@ -51,7 +60,7 @@ export default function Wellness() {
       if (!el) return;
 
       const textEl = el.querySelector(
-        `.${styles.subtitleText}`
+        `.${styles.subtitleText}`,
       ) as HTMLElement | null;
 
       if (!textEl) return;
@@ -59,7 +68,7 @@ export default function Wellness() {
       subtitleSplits.current.push(
         new SplitType(textEl, {
           types: "words,chars",
-        })
+        }),
       );
     });
 
@@ -83,7 +92,7 @@ export default function Wellness() {
           stagger: 0.045,
           ease: "power4.out",
         },
-        0
+        0,
       )
       .fromTo(
         subtitleChars,
@@ -94,7 +103,7 @@ export default function Wellness() {
           stagger: 0.03,
           ease: "power4.out",
         },
-        0
+        0,
       )
       .fromTo(
         lineRef.current,
@@ -105,7 +114,7 @@ export default function Wellness() {
           duration: 0.6,
           ease: "power3.out",
         },
-        0.6
+        0.6,
       )
       .fromTo(
         descRef.current,
@@ -116,7 +125,7 @@ export default function Wellness() {
           duration: 0.7,
           ease: "power2.out",
         },
-        0.8
+        0.8,
       );
   };
 
@@ -128,7 +137,7 @@ export default function Wellness() {
       gsap.set(titleRef.current, { visibility: "hidden" });
 
       subtitleRefs.current.forEach((el) =>
-        gsap.set(el, { visibility: "hidden" })
+        gsap.set(el, { visibility: "hidden" }),
       );
 
       gsap.set(lineRef.current, {
@@ -176,7 +185,7 @@ export default function Wellness() {
               onComplete: () => {
                 animating.current = false;
               },
-            }
+            },
           );
         });
       },
@@ -214,8 +223,8 @@ export default function Wellness() {
                 data-cursor="hover"
               >
                 <Image
-                  src="/discover/slide-left.png"
-                  alt=""
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-left.png"
+                  alt="navigation icon"
                   width={48}
                   height={48}
                 />
@@ -227,8 +236,8 @@ export default function Wellness() {
                 data-cursor="hover"
               >
                 <Image
-                  src="/discover/slide-right.png"
-                  alt=""
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-right.png"
+                  alt="navigation icon"
                   width={48}
                   height={48}
                 />
@@ -254,7 +263,7 @@ export default function Wellness() {
                     <span className={styles.subtitleText}>{text}</span>
                     {i === 0 && <span ref={lineRef} className={styles.line} />}
                   </h2>
-                )
+                ),
               )}
             </div>
 

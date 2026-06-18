@@ -148,7 +148,9 @@
   opacity: 0;
   pointer-events: none;
   will-change: transform;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .visible {
@@ -192,7 +194,9 @@
   height: 2.7rem;
   color: #856d47;
   will-change: transform;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 /* Scaled devices Responsivness */

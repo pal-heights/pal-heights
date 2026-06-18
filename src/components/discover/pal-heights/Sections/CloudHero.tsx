@@ -75,8 +75,8 @@ export default function Hero() {
             <video
               ref={playerRef}
               className={styles.video}
-              src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781014555/Pal_Heights_POV_1_1_ofzott.mp4"
-              poster="https://res.cloudinary.com/dfx58zgtm/image/upload/q_auto/f_auto/v1781014640/Screenshot_2026-06-09_194703_vxdlld.png"
+              src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/Hero.mp4"
+              poster="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/Hero.jpg"
               loop
               muted
               playsInline

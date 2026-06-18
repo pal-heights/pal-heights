@@ -10,14 +10,26 @@ gsap.registerPlugin(ScrollTrigger);
 const ROOM_SETS = [
   {
     images: [
-      { label: "Master Room", src: "/discover/pal-heights/pal-grande-4.webp" },
+      {
+        label: "Master Room",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-3.webp",
+      },
       {
         label: "Couple Simple Room",
-        src: "/discover/pal-heights/pal-grande-1.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-1.webp",
       },
-      { label: "Premium Room", src: "/discover/pal-heights/pal-grande-3.webp" },
-      { label: "Luxe Room", src: "/discover/pal-heights/pal-grande-4.webp" },
-      { label: "Family Luxe", src: "/discover/pal-heights/pal-grande-5.webp" },
+      {
+        label: "Premium Room",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-2.webp",
+      },
+      {
+        label: "Luxe Room",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-3.webp",
+      },
+      {
+        label: "Family Luxe",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-4.webp",
+      },
     ],
   },
 ];
@@ -227,7 +239,7 @@ export default function DiscoverRooms() {
           {ICONS.map((item, i) => (
             <button key={i} className={styles.iconItem} type="button">
               <img
-                src={`/discover/icons/${item.icon}`}
+                src={`https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/${item.icon}`}
                 alt={item.label}
                 loading="lazy"
               />
