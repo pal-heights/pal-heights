@@ -15,7 +15,6 @@ const RESTAURANTS_DATA = [
     id: 1,
     name: "Zaika",
     images: [
-      "/home/zaika.jpg",
       "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-11.jpg",
       "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-19.jpg",
     ],
