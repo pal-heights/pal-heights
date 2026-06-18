@@ -10,11 +10,18 @@ import styles from "./Gym.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const SLIDES = [
-  { image: "/discover/pal-heights-mantra/gym-2.webp" },
-  { image: "/discover/pal-heights-mantra/gym-1.webp" },
-  { image: "/discover/pal-heights-mantra/gym-3.webp" },
-  { image: "/discover/pal-heights-mantra/gym-4.webp" },
-  { image: "/discover/pal-heights-mantra/gym-5.webp" },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-21.webp",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-22.webp",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-23.jpg",
+  },
 ];
 
 export default function Wellness() {
@@ -214,8 +221,8 @@ export default function Wellness() {
                 data-cursor="hover"
               >
                 <Image
-                  src="/discover/slide-left.png"
-                  alt=""
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-left.png"
+                  alt="navigation icon"
                   width={48}
                   height={48}
                 />
@@ -227,8 +234,8 @@ export default function Wellness() {
                 data-cursor="hover"
               >
                 <Image
-                  src="/discover/slide-right.png"
-                  alt=""
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-right.png"
+                  alt="navigation icon"
                   width={48}
                   height={48}
                 />

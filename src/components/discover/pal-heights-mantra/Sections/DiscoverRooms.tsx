@@ -12,20 +12,23 @@ const ROOM_SETS = [
     images: [
       {
         label: "Couple Simple Room",
-        src: "/discover/pal-heights-mantra/grand-1.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-1.jpg",
       },
       {
         label: "Luxe Room",
-        src: "/discover/pal-heights-mantra/pal-grand-2.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-2.webp",
       },
       {
         label: "Premium Room",
-        src: "/discover/pal-heights-mantra/grand-3.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-3.jpg",
       },
-      { label: "Master Room", src: "/discover/pal-heights-mantra/grand-4.jpg" },
+      {
+        label: "Master Room",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-4.jpg",
+      },
       {
         label: "Family Luxe",
-        src: "/discover/pal-heights-mantra/pal-grand-5.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-5.webp",
       },
     ],
   },
@@ -234,7 +237,7 @@ export default function DiscoverRooms() {
           {ICONS.map((item, i) => (
             <button key={i} className={styles.iconItem} type="button">
               <img
-                src={`/discover/icons/${item.icon}`}
+                src={`https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/${item.icon}`}
                 alt={item.label}
                 loading="lazy"
               />

@@ -15,6 +15,9 @@
   background: var(--pal-light);
   z-index: 0;
 }
+.bgPanel.negative {
+  background: #e8ddc9;
+}
 
 /* MAIN CONTAINER */
 .container {

@@ -10,9 +10,18 @@ import styles from "./Wellness.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const SLIDES = [
-  { image: "/discover/pal-heights-mantra/banquet-2.jpg" },
-  { image: "/discover/pal-heights-mantra/banquet-1.jpg" },
-  { image: "/discover/pal-heights-mantra/banquet-3.jpg" },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-26.jpg",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-24.jpeg",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-25.jpg",
+  },
 ];
 
 export default function Wellness() {
@@ -34,7 +43,7 @@ export default function Wellness() {
     // reveal text wrappers (prevents flash)
     gsap.set(titleRef.current, { visibility: "visible" });
     subtitleRefs.current.forEach((el) =>
-      gsap.set(el, { visibility: "visible" })
+      gsap.set(el, { visibility: "visible" }),
     );
 
     // cleanup previous splits
@@ -52,7 +61,7 @@ export default function Wellness() {
       subtitleSplits.current.push(
         new SplitType(el, {
           types: "words,chars",
-        })
+        }),
       );
     });
 
@@ -76,7 +85,7 @@ export default function Wellness() {
           stagger: 0.045,
           ease: "power4.out",
         },
-        0
+        0,
       )
       .fromTo(
         subtitleChars,
@@ -87,7 +96,7 @@ export default function Wellness() {
           stagger: 0.03,
           ease: "power4.out",
         },
-        0
+        0,
       )
       .fromTo(
         lineRef.current,
@@ -98,7 +107,7 @@ export default function Wellness() {
           duration: 0.6,
           ease: "power3.out",
         },
-        0.6
+        0.6,
       )
       .fromTo(
         descRef.current,
@@ -109,7 +118,7 @@ export default function Wellness() {
           duration: 0.7,
           ease: "power2.out",
         },
-        0.8
+        0.8,
       );
   };
 
@@ -120,7 +129,7 @@ export default function Wellness() {
       gsap.set(descRef.current, { autoAlpha: 0, y: 16 });
       gsap.set(titleRef.current, { visibility: "hidden" });
       subtitleRefs.current.forEach((el) =>
-        gsap.set(el, { visibility: "hidden" })
+        gsap.set(el, { visibility: "hidden" }),
       );
       gsap.set(lineRef.current, {
         scaleX: 0,
@@ -167,7 +176,7 @@ export default function Wellness() {
               onComplete: () => {
                 animating.current = false;
               },
-            }
+            },
           );
         });
       },
@@ -232,8 +241,8 @@ export default function Wellness() {
                 data-cursor="hover"
               >
                 <Image
-                  src="/discover/slide-left.png"
-                  alt=""
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-left.png"
+                  alt="navigation icon"
                   width={48}
                   height={48}
                 />
@@ -245,8 +254,8 @@ export default function Wellness() {
                 data-cursor="hover"
               >
                 <Image
-                  src="/discover/slide-right.png"
-                  alt=""
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-right.png"
+                  alt="navigation icon"
                   width={48}
                   height={48}
                 />

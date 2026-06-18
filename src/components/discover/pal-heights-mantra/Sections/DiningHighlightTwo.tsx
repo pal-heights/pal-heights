@@ -14,14 +14,16 @@ const DATA = [
     tab: "Cabana",
     heroTitle: "Dine In The Best Way",
     title: "Cabana",
-    image: "/cabana-1.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-16.jpg",
     desc: "Step into the terrace beauty of Mantra, replete with delectable food and relaxing ambience, Cabana is one of our jewels. With its poolside deck, live grill, a stocked bar and lounge along with the gorgeous Cabanas make for a effortless dining experience. Sunrise to a moonlight night, Cabana and a view of the twin-cityscape is a pleasure to watch.",
   },
   {
     tab: "Rodeo Bar",
     heroTitle: "Dine In The Best Way",
     title: "Rodeo Bar",
-    image: "/discover/pal-heights/breeze.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-17.jpg",
     desc: "Choose from an extensive menu that boasts of house infusion cocktails; all with a flair that has become Rodeo’s signature style. Contemporary surroundings combined with prim decor create a delightful affair.",
   },
 ];
@@ -49,7 +51,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.8,
         ease: "power3.out",
-      }
+      },
     );
 
     // line
@@ -61,7 +63,7 @@ export default function DiningHighlight() {
         transformOrigin: "left center",
         duration: 0.8,
         ease: "power2.out",
-      }
+      },
     );
 
     // text title
@@ -78,7 +80,7 @@ export default function DiningHighlight() {
         duration: 0.8,
         stagger: 0.035,
         ease: "power3.out",
-      }
+      },
     );
 
     // paragraph
@@ -90,7 +92,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.8,
         ease: "power2.out",
-      }
+      },
     );
 
     // image
@@ -102,7 +104,7 @@ export default function DiningHighlight() {
         x: 0,
         duration: 0.8,
         ease: "power3.out",
-      }
+      },
     );
   };
 
@@ -143,7 +145,7 @@ export default function DiningHighlight() {
           duration: 0.35,
           ease: "power2.in",
         },
-        0
+        0,
       )
 
       // text OUT (fast)
@@ -155,7 +157,7 @@ export default function DiningHighlight() {
           stagger: 0.025,
           ease: "power3.in",
         },
-        0
+        0,
       )
 
       .to(
@@ -166,7 +168,7 @@ export default function DiningHighlight() {
           duration: 0.25,
           ease: "power2.in",
         },
-        0
+        0,
       );
   };
 
@@ -184,7 +186,7 @@ export default function DiningHighlight() {
         x: 0,
         duration: 0.45,
         ease: "power3.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -195,7 +197,7 @@ export default function DiningHighlight() {
         duration: 0.35,
         stagger: 0.03,
         ease: "power3.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -206,7 +208,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.3,
         ease: "power2.out",
-      }
+      },
     );
   };
 
@@ -271,7 +273,7 @@ export default function DiningHighlight() {
             {DATA.map((item, i) => (
               <span
                 key={item.tab}
-                className={styles.tab}
+                className={`${styles.tab} ${active === i ? styles.active : ""}`}
                 onClick={() => handleTabClick(i)}
                 data-cursor="hover"
               >

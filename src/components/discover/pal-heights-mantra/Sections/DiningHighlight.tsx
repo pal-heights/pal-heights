@@ -14,25 +14,27 @@ const DATA = [
     tab: "Pind Da Dhaba",
     heroTitle: "Dine In The Best Way",
     title: "Pind Da Dhaba",
-    image: "/discover/pal-heights-mantra/dhaba.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-13.jpg",
     desc: "Experience the essence of an authentic Punjabi dhaba at Pind Da Dhaba - the best and most genuine family restaurant. This exclusive establishment is thoughtfully decorated to transport you back to the nostalgic charm of Punjab's dhabas. Ideal for cherished get-togethers, Pind Da Dhaba flawlessly combines rustic and refined elements, providing a perfect ambiance for relishing a scrumptious meal.",
   },
   {
     tab: "Tea Kettle",
     heroTitle: "Dine In The Best Way",
     title: "Tea Kettle",
-    image: "/tea-katle.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-14.jpg",
     desc: "Coffee beans & Tea leaves from around the world are here for you to choose your cup at the Tea Kettle, a quaint cafe on the highway. Served along with freshly baked cookies and snacks, it makes a great place for journey breaks and having a laugh with friends & family.",
   },
   {
     tab: "Courtyard",
     heroTitle: "Dine In The Best Way",
     title: "Courtyard",
-    image: "/discover/pal-heights-mantra/courtyard.jpg",
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-15.jpg",
     desc: "The courtyard is the heart of Pal Heights Mantra. A signature outlet with a contemporary European setting and a scrumptious menu makes it a blend to savour. With its elegant design, it truly offers one of the best fine dining experiences in the city while offering a host of cuisines for your palette.",
   },
 ];
-
 
 export default function DiningHighlight() {
   const [active, setActive] = useState(0);
@@ -57,7 +59,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.8,
         ease: "power3.out",
-      }
+      },
     );
 
     // line
@@ -69,7 +71,7 @@ export default function DiningHighlight() {
         transformOrigin: "left center",
         duration: 0.8,
         ease: "power2.out",
-      }
+      },
     );
 
     // text title
@@ -86,7 +88,7 @@ export default function DiningHighlight() {
         duration: 0.8,
         stagger: 0.035,
         ease: "power3.out",
-      }
+      },
     );
 
     // paragraph
@@ -98,7 +100,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.8,
         ease: "power2.out",
-      }
+      },
     );
 
     // image
@@ -110,7 +112,7 @@ export default function DiningHighlight() {
         x: 0,
         duration: 0.8,
         ease: "power3.out",
-      }
+      },
     );
   };
 
@@ -151,7 +153,7 @@ export default function DiningHighlight() {
           duration: 0.35,
           ease: "power2.in",
         },
-        0
+        0,
       )
 
       // text OUT (fast)
@@ -163,7 +165,7 @@ export default function DiningHighlight() {
           stagger: 0.025,
           ease: "power3.in",
         },
-        0
+        0,
       )
 
       .to(
@@ -174,7 +176,7 @@ export default function DiningHighlight() {
           duration: 0.25,
           ease: "power2.in",
         },
-        0
+        0,
       );
   };
 
@@ -192,7 +194,7 @@ export default function DiningHighlight() {
         x: 0,
         duration: 0.45,
         ease: "power3.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -203,7 +205,7 @@ export default function DiningHighlight() {
         duration: 0.35,
         stagger: 0.03,
         ease: "power3.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -214,7 +216,7 @@ export default function DiningHighlight() {
         y: 0,
         duration: 0.3,
         ease: "power2.out",
-      }
+      },
     );
   };
 
@@ -245,7 +247,7 @@ export default function DiningHighlight() {
       className={styles.section}
       data-cursor-theme="dark"
     >
-      <div className={styles.bgPanel} />
+      <div className={`${styles.bgPanel} ${styles.negative}`} />
 
       <div className={styles.container}>
         {/* IMAGE GROUP */}
@@ -279,7 +281,7 @@ export default function DiningHighlight() {
             {DATA.map((item, i) => (
               <span
                 key={item.tab}
-                className={styles.tab}
+                className={`${styles.tab} ${active === i ? styles.active : ""}`}
                 onClick={() => handleTabClick(i)}
                 data-cursor="hover"
               >
