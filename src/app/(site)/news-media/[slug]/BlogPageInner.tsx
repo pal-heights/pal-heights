@@ -68,7 +68,7 @@ export default async function BlogPageInner({ slug }: { slug: string }) {
               <div className={styles.author}>
                 <div className={styles.authorImageWrap}>
                   <img
-                    src="/site-logos/logo.png"
+                    src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Logo.png"
                     alt="Pal Heights"
                     className={styles.authorImage}
                   />

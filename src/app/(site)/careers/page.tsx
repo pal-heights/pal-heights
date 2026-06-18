@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/careers/hero.jpg", // replace when you add real image
+        url: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Careers/Hero.jpg", // replace when you add real image
         width: 1200,
         height: 630,
         alt: "Pal Heights Hotel",
@@ -39,7 +39,9 @@ export const metadata: Metadata = {
     title: "Pal Heights | Premier Hotel Experience",
     description:
       "Premium rooms, dining, and banquet spaces at Pal Heights, Bhubaneswar.",
-    images: ["/site-logos/logo.png"],
+    images: [
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Logo.png",
+    ],
   },
 };
 
