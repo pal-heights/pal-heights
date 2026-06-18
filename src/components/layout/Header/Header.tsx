@@ -23,7 +23,7 @@ export default function Header() {
         {/* Logo */}
         <a href="/" className={styles.logo}>
           <Image
-            src="/site-logos/logo.png"
+            src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Logo.png"
             alt="Pal Heights"
             className={`${styles.siteLogo} ${
               scrolled ? styles.logoScrolled : ""
