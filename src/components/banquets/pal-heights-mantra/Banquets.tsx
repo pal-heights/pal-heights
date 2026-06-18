@@ -16,7 +16,7 @@ export default function Banquets() {
       <div className={styles.linearGradient}></div>
       <div className={styles.bg}>
         <Image
-          src="/banquets/background.jpg"
+          src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Shared%20assets/bg-1.jpg"
           alt="background"
           fill
           quality={100}
