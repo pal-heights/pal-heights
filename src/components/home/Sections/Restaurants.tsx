@@ -104,9 +104,6 @@ const RotatingImage = ({
             src={images[index]}
             alt={name}
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            quality={70}
-            loading="lazy"
             data-lightbox
             style={{ objectFit: "cover" }}
           />
