@@ -65,7 +65,7 @@ export default function Hero() {
           {/* Right Image */}
           <div className={styles.imageWrapper}>
             <Image
-              src="/careers/hero.webp"
+              src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Careers/Hero.webp"
               data-lightbox
               alt="Pal Heights Interior"
               fill
