@@ -248,9 +248,6 @@
   .grid {
     gap: 1.5rem;
   }
-  .card {
-    border-radius: 0.75rem;
-  }
   /* Content */
   .content {
     padding: 1rem;
@@ -305,9 +302,6 @@
   .grid {
     gap: 1.5rem;
     grid-template-columns: 1fr;
-  }
-  .card {
-    border-radius: 0.65rem;
   }
   /* Content */
   .content {
