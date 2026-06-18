@@ -25,8 +25,8 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/dining/ek-dum-desi/product-1.jpg"
-                alt=""
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Ek%20Dum%20Desi/image-1.jpg"
+                alt="Ek Dum Desi"
                 fill
                 data-lightbox
               />
@@ -53,8 +53,8 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/dining/ek-dum-desi/product-1.jpg"
-                alt=""
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Ek%20Dum%20Desi/image-2.jpg"
+                alt="Truly Oriental"
                 fill
                 data-lightbox
               />
@@ -84,8 +84,8 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/dining/ek-dum-desi/product-1.jpg"
-                alt=""
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Ek%20Dum%20Desi/image-3.jpg"
+                alt="Taste meets Health"
                 fill
                 data-lightbox
               />

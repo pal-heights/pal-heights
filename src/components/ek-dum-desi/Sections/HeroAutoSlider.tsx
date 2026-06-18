@@ -5,9 +5,9 @@ import gsap from "gsap";
 import styles from "./Hero.module.css";
 
 const BG_IMAGES = [
-  "/dining/ek-dum-desi/hero-1.jpg",
-  "/dining/ek-dum-desi/hero-2.jpg",
-  "/dining/ek-dum-desi/hero-3.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Ek%20Dum%20Desi/Hero-1.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Ek%20Dum%20Desi/Hero-2.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Ek%20Dum%20Desi/Hero-3.jpg",
 ];
 
 export default function Hero() {
@@ -34,7 +34,7 @@ export default function Hero() {
         duration: 0.9,
         stagger: 0.25,
         ease: "power4.out",
-      }
+      },
     );
 
     gsap.fromTo(
@@ -45,7 +45,7 @@ export default function Hero() {
         y: 0,
         duration: 0.55,
         ease: "power2.out",
-      }
+      },
     );
   }, []);
 
@@ -88,7 +88,7 @@ export default function Hero() {
           duration: 3,
           ease: "power3.inOut",
         },
-        0
+        0,
       )
       .to(
         current,
@@ -97,7 +97,7 @@ export default function Hero() {
           duration: 3,
           ease: "power3.inOut",
         },
-        0
+        0,
       );
   };
 
