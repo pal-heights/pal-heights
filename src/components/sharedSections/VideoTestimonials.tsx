@@ -163,7 +163,8 @@ export default function DiningHighlight() {
               <div className={styles.media}>
                 <video
                   className={styles.video}
-                  src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781178425/review-1_meummv.mp4"
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/testimonial-video-1.mp4"
+                  poster="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-17.png"
                   playsInline
                 />
 
@@ -203,7 +204,8 @@ export default function DiningHighlight() {
               <div className={styles.media}>
                 <video
                   className={styles.video}
-                  src="https://res.cloudinary.com/dfx58zgtm/video/upload/q_auto/f_auto/v1781178425/review-2_m14db7.mp4"
+                  src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/testimonial-video-2.mp4"
+                  poster="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-18.png"
                   playsInline
                 />
 

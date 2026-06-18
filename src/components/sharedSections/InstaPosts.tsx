@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./InstaPosts.module.css";
@@ -40,7 +39,7 @@ export default function DiningHighlight() {
             duration: 0.7,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.3",
         )
         .from(
           lineRef.current,
@@ -50,7 +49,7 @@ export default function DiningHighlight() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           descRef.current,
@@ -59,7 +58,7 @@ export default function DiningHighlight() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.35"
+          "-=0.35",
         )
         .from(
           buttonRef.current,
@@ -69,7 +68,7 @@ export default function DiningHighlight() {
             duration: 0.45,
             ease: "power3.out",
           },
-          "-=0.25"
+          "-=0.25",
         )
         .fromTo(
           imagesRef.current?.children || [],
@@ -81,7 +80,7 @@ export default function DiningHighlight() {
             ease: "power3.out",
             stagger: 0.15,
           },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -172,10 +171,10 @@ export default function DiningHighlight() {
                   aria-label="Play or pause video"
                   onClick={(e) => {
                     const wrap = e.currentTarget.closest(
-                      `.${styles.imageWrap}`
+                      `.${styles.imageWrap}`,
                     )!;
                     const video = wrap.querySelector(
-                      "video"
+                      "video",
                     ) as HTMLVideoElement;
 
                     if (video.paused) {
@@ -212,10 +211,10 @@ export default function DiningHighlight() {
                   aria-label="Play or pause video"
                   onClick={(e) => {
                     const wrap = e.currentTarget.closest(
-                      `.${styles.imageWrap}`
+                      `.${styles.imageWrap}`,
                     )!;
                     const video = wrap.querySelector(
-                      "video"
+                      "video",
                     ) as HTMLVideoElement;
 
                     if (video.paused) {
