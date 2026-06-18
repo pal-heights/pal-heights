@@ -22,7 +22,7 @@ export default function PageTransition() {
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       const target = (e.target as HTMLElement).closest(
-        "[data-transition]"
+        "[data-transition]",
       ) as HTMLElement | null;
 
       if (!target) return;
@@ -44,7 +44,7 @@ export default function PageTransition() {
     >
       <div className={styles.logo}>
         <Image
-          src="/site-logos/logo.png"
+          src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Logo.png"
           alt="Logo"
           width={140}
           height={140}

@@ -45,7 +45,7 @@ export default function RouteLoader() {
 
       <div className={styles.logoWrap}>
         <Image
-          src="/site-logos/logo.png"
+          src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Logo.png"
           alt="Loading"
           width={140}
           height={140}
