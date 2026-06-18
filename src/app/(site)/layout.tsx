@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/hero.jpg",
+        url: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/Hero.jpg",
         width: 1200,
         height: 630,
         alt: "Pal Heights Hotel",
@@ -98,12 +98,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pal Heights | Luxury Hotel & Hospitality",
     description: "Luxury stays, dining, and banquets at Pal Heights.",
-    images: ["/site-logos/logo.png"],
+    images: [
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Logo.png",
+    ],
   },
 
   icons: {
-    icon: "/site-logos/favicon.ico",
-    shortcut: "/site-logos/favicon-16x16.png",
+    icon: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Favicon.png",
+    shortcut:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Pal%20Icons/Favicon.png",
   },
 
   alternates: {
@@ -131,7 +134,7 @@ export default function RootLayout({
           {/* <PageTransition /> */}
           <Toaster position="top-right" />
           <Cursor />
-           {/* <PopUp /> */}
+          {/* <PopUp /> */}
           <Header />
           {children}
           <Script src="/scripts/lightbox.js" strategy="afterInteractive" />
