@@ -20,17 +20,21 @@ export default function Hero() {
             </div>
 
             <p className={styles.paragraph}>
-              For us, hospitality is about making you feel comfortable,  from the moment you arrive.
+              For us, hospitality is about making you feel comfortable, from the
+              moment you arrive.
             </p>
             <p className={styles.paragraph}>
-              At Pal Group, we create spaces that feel warm, open, and easy to be in. Our service is friendly and thoughtful, never formal. We believe the little things matter, and we want you to feel relaxed, cared for, and at home long after your stay.
+              At Pal Group, we create spaces that feel warm, open, and easy to
+              be in. Our service is friendly and thoughtful, never formal. We
+              believe the little things matter, and we want you to feel relaxed,
+              cared for, and at home long after your stay.
             </p>
           </div>
 
           {/* Right Image */}
           <div className={styles.imageWrapper}>
             <Image
-              src="/about/hero.jpg"
+              src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/Hero.jpg"
               alt="Pal Heights Interior"
               data-lightbox
               fill

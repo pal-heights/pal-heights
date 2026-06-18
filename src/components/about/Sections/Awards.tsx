@@ -9,15 +9,15 @@ import styles from "./Awards.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const IMAGES = [
-  "/awards/1.jpeg",
-  "/awards/2.jpeg",
-  "/awards/3.jpeg",
-  "/awards/4.jpeg",
-  "/awards/5.jpeg",
-  "/about/awards-6.jpg",
-  "/about/awards-7.jpg",
-  "/about/awards-8.jpg",
-  "/about/awards-9.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-1.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-2.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-3.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-4.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-5.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-6.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-7.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-8.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-9.jpg",
 ];
 
 export default function Awards() {

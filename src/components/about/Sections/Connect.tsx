@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   Facebook,
   Instagram,
-  Twitter,
   Linkedin,
   Youtube,
   Globe,
@@ -13,6 +12,7 @@ import {
   MessageCircle,
   Twitch,
 } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Connect.module.css";
@@ -20,9 +20,7 @@ import styles from "./Connect.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const ICON_PROPS = {
-  size: 0.75 * 16,
-  fill: "currentColor",
-  stroke: "none",
+  size: 0.75 * 18,
 };
 
 export default function Connect() {
@@ -55,7 +53,7 @@ export default function Connect() {
             duration: 0.7,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.3",
         )
         .from(
           lineRef.current,
@@ -65,7 +63,7 @@ export default function Connect() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           imageRef.current,
@@ -76,7 +74,7 @@ export default function Connect() {
             ease: "power3.out",
             clearProps: "opacity,transform",
           },
-          "-=0.6"
+          "-=0.6",
         )
         .from(
           iconsRef.current?.children || [],
@@ -87,7 +85,7 @@ export default function Connect() {
             ease: "power3.out",
             stagger: 0.08,
           },
-          "-=0.25"
+          "-=0.25",
         );
     }, sectionRef);
 
@@ -115,32 +113,38 @@ export default function Connect() {
           </div>
 
           <div ref={iconsRef} className={styles.icons}>
-            <a className={styles.icon} data-cursor="hover">
-              <Twitter {...ICON_PROPS} />
-            </a>
-            <a className={styles.icon} data-cursor="hover">
+            <a
+              className={styles.icon}
+              href="https://www.facebook.com/PalHeights/"
+              aria-label="Pal Heights Facebook"
+              data-cursor="hover"
+            >
               <Facebook {...ICON_PROPS} />
             </a>
-            <a className={styles.icon} data-cursor="hover">
+            <a
+              className={styles.icon}
+              href="https://www.instagram.com/palheightshotel/"
+              aria-label="Pal Heights Instagram"
+              data-cursor="hover"
+            >
               <Instagram {...ICON_PROPS} />
             </a>
-            <a className={styles.icon} data-cursor="hover">
-              <Dribbble {...ICON_PROPS} />
+            <a
+              className={styles.icon}
+              href="https://x.com/hotelpalheights"
+              aria-label="Pal Heights X"
+              data-cursor="hover"
+            >
+              <FaXTwitter {...ICON_PROPS} />
             </a>
-            <a className={styles.icon} data-cursor="hover">
-              <MessageCircle {...ICON_PROPS} />
-            </a>
-            <a className={styles.icon} data-cursor="hover">
-              <Twitch {...ICON_PROPS} />
-            </a>
-            <a className={styles.icon} data-cursor="hover">
-              <Linkedin {...ICON_PROPS} />
-            </a>
-            <a className={styles.icon} data-cursor="hover">
-              <Globe {...ICON_PROPS} />
-            </a>
-            <a className={styles.icon} data-cursor="hover">
-              <Youtube {...ICON_PROPS} />
+            <span>|</span>
+            <a
+              className={styles.icon}
+              href="https://www.facebook.com/palheightsmantra/"
+              aria-label="Pal Heights Mantra Facebook"
+              data-cursor="hover"
+            >
+              <Facebook {...ICON_PROPS} />
             </a>
           </div>
         </div>
@@ -148,7 +152,7 @@ export default function Connect() {
         {/* RIGHT IMAGE */}
         <div ref={imageRef} className={styles.imageWrapper}>
           <Image
-            src="/about/connect.jpg"
+            src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Connect/image-1.webp"
             data-lightbox
             alt="Pal Heights Interior"
             fill

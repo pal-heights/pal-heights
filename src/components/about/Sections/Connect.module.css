@@ -81,16 +81,17 @@
 /* ICONS */
 .icons {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
 
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  background-color: #ffffff;
-  color: var(--pal-black);
+  color: #fff;
+  border: 2px solid #4f4f4fcc;
   display: flex;
   align-items: center;
   justify-content: center;
