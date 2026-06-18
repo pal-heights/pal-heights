@@ -4,13 +4,13 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   const brandLogos = [
-    "/brands/1.webp",
-    "/brands/2.webp",
-    "/brands/3.webp",
-    "/brands/4.webp",
-    "/brands/5.webp",
-    "/brands/6.webp",
-    "/brands/7.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-1.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-2.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-3.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-4.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-5.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-6.webp",
+    "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Footer/image-7.webp",
   ];
 
   return (
@@ -61,7 +61,7 @@ export default function Footer() {
                       aria-label="Pal Heights Tripadvisor"
                     >
                       <img
-                        src="/tripadvisorlight.png"
+                        src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/tripadvisor.png"
                         className={`${styles.socialIcon} ${styles.socialIconImage}`}
                       />
                     </a>
@@ -84,7 +84,7 @@ export default function Footer() {
                       aria-label="Pal Heights Mantra Tripadvisor"
                     >
                       <img
-                        src="/tripadvisorlight.png"
+                        src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/tripadvisor.png"
                         className={`${styles.socialIcon} ${styles.socialIconImage}`}
                       />
                     </a>
