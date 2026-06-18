@@ -5,8 +5,8 @@ import gsap from "gsap";
 import styles from "./Hero.module.css";
 
 const BG_IMAGES = [
-  "/dining/world-baker/hero-1.jpg",
-  "/dining/world-baker/hero-2.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/Hero-1.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/Hero-2.jpg",
 ];
 
 export default function Hero() {

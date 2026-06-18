@@ -39,7 +39,7 @@ export default function ImageSection() {
           duration: 0.75,
           ease: "power3.out",
         },
-        "-=0.4"
+        "-=0.4",
       );
     }, sectionRef);
 
@@ -53,11 +53,10 @@ export default function ImageSection() {
           {/* IMAGE */}
           <div ref={imageRef} className={styles.imageWrap}>
             <Image
-              src="/dining/world-baker/box-2.jpg"
-              alt=""
+              src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-8.jpg"
+              alt="delights for every mood"
               data-lightbox
               fill
-              priority
             />
           </div>
 

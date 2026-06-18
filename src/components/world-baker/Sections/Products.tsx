@@ -38,7 +38,7 @@ export default function CorporateGallery() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           descRef.current,
@@ -47,7 +47,7 @@ export default function CorporateGallery() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.35"
+          "-=0.35",
         )
         .from(
           gridRef.current?.children || [],
@@ -58,7 +58,7 @@ export default function CorporateGallery() {
             ease: "power3.out",
             stagger: 0.1,
           },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -99,8 +99,8 @@ export default function CorporateGallery() {
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className={styles.imageWrap}>
                 <Image
-                  data-open={`/dining/world-baker/product-${i + 1}.jpg`}
-                  src={`/dining/world-baker/product-${i + 1}.jpg`}
+                  data-open={`https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-${i + 3}.jpg`}
+                  src={`https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-${i + 3}.jpg`}
                   alt="Corporate event at Pal Heights"
                   fill
                   className={styles.image}

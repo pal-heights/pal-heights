@@ -42,7 +42,7 @@ export default function ImageCard() {
             ease: "power3.out",
             stagger: 0,
           },
-          "-=0.3"
+          "-=0.3",
         )
 
         // LINES
@@ -54,7 +54,7 @@ export default function ImageCard() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.45"
+          "-=0.45",
         )
         .from(
           rightLineRef.current,
@@ -64,7 +64,7 @@ export default function ImageCard() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "<"
+          "<",
         )
 
         // CARDS
@@ -77,7 +77,7 @@ export default function ImageCard() {
             ease: "power3.out",
             stagger: 0.15,
           },
-          "-=0.25"
+          "-=0.25",
         );
     }, sectionRef);
 
@@ -115,8 +115,8 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/pal-heights-mantra.jpg"
-                alt=""
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-1.jpg"
+                alt="Pall Heights Mantra Image"
                 fill
                 data-lightbox
               />
@@ -151,9 +151,9 @@ export default function ImageCard() {
           <div className={styles.card}>
             <div className={styles.imageWrap}>
               <Image
-                src="/pal-heights.jpg"
+                src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-2.jpg"
                 data-lightbox
-                alt=""
+                alt="Pal Heights Image"
                 fill
               />
             </div>

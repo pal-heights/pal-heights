@@ -8,6 +8,17 @@ import styles from "./Products.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const images = [
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-9.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-17.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-5.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-6.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-13.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-14.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-15.jpg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20World%20Baker/image-16.jpg",
+];
+
 export default function CorporateGallery() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
@@ -38,7 +49,7 @@ export default function CorporateGallery() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           descRef.current,
@@ -47,7 +58,7 @@ export default function CorporateGallery() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.35"
+          "-=0.35",
         )
         .from(
           gridRef.current?.children || [],
@@ -58,7 +69,7 @@ export default function CorporateGallery() {
             ease: "power3.out",
             stagger: 0.1,
           },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -96,11 +107,11 @@ export default function CorporateGallery() {
         <div className={styles.gridWrapper}>
           <div className={styles.bgPanel} />
           <div ref={gridRef} className={styles.grid}>
-            {Array.from({ length: 8 }).map((_, i) => (
+            {images.map((src, i) => (
               <div key={i} className={styles.imageWrap}>
                 <Image
-                  src={`/dining/world-baker/baker-${i + 1}.jpg`}
-                  data-open={`/dining/world-baker/baker-${i + 1}.jpg`}
+                  src={src}
+                  data-open={src}
                   alt="Corporate event at Pal Heights"
                   fill
                   className={styles.image}
