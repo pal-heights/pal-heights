@@ -8,7 +8,7 @@ import Footer from "src/components/layout/Footer/Footer";
 import FooterCta from "src/components/layout/Footer/FooterCta";
 import RouteLoader from "src/components/loaders/RouteLoader";
 // import PopUp from "src/components/popup/kidney";
-import PageTransition from "src/components/loaders/PageTransition";
+// import PageTransition from "src/components/loaders/PageTransition";
 import { Toaster } from "react-hot-toast";
 import { LoadingProvider } from "src/context/LoadingContext";
 import Script from "next/script";
@@ -113,7 +113,6 @@ export const metadata: Metadata = {
     canonical: "http://palheights.com/",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
