@@ -4,14 +4,30 @@ const AnnouncementImageSchema = new mongoose.Schema(
   {
     url: {
       type: String,
-      required: true,
+      required: false,
+    },
+    data: {
+      type: String,
+      required: false,
+    },
+    mime: {
+      type: String,
+      required: false,
     },
     size: {
       type: Number, // bytes
-      required: true,
+      required: false,
     },
   },
-  { _id: false },
+  {
+    _id: false,
+    validate: {
+      validator(image: { url?: string; data?: string; mime?: string }) {
+        return Boolean(image.url || (image.data && image.mime));
+      },
+      message: "Announcement image must contain either a url or data/mime",
+    },
+  },
 );
 
 const AnnouncementSchema = new mongoose.Schema(

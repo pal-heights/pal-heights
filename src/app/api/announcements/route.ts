@@ -30,28 +30,41 @@ export async function GET() {
      * Shape:
      * {
      *   mode: "single" | "slider",
-     *   images: [{ data, mime, size }]
+     *   images: [{ url, size } | { data, mime, size }]
      * }
      */
     const announcement = await Announcement.findOne({ isActive: true })
       .select("mode images -_id")
       .lean<{
         mode: "single" | "slider";
-        images: {
-          data: string;
-          mime: string;
-          size: number;
-        }[];
+        images: Array<{
+          url?: string;
+          data?: string;
+          mime?: string;
+          size?: number;
+        }>;
       }>();
 
     if (!announcement || !announcement.images?.length) {
       return NextResponse.json({ mode: "single", images: [] }, { status: 200 });
     }
 
+    const images = announcement.images.map((img) => {
+      if (img.url) {
+        return { url: img.url, size: img.size };
+      }
+
+      return {
+        data: img.data,
+        mime: img.mime,
+        size: img.size,
+      };
+    });
+
     return NextResponse.json(
       {
         mode: announcement.mode,
-        images: announcement.images,
+        images,
       },
       {
         status: 200,

@@ -162,8 +162,9 @@ import styles from "./PopUp.module.css";
 type Mode = "single" | "slider";
 
 interface AnnouncementImage {
-  data: string;
-  mime: string;
+  url?: string;
+  data?: string;
+  mime?: string;
 }
 
 interface AnnouncementResponse {
@@ -182,20 +183,12 @@ export default function ImagePopup() {
   const [nextSrc, setNextSrc] = useState<string | null>(null);
   const [fadeIn, setFadeIn] = useState(false);
 
-  /* 🔐 open once per session with delay */
+  /* � fetch announcements and open popup only when an image is available */
   useEffect(() => {
-    if (!sessionStorage.getItem("popup_seen")) {
-      const timer = setTimeout(() => {
-        setOpen(true);
-        sessionStorage.setItem("popup_seen", "true");
-      }, 3000);
+    if (sessionStorage.getItem("popup_seen")) return;
 
-      return () => clearTimeout(timer);
-    }
-  }, []);
+    let timer: ReturnType<typeof setTimeout> | null = null;
 
-  /* 🚀 fetch announcements (cached API, no DB hit per user) */
-  useEffect(() => {
     fetch("/api/announcements")
       .then((res) => res.json())
       .then((data: AnnouncementResponse) => {
@@ -203,16 +196,31 @@ export default function ImagePopup() {
 
         setMode(data.mode);
 
-        const srcs = data.images.map(
-          (img) => `data:${img.mime};base64,${img.data}`,
-        );
+        const srcs = data.images
+          .map((img) => {
+            if (img.url) return img.url;
+            if (img.data && img.mime) return `data:${img.mime};base64,${img.data}`;
+            return null;
+          })
+          .filter((src): src is string => Boolean(src));
+
+        if (!srcs.length) return;
 
         setImages(srcs);
         setCurrentSrc(srcs[0]);
+
+        timer = setTimeout(() => {
+          setOpen(true);
+          sessionStorage.setItem("popup_seen", "true");
+        }, 3000);
       })
       .catch(() => {
         /* fail silently */
       });
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   /* preload images */
