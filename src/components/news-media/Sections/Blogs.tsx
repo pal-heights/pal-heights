@@ -18,9 +18,11 @@ interface Blog {
     description: string;
     category: string;
   };
-  featureImage: {
-    data: string;
-    mime: string;
+  featureImageUrl?: string;
+  featureImage?: {
+    url?: string;
+    data?: string;
+    mime?: string;
   };
   createdAt: string;
 }
@@ -208,9 +210,14 @@ export default function Blogs() {
         {/* GRID */}
         <div ref={gridRef} className={styles.grid}>
           {visibleBlogs.map((blog) => {
-            const imageSrc = blog.featureImage.data.startsWith("data:")
-              ? blog.featureImage.data
-              : `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`;
+            const imageSrc =
+              blog.featureImageUrl ||
+              blog.featureImage?.url ||
+              (blog.featureImage?.data?.startsWith("data:")
+                ? blog.featureImage.data
+                : blog.featureImage?.mime
+                ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
+                : undefined);
 
             return (
               <article key={blog._id} className={styles.card}>

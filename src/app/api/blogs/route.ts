@@ -19,7 +19,7 @@ export async function GET() {
     console.log("DB HIT: For All Blogs");
 
     const blogs = await Blog.find({ status: "published" })
-      .select("slug meta featureImage createdAt")
+      .select("slug meta featureImage featureImageUrl createdAt")
       .sort({ createdAt: -1 })
       .lean();
 

@@ -47,8 +47,14 @@ const BlogSchema = new Schema(
 
     featureImage: {
       type: ImageSchema,
+      required: false,
+    },
+
+    featureImageUrl: {
+      type: String,
       required: true,
     },
+
 
     meta: {
       title: { type: String, required: true },

@@ -7,13 +7,17 @@ import { connectDB } from "@lib/mongodb";
 import CommentsClient from "./CommentsClient";
 
 /* ===================== TYPES ===================== */
+interface ImageData {
+  url?: string;
+  data?: string;
+  mime?: string;
+}
+
 interface BlogData {
   _id: string;
   slug: string;
-  featureImage: {
-    data: string;
-    mime: string;
-  };
+  featureImageUrl?: string;
+  featureImage?: ImageData;
   meta: {
     title: string;
     description: string;
@@ -55,13 +59,24 @@ export default async function BlogPageInner({ slug }: { slug: string }) {
     <>
       <article className={styles.wrapper}>
         <div className={styles.hero}>
-          <Image
-            src={`data:${blog.featureImage.mime};base64,${blog.featureImage.data}`}
-            alt={blog.meta.title}
-            fill
-            priority
-            className={styles.heroImage}
-          />
+          {(() => {
+            const heroSrc =
+              blog.featureImageUrl ||
+              blog.featureImage?.url ||
+              (blog.featureImage?.data && blog.featureImage?.mime
+                ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
+                : undefined);
+
+            return heroSrc ? (
+              <Image
+                src={heroSrc}
+                alt={blog.meta.title}
+                fill
+                priority
+                className={styles.heroImage}
+              />
+            ) : null;
+          })()}
 
           <div className={styles.overlay}>
             <div className={styles.overlayInner}>
@@ -132,15 +147,23 @@ export default async function BlogPageInner({ slug }: { slug: string }) {
                     </ul>
                   );
 
-                case "image":
-                  return (
+                case "image": {
+                  const imageSrc =
+                    block.data.imageUrl ||
+                    block.data.url ||
+                    (block.data.data && block.data.mime
+                      ? `data:${block.data.mime};base64,${block.data.data}`
+                      : undefined);
+
+                  return imageSrc ? (
                     <img
                       key={block.id}
-                      src={`data:${block.data.mime};base64,${block.data.data}`}
+                      src={imageSrc}
                       className={styles.inlineImage}
-                      alt=""
+                      alt={block.data.alt || ""}
                     />
-                  );
+                  ) : null;
+                }
 
                 default:
                   return null;

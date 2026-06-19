@@ -24,10 +24,12 @@ type Blog = {
     description: string;
     category: string;
   };
-  featureImage: {
-    data: string; // base64
-    mime: string;
-    size: number;
+  featureImageUrl?: string;
+  featureImage?: {
+    url?: string;
+    data?: string;
+    mime?: string;
+    size?: number;
   };
 };
 
@@ -152,38 +154,47 @@ export default function Blogs() {
 
         {/* Cards */}
         <div className={styles.grid}>
-          {blogs.map((blog) => (
-            <article key={blog._id} className={styles.card}>
-              <div
-                data-cursor-theme="light"
-                className={styles.image}
-                style={{
-                  backgroundImage: `url(data:${blog.featureImage.mime};base64,${blog.featureImage.data})`,
-                }}
-              />
+          {blogs.map((blog) => {
+            const imageSrc =
+              blog.featureImageUrl ||
+              blog.featureImage?.url ||
+              (blog.featureImage?.data && blog.featureImage?.mime
+                ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
+                : undefined);
 
-              <div className={styles.content}>
-                <div>
-                  <span className={styles.category}>{blog.meta.category}</span>
-                  <h3>{blog.meta.title}</h3>
-                  <p>{truncateWords(blog.meta.description, 30)}</p>
-                </div>
-                <button
-                  onClick={() => {
-                    setIsLoading(true);
-                    startTransition(() => {
-                      router.push(`/news-media/${blog.slug}`);
-                    });
+            return (
+              <article key={blog._id} className={styles.card}>
+                <div
+                  data-cursor-theme="light"
+                  className={styles.image}
+                  style={{
+                    backgroundImage: `url(${imageSrc})`,
                   }}
-                  className={styles.readMore}
-                  data-cursor="hover"
-                  type="button"
-                >
-                  Read more
-                </button>
-              </div>
-            </article>
-          ))}
+                />
+
+                <div className={styles.content}>
+                  <div>
+                    <span className={styles.category}>{blog.meta.category}</span>
+                    <h3>{blog.meta.title}</h3>
+                    <p>{truncateWords(blog.meta.description, 30)}</p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setIsLoading(true);
+                      startTransition(() => {
+                        router.push(`/news-media/${blog.slug}`);
+                      });
+                    }}
+                    className={styles.readMore}
+                    data-cursor="hover"
+                    type="button"
+                  >
+                    Read more
+                  </button>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         <div className={styles.ctaWrap}>
