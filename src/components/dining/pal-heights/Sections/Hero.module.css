@@ -15,16 +15,6 @@
   position: relative;
 }
 
-/* RIGHT EDGE STRIP */
-.inner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -6rem;
-  width: 7rem;
-  height: 100%;
-  background-color: #ffffff;
-}
 
 /* RADIAL BLOB – TEMP VISIBLE VERSION */
 .inner::after {
