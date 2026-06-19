@@ -12,23 +12,23 @@ const ROOM_SETS = [
     images: [
       {
         label: "Couple Simple Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-9.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-32.jpg",
       },
       {
         label: "Luxe Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-10.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-30.jpg",
       },
       {
         label: "Premium Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-11.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-32.jpg",
       },
       {
         label: "Master Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-12.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-31.jpg",
       },
       {
         label: "Family Luxe",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-13.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-33.jpg",
       },
     ],
   },
