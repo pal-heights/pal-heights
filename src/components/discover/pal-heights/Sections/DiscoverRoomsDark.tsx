@@ -12,23 +12,23 @@ const ROOM_SETS = [
     images: [
       {
         label: "Luxe Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-6.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/standard-3.jpg",
       },
       {
         label: "Couple Simple Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-29.JPG",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/standard-3.jpg",
       },
       {
         label: "Premium Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-8.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/standard-2.jpg",
       },
       {
         label: "Master Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-7.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/standard-1.jpg",
       },
       {
         label: "Family Luxe",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-29.JPG",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/standard-4.jpg",
       },
     ],
   },
@@ -180,7 +180,7 @@ export default function DiscoverRooms() {
               <span ref={lineRef} className={styles.line} />
             </div>
             <h2 ref={headingRef} className={styles.heading}>
-              Pal Royale
+              Standard
             </h2>
           </div>
 

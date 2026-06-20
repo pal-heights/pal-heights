@@ -12,7 +12,7 @@ const ROOM_SETS = [
     images: [
       {
         label: "Master Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-27.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-28.jpg",
       },
       {
         label: "Couple Simple Room",
@@ -175,7 +175,7 @@ export default function DiscoverRooms() {
               <span ref={lineRef} className={styles.line} />
             </div>
             <h2 ref={headingRef} className={styles.heading}>
-              Pal Grande
+              Grand
             </h2>
           </div>
 

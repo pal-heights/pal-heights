@@ -175,7 +175,7 @@ export default function DiscoverRooms() {
               <span ref={lineRef} className={styles.line} />
             </div>
             <h2 ref={headingRef} className={styles.heading}>
-              PAL Suites
+              PAL Suite
             </h2>
           </div>
 
