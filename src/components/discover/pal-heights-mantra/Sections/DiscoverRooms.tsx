@@ -12,7 +12,7 @@ const ROOM_SETS = [
     images: [
       {
         label: "Couple Simple Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-1.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/grand-room-4.JPG",
       },
       {
         label: "Luxe Room",
@@ -20,15 +20,15 @@ const ROOM_SETS = [
       },
       {
         label: "Premium Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-3.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/grand-room-2.JPG",
       },
       {
         label: "Master Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-4.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/grand-room-3.JPG",
       },
       {
         label: "Family Luxe",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-5.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/grand-room-1.jpg",
       },
     ],
   },

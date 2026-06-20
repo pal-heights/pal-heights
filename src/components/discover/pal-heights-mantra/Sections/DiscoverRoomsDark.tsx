@@ -12,7 +12,7 @@ const ROOM_SETS = [
     images: [
       {
         label: "Couple Simple Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-2.webp",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-3.jpg",
       },
       {
         label: "Luxe Room",
