@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import styles from "./ContactSection.module.css";
 import toast from "react-hot-toast";
+import ReCAPTCHA from "react-google-recaptcha";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +29,7 @@ type Errors = {
   name?: string;
   email?: string;
   phone?: string;
+  recaptcha?: string;
 };
 
 const errorToast = {
@@ -51,6 +53,7 @@ const successToast = {
 export default function ContactSection() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const kickerRef = useRef<HTMLSpanElement | null>(null);
@@ -186,6 +189,7 @@ export default function ContactSection() {
       next.email = "Please enter a valid email address";
     if (!/^\d{10,15}$/.test(form.phone.replace(/\D/g, "")))
       next.phone = "Please enter a valid phone number";
+    if (!recaptchaToken) next.recaptcha = "Please verify that you are not a robot";
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -209,6 +213,7 @@ export default function ContactSection() {
           service: form.service ? [form.service] : [],
           message: form.message,
           verified: true,
+          recaptchaToken,
         }),
       });
 
@@ -366,6 +371,21 @@ export default function ContactSection() {
               <span className={styles.charCount}>
                 {form.message.length}/300
               </span>
+            </div>
+
+            <div style={{ marginBottom: "1rem" }}>
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                onChange={(token) => {
+                  setRecaptchaToken(token);
+                  if (token) setErrors((prev) => ({ ...prev, recaptcha: undefined }));
+                }}
+              />
+              {errors.recaptcha && (
+                <span className={styles.errorText} style={{ display: "block", marginTop: "0.5rem", color: "#ef4444", fontSize: "0.875rem" }}>
+                  {errors.recaptcha}
+                </span>
+              )}
             </div>
 
             <div className={styles.actions}>
