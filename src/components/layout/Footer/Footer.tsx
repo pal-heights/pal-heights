@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
@@ -41,24 +41,28 @@ export default function Footer() {
                     <a
                       href="https://www.facebook.com/PalHeights/"
                       aria-label="Pal Heights Facebook"
+                      target="_blank"
                     >
                       <Facebook className={styles.socialIcon} />
                     </a>
                     <a
                       href="https://www.instagram.com/palheightshotel/"
                       aria-label="Pal Heights Instagram"
+                      target="_blank"
                     >
                       <Instagram className={styles.socialIcon} />
                     </a>
                     <a
                       href="https://x.com/hotelpalheights"
                       aria-label="Pal Heights X"
+                      target="_blank"
                     >
                       <FaXTwitter className={styles.socialIcon} />
                     </a>
                     <a
                       href="https://www.tripadvisor.in/Hotel_Review-g297661-d1585589-Reviews-Pal_Heights-Bhubaneswar_Khurda_District_Odisha.html"
                       aria-label="Pal Heights Tripadvisor"
+                      target="_blank"
                     >
                       <img
                         src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/tripadvisor.png"
@@ -77,12 +81,21 @@ export default function Footer() {
                     <a
                       href="https://www.facebook.com/palheightsmantra/"
                       aria-label="Pal Heights Mantra Facebook"
+                      target="_blank"
                     >
                       <Facebook className={styles.socialIcon} />
                     </a>
                     <a
+                      href="https://www.instagram.com/palmantrahotel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                      aria-label="Pal Heights Instagram"
+                      target="_blank"
+                    >
+                      <Instagram className={styles.socialIcon} />
+                    </a>
+                    <a
                       href="https://www.tripadvisor.in/Hotel_Review-g297661-d12102141-Reviews-Pal_Heights_Mantra-Bhubaneswar_Khurda_District_Odisha.html"
                       aria-label="Pal Heights Mantra Tripadvisor"
+                      target="_blank"
                     >
                       <img
                         src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/tripadvisor.png"
@@ -123,7 +136,8 @@ export default function Footer() {
 
                 <div className={styles.footerSubBlock}>
                   <span className={styles.footerLabel}>Pal Heights -</span>
-                  <a href="tel:9937144455">9937144455</a>
+                  <a href="tel:+919937144455">+91 9937144455</a>
+                  <a href="tel:+919853001515">+91 9853001515</a>
                   <a href="mailto:gm@palheights.com">gm@palheights.com</a>
                 </div>
 
@@ -131,8 +145,8 @@ export default function Footer() {
                   <span className={styles.footerLabel}>
                     Pal Heights Mantra -
                   </span>
-                  <a href="tel:8342000661">8342000661</a>
-                  <a href="tel:8342000662">8342000662</a>
+                  <a href="tel:+918342000661">+91 8342000661</a>
+                  <a href="tel:+918342000662">+91 8342000662</a>
                   <a href="mailto:gm@palheightsmantra.com">
                     gm@palheightsmantra.com
                   </a>
