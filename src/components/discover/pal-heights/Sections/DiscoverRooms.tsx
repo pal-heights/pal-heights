@@ -45,7 +45,7 @@ const ICONS = [
   { label: "In room tea/coffee maker", icon: "coffe.png" },
   { label: "Evening Mood changing Drink", icon: "drinks.png" },
   { label: "Iron and ironing board (On request)", icon: "iron-board.png" },
-  { label: "Smart TV (42 inches) + 24 OTT channels", icon: "tv.png" },
+  { label: "Smart TV (42 inches)", icon: "tv.png" },
 ];
 
 export default function DiscoverRooms() {

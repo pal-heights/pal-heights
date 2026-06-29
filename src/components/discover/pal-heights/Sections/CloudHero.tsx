@@ -150,6 +150,7 @@ export default function Hero() {
               loop
               muted
               playsInline
+              preload="none"
               onClick={() => {
                 if (!supportsHover && isPlaying && !showIcon) {
                   setShowIcon(true);

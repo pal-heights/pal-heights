@@ -48,7 +48,7 @@ const ICONS = [
     label: "Iron and ironing board (On request)",
     icon: "iron-board-light.png",
   },
-  { label: "Smart TV (42 inches) + 24 OTT channels", icon: "tv-light.png" },
+  { label: "Smart TV (42 inches)", icon: "tv-light.png" },
 ];
 
 export default function DiscoverRooms() {

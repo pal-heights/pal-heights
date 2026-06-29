@@ -16,7 +16,7 @@ const DATA = [
     title: "Zaika",
     image:
       "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-14.jpg",
-    desc: "A lounge bar with an extensive choice of revival cocktails; all with a flair that has become its signature style enough to attract crowds from all over the city.",
+    desc: "Zaika is a fine dining destination that celebrates rich Indian flavours with a contemporary touch. From signature kebabs and aromatic biryanis to Asian favourites and handcrafted beverages, every dish is prepared to delight every palate in an elegant setting.",
   },
   {
     tab: "Breeze",
