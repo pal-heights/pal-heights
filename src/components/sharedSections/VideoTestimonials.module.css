@@ -152,6 +152,10 @@
   transform: translate(1rem, 1rem);
 }
 
+.noHover:hover .media {
+  transform: none;
+}
+
 /* Same size */
 .large,
 .small {
@@ -175,6 +179,7 @@
   display: grid;
   place-items: center;
   cursor: pointer;
+  touch-action: manipulation;
   z-index: 2;
 }
 
@@ -231,6 +236,16 @@
 
 .playing:hover .centerControl {
   opacity: 1;
+}
+
+/* touch devices: keep control visible when playing until timeout */
+.noHover.playing .centerControl {
+  opacity: 1;
+}
+
+.noHover.hideControl .centerControl {
+  opacity: 0;
+  pointer-events: auto;
 }
 
 /* Responsive */
@@ -322,6 +337,9 @@
   }
   .section::before {
     opacity: 0.15;
+  }
+  .media {
+    transform: translate(1rem, 1rem);
   }
 }
 /* Mobile Responsivness */
