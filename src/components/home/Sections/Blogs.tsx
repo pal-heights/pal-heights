@@ -35,6 +35,7 @@ type Blog = {
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [hasError, setHasError] = useState(false);
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const { setIsLoading } = useLoading();
@@ -45,16 +46,19 @@ export default function Blogs() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const leftLineRef = useRef<HTMLSpanElement | null>(null);
   const rightLineRef = useRef<HTMLSpanElement | null>(null);
+  const fallbackRef = useRef<HTMLDivElement | null>(null);
 
   /* -------- Fetch recent 3 blogs -------- */
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const res = await fetch("/api/blogs");
+        if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setBlogs(data.slice(0, 3));
       } catch (err) {
         console.error("Failed to fetch blogs", err);
+        setHasError(true);
       }
     };
 
@@ -64,14 +68,12 @@ export default function Blogs() {
   /* -------- GSAP Animation -------- */
   useEffect(() => {
     const container = containerRef.current;
-    const header = headerRef.current;
     const kicker = kickerRef.current;
     const title = titleRef.current;
     const leftLine = leftLineRef.current;
     const rightLine = rightLineRef.current;
 
-    if (!container || !header || !kicker || !title || !leftLine || !rightLine)
-      return;
+    if (!container || !kicker || !title || !leftLine || !rightLine) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -87,32 +89,48 @@ export default function Blogs() {
       tl.from(
         title.querySelectorAll("span"),
         { y: 70, duration: 0.7, ease: "power3.out" },
-        "-=0.3"
+        "-=0.3",
       );
 
       tl.from(
         leftLine,
         { x: 40, opacity: 0, duration: 0.5, ease: "power3.out" },
-        "-=0.4"
+        "-=0.4",
       );
 
       tl.from(
         rightLine,
         { x: -40, opacity: 0, duration: 0.5, ease: "power3.out" },
-        "<"
+        "<",
       );
 
-      tl.from(
-        `.${styles.card}`,
-        {
-          y: 50,
-          opacity: 0,
-          duration: 0.55,
-          ease: "power3.out",
-          stagger: 0.15,
-        },
-        "<"
-      );
+      // Animate cards if present
+      if (blogs.length > 0) {
+        tl.from(
+          `.${styles.card}`,
+          {
+            y: 50,
+            opacity: 0,
+            duration: 0.55,
+            ease: "power3.out",
+            stagger: 0.15,
+          },
+          "<",
+        );
+      }
+      // Animate fallback text gracefully if no blogs or error
+      else if (fallbackRef.current) {
+        tl.from(
+          fallbackRef.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "<",
+        );
+      }
 
       tl.from(
         `.${styles.ctaWrap}`,
@@ -122,12 +140,14 @@ export default function Blogs() {
           duration: 0.45,
           ease: "power3.out",
         },
-        "<"
+        "<",
       );
     }, container);
 
     return () => ctx.revert();
-  }, [blogs]);
+  }, [blogs, hasError]);
+
+  const showFallback = blogs.length === 0 || hasError;
 
   return (
     <section className={styles.section} data-cursor-theme="dark">
@@ -152,50 +172,64 @@ export default function Blogs() {
           </div>
         </div>
 
-        {/* Cards */}
-        <div className={styles.grid}>
-          {blogs.map((blog) => {
-            const imageSrc =
-              blog.featureImageUrl ||
-              blog.featureImage?.url ||
-              (blog.featureImage?.data && blog.featureImage?.mime
-                ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
-                : undefined);
+        {/* Conditional Layout: Grid of Blogs OR Beautiful Fallback */}
+        {!showFallback ? (
+          <div className={styles.grid}>
+            {blogs.map((blog) => {
+              const imageSrc =
+                blog.featureImageUrl ||
+                blog.featureImage?.url ||
+                (blog.featureImage?.data && blog.featureImage?.mime
+                  ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
+                  : undefined);
 
-            return (
-              <article key={blog._id} className={styles.card}>
-                <div
-                  data-cursor-theme="light"
-                  className={styles.image}
-                  style={{
-                    backgroundImage: `url(${imageSrc})`,
-                  }}
-                />
-
-                <div className={styles.content}>
-                  <div>
-                    <span className={styles.category}>{blog.meta.category}</span>
-                    <h3>{blog.meta.title}</h3>
-                    <p>{truncateWords(blog.meta.description, 30)}</p>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setIsLoading(true);
-                      startTransition(() => {
-                        router.push(`/news-media/${blog.slug}`);
-                      });
+              return (
+                <article key={blog._id} className={styles.card}>
+                  <div
+                    data-cursor-theme="light"
+                    className={styles.image}
+                    style={{
+                      backgroundImage: `url(${imageSrc})`,
                     }}
-                    className={styles.readMore}
-                    data-cursor="hover"
-                    type="button"
-                  >
-                    Read more
-                  </button>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+                  />
+
+                  <div className={styles.content}>
+                    <div>
+                      <span className={styles.category}>
+                        {blog.meta.category}
+                      </span>
+                      <h3>{blog.meta.title}</h3>
+                      <p>{truncateWords(blog.meta.description, 30)}</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setIsLoading(true);
+                        startTransition(() => {
+                          router.push(`/news-media/${blog.slug}`);
+                        });
+                      }}
+                      className={styles.readMore}
+                      data-cursor="hover"
+                      type="button"
+                    >
+                      Read more
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          /* Elegant Placeholder Design */
+          <div ref={fallbackRef} className={styles.fallbackContainer}>
+            <span className={styles.fallbackKicker}>COMING SOON</span>
+            <h3 className={styles.fallbackTitle}>Fresh Stories Are Brewing</h3>
+            <p className={styles.fallbackText}>
+              We are currently tailoring new travel insights and stories for
+              you. Check back shortly or explore our existing archives below.
+            </p>
+          </div>
+        )}
 
         <div className={styles.ctaWrap}>
           <a href="/news-media" className={styles.cta} data-cursor="hover">

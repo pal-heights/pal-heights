@@ -1,59 +1,19 @@
 /* ===================== IMPORTS ===================== */
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import styles from "./page.module.css";
-import Blog from "@/models/Blogs";
-import { connectDB } from "@lib/mongodb";
+import { getBlogBySlug, type BlogData } from "./blog-data";
 import CommentsClient from "./CommentsClient";
-
-/* ===================== TYPES ===================== */
-interface ImageData {
-  url?: string;
-  data?: string;
-  mime?: string;
-}
-
-interface BlogData {
-  _id: string;
-  slug: string;
-  featureImageUrl?: string;
-  featureImage?: ImageData;
-  meta: {
-    title: string;
-    description: string;
-    category: string;
-  };
-  tags: string[];
-  blocks: {
-    id: string;
-    type: string;
-    data: any;
-  }[];
-}
-
-/* ===================== DATA FETCH ===================== */
-async function getBlog(slug?: string): Promise<BlogData> {
-  if (typeof slug !== "string" || !slug.trim()) {
-    notFound();
-  }
-
-  await connectDB();
-
-  const blog = await Blog.findOne({
-    slug: slug.trim(),
-    status: "published",
-  }).lean();
-
-  if (!blog) {
-    notFound();
-  }
-
-  return JSON.parse(JSON.stringify(blog));
-}
+import BlogContentRenderer from "./BlogContentRenderer";
 
 /* ===================== INNER PAGE ===================== */
-export default async function BlogPageInner({ slug }: { slug: string }) {
-  const blog = await getBlog(slug);
+export default async function BlogPageInner({
+  slug,
+  blog,
+}: {
+  slug?: string;
+  blog?: BlogData;
+}) {
+  const resolvedBlog = blog ?? (await getBlogBySlug(slug));
 
   return (
     <>
@@ -61,16 +21,17 @@ export default async function BlogPageInner({ slug }: { slug: string }) {
         <div className={styles.hero}>
           {(() => {
             const heroSrc =
-              blog.featureImageUrl ||
-              blog.featureImage?.url ||
-              (blog.featureImage?.data && blog.featureImage?.mime
-                ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
+              resolvedBlog.featureImageUrl ||
+              resolvedBlog.featureImage?.url ||
+              (resolvedBlog.featureImage?.data &&
+              resolvedBlog.featureImage?.mime
+                ? `data:${resolvedBlog.featureImage.mime};base64,${resolvedBlog.featureImage.data}`
                 : undefined);
 
             return heroSrc ? (
               <Image
                 src={heroSrc}
-                alt={blog.meta.title}
+                alt={resolvedBlog.meta.title}
                 fill
                 priority
                 className={styles.heroImage}
@@ -94,17 +55,19 @@ export default async function BlogPageInner({ slug }: { slug: string }) {
                 </div>
               </div>
 
-              <h1 className={styles.title}>{blog.meta.title}</h1>
+              <h1 className={styles.title}>{resolvedBlog.meta.title}</h1>
 
               <div className={styles.metaRow}>
                 <div className={styles.categoryWrap}>
                   <span className={styles.categoryLabel}>Category -</span>
-                  <span className={styles.category}>{blog.meta.category}</span>
+                  <span className={styles.category}>
+                    {resolvedBlog.meta.category}
+                  </span>
                 </div>
 
-                {blog.tags?.length > 0 && (
+                {resolvedBlog.tags?.length > 0 && (
                   <div className={styles.tags}>
-                    {blog.tags.map((tag) => (
+                    {resolvedBlog.tags.map((tag) => (
                       <span key={tag} className={styles.tag}>
                         {tag}
                       </span>
@@ -117,63 +80,70 @@ export default async function BlogPageInner({ slug }: { slug: string }) {
         </div>
 
         <div className={styles.content}>
-          <p className={styles.description}>{blog.meta.description}</p>
+          <p className={styles.description}>{resolvedBlog.meta.description}</p>
 
           <div className={styles.blocks}>
-            {blog.blocks.map((block) => {
-              switch (block.type) {
-                case "heading":
-                  return block.data.level === "h3" ? (
-                    <h3 key={block.id}>{block.data.text}</h3>
-                  ) : (
-                    <h2 key={block.id}>{block.data.text}</h2>
-                  );
+            {resolvedBlog.content ? (
+              <BlogContentRenderer content={resolvedBlog.content} />
+            ) : (
+              resolvedBlog.blocks.map((block) => {
+                switch (block.type) {
+                  case "heading":
+                    return block.data.level === "h3" ? (
+                      <h3 key={block.id}>{block.data.text}</h3>
+                    ) : (
+                      <h2 key={block.id}>{block.data.text}</h2>
+                    );
 
-                case "paragraph":
-                  return <p key={block.id}>{block.data.text}</p>;
+                  case "paragraph":
+                    return <p key={block.id}>{block.data.text}</p>;
 
-                case "list":
-                  return block.data.style === "ordered" ? (
-                    <ol key={block.id}>
-                      {block.data.items.map((i: string, idx: number) => (
-                        <li key={idx}>{i}</li>
-                      ))}
-                    </ol>
-                  ) : (
-                    <ul key={block.id}>
-                      {block.data.items.map((i: string, idx: number) => (
-                        <li key={idx}>{i}</li>
-                      ))}
-                    </ul>
-                  );
+                  case "list":
+                    return block.data.style === "ordered" ? (
+                      <ol key={block.id}>
+                        {block.data.items.map((i: string, idx: number) => (
+                          <li key={idx}>{i}</li>
+                        ))}
+                      </ol>
+                    ) : (
+                      <ul key={block.id}>
+                        {block.data.items.map((i: string, idx: number) => (
+                          <li key={idx}>{i}</li>
+                        ))}
+                      </ul>
+                    );
 
-                case "image": {
-                  const imageSrc =
-                    block.data.imageUrl ||
-                    block.data.url ||
-                    (block.data.data && block.data.mime
-                      ? `data:${block.data.mime};base64,${block.data.data}`
-                      : undefined);
+                  case "image": {
+                    const imageSrc =
+                      block.data.imageUrl ||
+                      block.data.url ||
+                      (block.data.data && block.data.mime
+                        ? `data:${block.data.mime};base64,${block.data.data}`
+                        : undefined);
 
-                  return imageSrc ? (
-                    <img
-                      key={block.id}
-                      src={imageSrc}
-                      className={styles.inlineImage}
-                      alt={block.data.alt || ""}
-                    />
-                  ) : null;
+                    return imageSrc ? (
+                      <img
+                        key={block.id}
+                        src={imageSrc}
+                        className={styles.inlineImage}
+                        alt={block.data.alt || ""}
+                      />
+                    ) : null;
+                  }
+
+                  default:
+                    return null;
                 }
-
-                default:
-                  return null;
-              }
-            })}
+              })
+            )}
           </div>
         </div>
 
         <div className={styles.commentsSection}>
-          <CommentsClient blogSlug={blog.slug} blogId={blog._id} />
+          <CommentsClient
+            blogSlug={resolvedBlog.slug}
+            blogId={resolvedBlog._id}
+          />
         </div>
       </article>
     </>

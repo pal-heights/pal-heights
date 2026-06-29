@@ -54,6 +54,7 @@ const PER_PAGE = 9;
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [hasError, setHasError] = useState(false);
   const [page, setPage] = useState(1);
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -66,6 +67,7 @@ export default function Blogs() {
   const rightLineRef = useRef<HTMLSpanElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const paginationRef = useRef<HTMLDivElement | null>(null);
+  const fallbackRef = useRef<HTMLDivElement | null>(null);
 
   /* ---------------- FETCH BLOGS ---------------- */
   useEffect(() => {
@@ -75,8 +77,13 @@ export default function Blogs() {
         return res.json();
       })
       .then(setBlogs)
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        setHasError(true);
+      });
   }, []);
+
+  const showFallback = blogs.length === 0 || hasError;
 
   const totalPages = Math.ceil(blogs.length / PER_PAGE);
   const visibleBlogs = blogs.slice((page - 1) * PER_PAGE, page * PER_PAGE);
@@ -90,8 +97,6 @@ export default function Blogs() {
 
   /* ---------------- SCROLL ENTRANCE ---------------- */
   useEffect(() => {
-    if (!blogs.length) return;
-
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -136,8 +141,10 @@ export default function Blogs() {
             ease: "power3.out",
           },
           "<"
-        )
-        .from(
+        );
+
+      if (!showFallback) {
+        tl.from(
           gridRef.current?.children || [],
           {
             y: 50,
@@ -147,8 +154,7 @@ export default function Blogs() {
             ease: "power3.out",
           },
           "-=0.25"
-        )
-        .from(
+        ).from(
           paginationRef.current,
           {
             y: 30,
@@ -158,10 +164,22 @@ export default function Blogs() {
           },
           "-=0.3"
         );
+      } else if (fallbackRef.current) {
+        tl.from(
+          fallbackRef.current,
+          {
+            y: 30,
+            autoAlpha: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.25"
+        );
+      }
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [blogs]);
+  }, [blogs, hasError, showFallback]);
 
   /* ---------------- PAGE CHANGE ANIMATION ---------------- */
   useEffect(() => {
@@ -207,68 +225,82 @@ export default function Blogs() {
           </div>
         </div>
 
-        {/* GRID */}
-        <div ref={gridRef} className={styles.grid}>
-          {visibleBlogs.map((blog) => {
-            const imageSrc =
-              blog.featureImageUrl ||
-              blog.featureImage?.url ||
-              (blog.featureImage?.data?.startsWith("data:")
-                ? blog.featureImage.data
-                : blog.featureImage?.mime
-                ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
-                : undefined);
+        {/* Conditional Layout: GRID or Fallback */}
+        {!showFallback ? (
+          <>
+            <div ref={gridRef} className={styles.grid}>
+              {visibleBlogs.map((blog) => {
+                const imageSrc =
+                  blog.featureImageUrl ||
+                  blog.featureImage?.url ||
+                  (blog.featureImage?.data?.startsWith("data:")
+                    ? blog.featureImage.data
+                    : blog.featureImage?.mime
+                    ? `data:${blog.featureImage.mime};base64,${blog.featureImage.data}`
+                    : undefined);
 
-            return (
-              <article key={blog._id} className={styles.card}>
-                <div
-                  data-cursor-theme="light"
-                  className={styles.image}
-                  style={{ backgroundImage: `url(${imageSrc})` }}
-                />
+                return (
+                  <article key={blog._id} className={styles.card}>
+                    <div
+                      data-cursor-theme="light"
+                      className={styles.image}
+                      style={{ backgroundImage: `url(${imageSrc})` }}
+                    />
 
-                <div className={styles.content}>
-                  <div className={styles.contentInner}>
-                    <span className={styles.category}>
-                      {blog.meta.category}
+                    <div className={styles.content}>
+                      <div className={styles.contentInner}>
+                        <span className={styles.category}>
+                          {blog.meta.category}
+                        </span>
+                        <h3>{blog.meta.title}</h3>
+                        <p>{truncateWords(blog.meta.description, 30)}</p>
+                      </div>
+
+                      <button
+                        onClick={() => handleReadMore(blog.slug)}
+                        className={styles.readMore}
+                        data-cursor="hover"
+                        type="button"
+                      >
+                        Read more
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* PAGINATION */}
+            {totalPages > 1 && (
+              <div ref={paginationRef} className={styles.pagination}>
+                {getPaginationPages(page, totalPages).map((p, i) =>
+                  p === "..." ? (
+                    <span key={`dots-${i}`} className={styles.dots}>
+                      …
                     </span>
-                    <h3>{blog.meta.title}</h3>
-                    <p>{truncateWords(blog.meta.description, 30)}</p>
-                  </div>
-
-                  <button
-                    onClick={() => handleReadMore(blog.slug)}
-                    className={styles.readMore}
-                    data-cursor="hover"
-                    type="button"
-                  >
-                    Read more
-                  </button>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* PAGINATION */}
-        {totalPages > 1 && (
-          <div ref={paginationRef} className={styles.pagination}>
-            {getPaginationPages(page, totalPages).map((p, i) =>
-              p === "..." ? (
-                <span key={`dots-${i}`} className={styles.dots}>
-                  …
-                </span>
-              ) : (
-                <button
-                  key={p}
-                  onClick={() => setPage(p)}
-                  className={page === p ? styles.active : ""}
-                  data-cursor={page === p ? "" : "hover"}
-                >
-                  {p}
-                </button>
-              )
+                  ) : (
+                    <button
+                      key={p}
+                      onClick={() => setPage(p)}
+                      className={page === p ? styles.active : ""}
+                      data-cursor={page === p ? "" : "hover"}
+                    >
+                      {p}
+                    </button>
+                  )
+                )}
+              </div>
             )}
+          </>
+        ) : (
+          /* Elegant Placeholder Design */
+          <div ref={fallbackRef} className={styles.fallbackContainer}>
+            <span className={styles.fallbackKicker}>COMING SOON</span>
+            <h3 className={styles.fallbackTitle}>Fresh Stories Are Brewing</h3>
+            <p className={styles.fallbackText}>
+              We are currently tailoring new travel insights and stories for
+              you. Check back shortly or explore our existing archives below.
+            </p>
           </div>
         )}
       </div>

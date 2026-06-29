@@ -328,3 +328,49 @@
     padding: 0.4rem 1rem;
   }
 }
+
+/* Fallback / Coming Soon Styles */
+.fallbackContainer {
+  text-align: center;
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fallbackKicker {
+  font-family: var(--font-allcaps);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--pal-brown);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.fallbackTitle {
+  font-family: var(--font-small-heading);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--pal-black);
+  margin-bottom: 1rem;
+}
+
+.fallbackText {
+  font-family: var(--font-small-heading);
+  font-size: 1rem;
+  line-height: 1.65rem;
+  color: var(--pal-grey);
+}
+
+/* Fallback Responsive tuning */
+@media (max-width: 768px) {
+  .fallbackTitle {
+    font-size: 1.5rem;
+  }
+  .fallbackText {
+    font-size: 0.875rem;
+    line-height: 1.4rem;
+  }
+}

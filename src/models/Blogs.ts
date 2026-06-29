@@ -8,7 +8,7 @@ const ImageSchema = new Schema(
     mime: { type: String, required: true },
     size: { type: Number, required: true },
   },
-  { _id: false }
+  { _id: false },
 );
 
 const BlockSchema = new Schema(
@@ -30,7 +30,7 @@ const BlockSchema = new Schema(
     },
     data: { type: Schema.Types.Mixed },
   },
-  { _id: false }
+  { _id: false },
 );
 
 /* ---------- Main Blog Schema ---------- */
@@ -55,16 +55,25 @@ const BlogSchema = new Schema(
       required: true,
     },
 
-
     meta: {
       title: { type: String, required: true },
       description: { type: String, required: true },
       category: { type: String, required: true },
+
+      seoTitle: { type: String, required: true, maxlength: 75 },
+      seoDescription: { type: String, required: true, maxlength: 220 },
+      seoKeywords: { type: String, required: true, maxlength: 300 },
     },
 
     tags: {
       type: [String], // ✅ FIXED: added
       default: [],
+    },
+
+    // TipTap JSON document
+    content: {
+      type: Schema.Types.Mixed,
+      default: null,
     },
 
     blocks: {
@@ -74,7 +83,7 @@ const BlogSchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 /* ---------- Export ---------- */

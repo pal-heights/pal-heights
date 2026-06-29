@@ -189,35 +189,59 @@
 // export const dynamicParams = false;
 
 /* ===================== STATIC PARAMS ===================== */
-import Blog from "@/models/Blogs";
-import { connectDB } from "@lib/mongodb";
+import type { Metadata } from "next";
+import BlogPageInner from "./BlogPageInner";
+import {
+  getBlogBySlug,
+  getPublishedBlogSlugs,
+  type BlogData,
+} from "./blog-data";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const blog = await getBlogBySlug(slug);
+
+  const title = blog.meta.seoTitle?.trim() || blog.meta.title;
+  const description = blog.meta.seoDescription?.trim() || blog.meta.description;
+
+  const seoKeywords = blog.meta.seoKeywords
+    ?.split(",")
+    .map((keyword) => keyword.trim())
+    .filter(Boolean);
+
+  const keywords =
+    seoKeywords && seoKeywords.length
+      ? seoKeywords
+      : blog.tags && blog.tags.length
+        ? blog.tags
+        : blog.meta.category
+          ? [blog.meta.category]
+          : undefined;
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+}
 
 export async function generateStaticParams() {
-  await connectDB();
-
-  const blogs = await Blog.find(
-    {
-      status: "published",
-      slug: { $exists: true, $ne: "" },
-    },
-    { slug: 1 },
-  ).lean();
-
-  return blogs
-    .filter((b) => typeof b.slug === "string" && b.slug.trim().length > 0)
-    .map((b) => ({
-      slug: b.slug.trim(),
-    }));
+  return getPublishedBlogSlugs();
 }
 
 /* ===================== PAGE ===================== */
-import BlogPageInner from "./BlogPageInner";
-
 export default async function BlogPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <BlogPageInner slug={slug} />;
+  const blog = await getBlogBySlug(slug);
+
+  return <BlogPageInner slug={slug} blog={blog} />;
 }
