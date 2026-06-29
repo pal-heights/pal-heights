@@ -13,6 +13,7 @@ export default function DiningHighlight() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const subTitleOneRef = useRef<HTMLHeadingElement | null>(null);
   const descRef = useRef<HTMLParagraphElement | null>(null);
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
   const buttonPrimaryRef = useRef<HTMLAnchorElement | null>(null);
@@ -50,6 +51,19 @@ export default function DiningHighlight() {
           ease: "power4.out",
         },
         0,
+      )
+
+      // PARAGRAPH
+      .fromTo(
+        subTitleOneRef.current,
+        { autoAlpha: 0, y: 26 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.55,
+          ease: "power2.out",
+        },
+        ">-0.5",
       )
 
       // PARAGRAPH
@@ -191,6 +205,11 @@ export default function DiningHighlight() {
               <h3 ref={titleRef} className={styles.title}>
                 Rodeo Bar
               </h3>
+            </span>
+            <span className={styles.subTitleOneWrap}>
+              <h4 ref={subTitleOneRef} className={styles.subTitle}>
+                Breakfast 12 pm to 11 pm
+              </h4>
             </span>
 
             <p ref={descRef} className={styles.desc}>

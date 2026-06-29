@@ -13,6 +13,7 @@ export default function DiningHighlight() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const subTitleOneRef = useRef<HTMLHeadingElement | null>(null);
   const descRef = useRef<HTMLParagraphElement | null>(null);
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
   const buttonPrimaryRef = useRef<HTMLAnchorElement | null>(null);
@@ -40,6 +41,18 @@ export default function DiningHighlight() {
       },
       0,
     )
+      .fromTo(
+        titleSplit.current.chars ?? [],
+        { y: 120 },
+        {
+          y: 0,
+          duration: 0.9,
+          stagger: 0.045,
+          ease: "power4.out",
+        },
+        0,
+      )
+
       .fromTo(
         titleSplit.current.chars ?? [],
         { y: 120 },
@@ -160,6 +173,11 @@ export default function DiningHighlight() {
               <h3 ref={titleRef} className={styles.title}>
                 Tea Kettle Cafe
               </h3>
+            </span>
+            <span className={styles.subTitleOneWrap}>
+              <h4 ref={subTitleOneRef} className={styles.subTitle}>
+                Breakfast 11 am to 11 pm
+              </h4>
             </span>
 
             <p ref={descRef} className={styles.desc}>

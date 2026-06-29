@@ -207,7 +207,7 @@ export default function DiningHighlight() {
             </span>
             <span className={styles.subTitleOneWrap}>
               <h4 ref={subTitleOneRef} className={styles.subTitle}>
-                Breakfast 7 am to 10. 30 am
+                Breakfast 6 am to 11 pm
               </h4>
             </span>
 

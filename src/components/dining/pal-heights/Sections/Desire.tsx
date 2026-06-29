@@ -13,6 +13,7 @@ export default function DiningHighlight() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const subTitleOneRef = useRef<HTMLHeadingElement | null>(null);
   const descRef = useRef<HTMLParagraphElement | null>(null);
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
 
@@ -49,6 +50,19 @@ export default function DiningHighlight() {
           ease: "power4.out",
         },
         0,
+      )
+
+      // PARAGRAPH
+      .fromTo(
+        subTitleOneRef.current,
+        { autoAlpha: 0, y: 26 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.55,
+          ease: "power2.out",
+        },
+        ">-0.5",
       )
 
       // PARAGRAPH
@@ -148,6 +162,11 @@ export default function DiningHighlight() {
                 Desire
               </h3>
             </span>
+            <span className={styles.subTitleOneWrap}>
+              <h4 ref={subTitleOneRef} className={styles.subTitle}>
+                Breakfast 12 pm to 11 pm
+              </h4>
+            </span>
 
             <p ref={descRef} className={styles.desc}>
               The perfect lounge bar to catch up with friends over a few drinks
@@ -167,16 +186,16 @@ export default function DiningHighlight() {
               >
                 Book Now
               </a>
-              {/* <a
+              <a
                 ref={buttonRef}
-                href="https://wa.me/7751809666"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/pal%20desire%20menu%20.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
                 data-cursor="hover"
               >
                 Our Menu
-              </a> */}
+              </a>
             </div>
           </div>
 

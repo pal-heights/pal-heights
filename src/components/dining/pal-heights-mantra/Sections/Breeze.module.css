@@ -44,14 +44,27 @@
 .titleWrap {
   display: block;
   overflow: hidden;
-  margin-bottom: 2.875rem;
+  margin-bottom: 0.5rem;
 }
-
 
 .title {
   font-family: var(--font-heading);
   color: #ffe4ae;
   font-size: 2.875rem;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.subTitleOneWrap {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 2.875rem;
+}
+
+.subTitle {
+  font-family: var(--font-small-heading);
+  color: #ffe4ae;
+  font-size: 1rem;
   font-weight: 400;
   vertical-align: middle;
 }
@@ -69,7 +82,6 @@
   font-weight: 400;
   vertical-align: middle;
 }
-
 
 .desc {
   font-family: var(--font-paragraph);
@@ -93,7 +105,9 @@
   font-weight: 400;
   color: #ffffff;
   will-change: transform;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .button:hover {

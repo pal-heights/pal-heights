@@ -15,8 +15,7 @@
   position: relative;
 }
 
-
-/* RADIAL BLOB – TEMP VISIBLE VERSION */
+/* RADIAL BLOB */
 .inner::after {
   content: "";
   position: absolute;
@@ -40,12 +39,14 @@
   gap: 4rem;
 }
 
-/* CONTENT */
+/* CONTENT — left half */
 .content {
   position: relative;
   z-index: 1;
-  width: 40%;
+  width: 50%;
+  flex-shrink: 0;
   color: #ffffff;
+  padding-right: 2rem;
 }
 
 /* KICKER */
@@ -110,13 +111,23 @@
   margin-bottom: 0;
 }
 
-/* VIDEO */
+/* RIGHT PANE — holds and centers the portrait video */
+.rightPane {
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* VIDEO WRAPPER — height-driven so it never crops */
 .videoWrapper {
   position: relative;
-  max-width: 65rem;
-  width: 60%;
-  aspect-ratio: 16 / 9;
-  margin-right: -5rem;
+  height: 78vh;
+  width: auto;
+  aspect-ratio: 9 / 16;
+  max-width: 26rem;
   z-index: 1;
   overflow: hidden;
 }
@@ -138,7 +149,9 @@
   opacity: 0;
   pointer-events: none;
   will-change: transform;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .visible {
@@ -182,23 +195,28 @@
   height: 2.7rem;
   color: #856d47;
   will-change: transform;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-/* Scaled devices Responsivness */
+/* ================================
+   SCALED DEVICES (max 1536px)
+   ================================ */
 @media (max-width: 1536px) {
   .inner {
     padding: 4rem 3rem 0;
   }
-  .inner::before {
-    right: -4.5rem;
-  }
   .content {
-    width: 45%;
+    width: 50%;
+    padding-right: 1.5rem;
+  }
+  .rightPane {
+    width: 50%;
   }
   .videoWrapper {
-    width: 55%;
-    margin-right: -2rem;
+    height: 72vh;
+    max-width: 22rem;
   }
   .kicker {
     font-size: 0.9rem;
@@ -224,19 +242,15 @@
   }
 }
 
-/* Tablet Responsivness */
+/* ================================
+   TABLET (max 1024px)
+   ================================ */
 @media (max-width: 1024px) {
   .hero {
     height: auto;
   }
   .inner {
     padding: 8rem 3rem 4rem;
-  }
-  .inner::before {
-    right: 0;
-    top: 80%;
-    width: 100%;
-    height: 20%;
   }
   .wrapper {
     gap: 3rem;
@@ -245,10 +259,17 @@
   }
   .content {
     width: 100%;
+    padding-right: 0;
+  }
+  .rightPane {
+    width: 100%;
+    height: auto;
   }
   .videoWrapper {
-    width: 100%;
-    margin-right: 0rem;
+    height: auto;
+    width: 55%;
+    max-width: 22rem;
+    aspect-ratio: 9 / 16;
   }
   .title {
     font-size: 2.75rem;
@@ -278,7 +299,9 @@
   }
 }
 
-/* Mobile Responsivness */
+/* ================================
+   MOBILE (max 768px)
+   ================================ */
 @media (max-width: 768px) {
   .inner {
     padding: 6rem 1rem 4rem;
@@ -286,10 +309,14 @@
   .wrapper {
     gap: 2.5rem;
   }
+  .videoWrapper {
+    width: 75%;
+    max-width: 18rem;
+  }
   .title {
     font-size: 2.25rem;
-    margin-bottom: 1rem;
     line-height: 2.7rem;
+    margin-bottom: 1rem;
   }
   .subtitle {
     font-size: 1.5rem;
@@ -307,7 +334,6 @@
     width: 3.15rem;
     height: 3.15rem;
   }
-
   .controlInner {
     padding: 0.5rem;
   }
@@ -317,11 +343,11 @@
   }
 }
 
-/* Animations */
-/* ===============================
-   TRUE UNMASK — CLIP-PATH WIPE
-   =============================== */
+/* ================================
+   ANIMATIONS
+   ================================ */
 
+/* UNMASK — CLIP-PATH WIPE */
 .title,
 .subtitle,
 .kicker {
@@ -337,7 +363,6 @@
   will-change: clip-path;
 }
 
-/* stagger order */
 .title .mask {
   animation-delay: 0.2s;
 }
@@ -359,10 +384,7 @@
   }
 }
 
-/* ===============================
-   LINE — REVEAL FROM LEFT
-   =============================== */
-
+/* LINE — REVEAL FROM LEFT */
 .line {
   display: inline-block;
   transform: scaleX(0);
@@ -377,10 +399,7 @@
   }
 }
 
-/* ===============================
-   PARAGRAPHS — SOFT FADE UP
-   =============================== */
-
+/* PARAGRAPHS — SOFT FADE UP */
 .paragraph {
   opacity: 0;
   transform: translateY(12px);
@@ -390,7 +409,6 @@
 .paragraph:nth-of-type(1) {
   animation-delay: 0.6s;
 }
-
 .paragraph:nth-of-type(2) {
   animation-delay: 0.7s;
 }
@@ -406,10 +424,7 @@
   }
 }
 
-/* ===============================
-   VIDEO — DESKTOP (FADE FROM RIGHT)
-   =============================== */
-
+/* VIDEO — DESKTOP FADE FROM RIGHT */
 .videoWrapper {
   opacity: 0;
   transform: translateX(48px);
@@ -428,10 +443,7 @@
   }
 }
 
-/* ===============================
-   VIDEO — TABLET & MOBILE (FADE UP)
-   =============================== */
-
+/* VIDEO — TABLET & MOBILE FADE UP */
 @media (max-width: 1024px) {
   .videoWrapper {
     transform: translateY(48px);
