@@ -97,7 +97,9 @@
   font-size: 0.95rem;
   font-weight: 500;
   color: #444;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .field input::placeholder,
@@ -201,6 +203,9 @@
 }
 
 .submit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   background: var(--pal-brown);
   color: #fff;
   padding: 0.95rem 2.4rem;
@@ -208,12 +213,29 @@
   border: none;
   font-family: var(--font-small-heading);
   cursor: pointer;
-  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .submit:hover {
   background: #8f7343;
   box-shadow: 0 6px 18px rgba(155, 128, 78, 0.35);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cancel {
@@ -286,7 +308,7 @@
   border: none;
 }
 
-/* ERROR STATES (already added earlier) */
+/* ERROR STATES */
 .error input,
 .error textarea,
 .error .dropdownValue {
@@ -297,16 +319,23 @@
   color: #d64545;
 }
 
+.error .fileLabel {
+  border-color: #d64545;
+}
+
 .errorText {
+  display: block;
   margin-top: 0.35rem;
   font-size: 0.75rem;
   font-family: var(--font-small-heading);
   color: #d64545;
 }
+
 .positionField {
   margin-bottom: 1.8rem;
 }
 
+/* FILE FIELD */
 .fileField {
   position: relative;
   margin-bottom: 1.8rem;
@@ -321,6 +350,7 @@
   left: 1rem;
   top: 1.15rem;
   color: var(--pal-brown);
+  pointer-events: none;
 }
 
 .fileLabel {
@@ -331,11 +361,44 @@
   border: 1px dashed #d0c6b2;
   background: rgba(155, 128, 78, 0.04);
   font-family: var(--font-small-heading);
+  font-size: 0.95rem;
+  color: #9c9c9c;
   text-align: left;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: border-color 0.25s ease;
 }
 
-/* Scaled devices Responsivness */
+.fileLabel:hover {
+  border-color: var(--pal-brown);
+}
+
+/* hint sits below the button on its own row */
+.fileHint {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-family: var(--font-small-heading);
+  color: #9c9c9c;
+}
+
+/* error sits below hint on its own row */
+.fileError {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-family: var(--font-small-heading);
+  color: #d64545;
+}
+
+/* RECAPTCHA */
+.captchaWrap {
+  margin-bottom: 1.5rem;
+}
+
+/* Scaled devices Responsiveness */
 @media (max-width: 1536px) {
   .container {
     padding: 5rem 3rem;
@@ -374,7 +437,8 @@
     padding: 1rem;
   }
 }
-/* Tablet Responsivness */
+
+/* Tablet Responsiveness */
 @media (max-width: 1024px) {
   .container {
     padding: 4rem 2rem;
@@ -407,7 +471,8 @@
     width: 100%;
   }
 }
-/* Mobile Responsivness */
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .container {
     padding: 3rem 1.5rem;
@@ -484,7 +549,14 @@
     width: 0.75rem;
     height: auto;
   }
-
+  .fileLabel {
+    height: 40px;
+    font-size: 0.7rem;
+    border-radius: 7px;
+  }
+  .fileIcon {
+    top: 0.875rem;
+  }
   .card {
     padding: 1rem;
     border-radius: 1rem;
@@ -497,5 +569,9 @@
   }
   .map {
     border-radius: 1rem;
+  }
+  .captchaWrap {
+    transform: scale(0.88);
+    transform-origin: left center;
   }
 }

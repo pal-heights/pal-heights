@@ -10,40 +10,72 @@ import {
   Briefcase,
   MessageSquare,
   Upload,
+  Loader2,
 } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./CareerSection.module.css";
 import toast from "react-hot-toast";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Errors = {
-  name?: string;
-  email?: string;
-  phone?: string;
-  position?: string;
-  resume?: string;
+// ── Types ──────────────────────────────────────────────────────────────────────
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  position: string;
+  resume: File | null;
+  message: string;
 };
 
-const errorToast = {
-  style: {
-    background: "#7f1d1d",
-    color: "#fff",
-    borderRadius: "8px",
-    fontSize: "14px",
+type Errors = Partial<Record<keyof FormState | "captcha", string>>;
+
+// ── Toast presets ──────────────────────────────────────────────────────────────
+const toastStyle = {
+  error: {
+    style: {
+      background: "#7f1d1d",
+      color: "#fff",
+      borderRadius: "8px",
+      fontSize: "14px",
+    },
+  },
+  success: {
+    style: {
+      background: "#14532d",
+      color: "#fff",
+      borderRadius: "8px",
+      fontSize: "14px",
+    },
   },
 };
 
-const successToast = {
-  style: {
-    background: "#14532d",
-    color: "#fff",
-    borderRadius: "8px",
-    fontSize: "14px",
-  },
+// ── Constants ──────────────────────────────────────────────────────────────────
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
+const ALLOWED_MIME = [
+  "application/pdf",
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+];
+const ALLOWED_LABEL = "PDF, JPG, PNG or WEBP · Max 2 MB";
+
+const EMPTY_FORM: FormState = {
+  name: "",
+  email: "",
+  phone: "",
+  position: "",
+  resume: null,
+  message: "",
 };
 
-export default function ContactSection() {
+// ── Component ──────────────────────────────────────────────────────────────────
+export default function CareerSection() {
+  const [form, setForm] = useState<FormState>(EMPTY_FORM);
+  const [errors, setErrors] = useState<Errors>({});
   const [loading, setLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const kickerRef = useRef<HTMLSpanElement | null>(null);
@@ -52,24 +84,10 @@ export default function ContactSection() {
   const rightLineRef = useRef<HTMLSpanElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
   const actionsRef = useRef<HTMLDivElement | null>(null);
-
   const fileRef = useRef<HTMLInputElement | null>(null);
+  const captchaRef = useRef<ReCAPTCHA | null>(null);
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "other",
-    position: "",
-    resume: null as File | null,
-    message: "",
-  });
-
-  const [errors, setErrors] = useState<Errors>({});
-
-  /* ----------------------------------------
-     SCROLL ENTRANCE ANIMATION
-  ---------------------------------------- */
+  // ── Scroll entrance animation ────────────────────────────────────────────────
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -80,22 +98,12 @@ export default function ContactSection() {
         },
       });
 
-      tl.from(kickerRef.current, {
-        y: 50,
-        duration: 0.6,
-        ease: "power3.out",
-      })
-
+      tl.from(kickerRef.current, { y: 50, duration: 0.6, ease: "power3.out" })
         .from(
           titleRef.current?.querySelectorAll("span") || [],
-          {
-            y: 80,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          "-=0.3"
+          { y: 80, duration: 0.8, ease: "power3.out" },
+          "-=0.3",
         )
-
         .from(
           leftLineRef.current,
           {
@@ -104,7 +112,7 @@ export default function ContactSection() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.45"
+          "-=0.45",
         )
         .from(
           rightLineRef.current,
@@ -114,12 +122,11 @@ export default function ContactSection() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "<"
+          "<",
         )
-
         .from(
           formRef.current?.querySelectorAll(
-            `.${styles.field}, .${styles.fileField}, .${styles.textareaField}`
+            `.${styles.field}, .${styles.fileField}, .${styles.textareaField}`,
           ) || [],
           {
             y: 40,
@@ -128,9 +135,8 @@ export default function ContactSection() {
             ease: "power3.out",
             stagger: 0.1,
           },
-          "-=0.2"
+          "-=0.2",
         )
-
         .from(
           actionsRef.current,
           {
@@ -139,51 +145,46 @@ export default function ContactSection() {
             duration: 0.45,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  /* ----------------------------------------
-     FORM LOGIC (UNCHANGED)
-  ---------------------------------------- */
-  const validate = () => {
-    const next: Errors = {};
-    if (form.name.trim().length < 2) next.name = "Please enter your full name";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      next.email = "Please enter a valid email address";
-    if (!/^\d{10,15}$/.test(form.phone.replace(/\D/g, "")))
-      next.phone = "Please enter a valid phone number";
-    if (!form.position.trim()) next.position = "Position is required";
-    if (!form.resume) next.resume = "Resume is required";
-    setErrors(next);
-    return Object.keys(next).length === 0;
+  // ── File change handler ──────────────────────────────────────────────────────
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] ?? null;
+    setForm((prev) => ({ ...prev, resume: file }));
+
+    if (!file) return;
+
+    if (!ALLOWED_MIME.includes(file.type)) {
+      setErrors((prev) => ({
+        ...prev,
+        resume: "Invalid file type. Only PDF, JPG, PNG or WEBP allowed.",
+      }));
+    } else if (file.size > MAX_FILE_SIZE) {
+      setErrors((prev) => ({
+        ...prev,
+        resume: "File size must be under 2 MB.",
+      }));
+    } else {
+      setErrors((prev) => ({ ...prev, resume: undefined }));
+    }
   };
 
-  const validateResume = (file: File | null) => {
-    if (!file) return "Resume is required";
-
-    const allowedTypes = [
-      "application/pdf",
-      "image/jpeg",
-      "image/png",
-      "image/webp",
-    ];
-
-    if (!allowedTypes.includes(file.type)) {
-      return "Only PDF or image files are allowed";
-    }
-
-    if (file.size > 2 * 1024 * 1024) {
-      return "File size must be under 2MB";
-    }
-
-    return null;
+  // ── Reset ────────────────────────────────────────────────────────────────────
+  const resetForm = () => {
+    setForm(EMPTY_FORM);
+    setErrors({});
+    setCaptchaToken(null);
+    captchaRef.current?.reset();
+    if (fileRef.current) fileRef.current.value = "";
   };
 
-  const validateForm = () => {
+  // ── Validation ───────────────────────────────────────────────────────────────
+  const validateForm = (): boolean => {
     const next: Errors = {};
 
     if (form.name.trim().length < 2) next.name = "Please enter your full name";
@@ -196,13 +197,21 @@ export default function ContactSection() {
 
     if (!form.position.trim()) next.position = "Position is required";
 
-    const resumeError = validateResume(form.resume);
-    if (resumeError) next.resume = resumeError;
+    if (!form.resume) {
+      next.resume = "Resume is required";
+    } else if (!ALLOWED_MIME.includes(form.resume.type)) {
+      next.resume = "Invalid file type. Only PDF, JPG, PNG or WEBP allowed.";
+    } else if (form.resume.size > MAX_FILE_SIZE) {
+      next.resume = "File size must be under 2 MB.";
+    }
+
+    if (!captchaToken) next.captcha = "Please complete the reCAPTCHA";
 
     setErrors(next);
     return Object.keys(next).length === 0;
   };
 
+  // ── Submit ───────────────────────────────────────────────────────────────────
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -210,49 +219,38 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      const formData = new FormData();
-
-      formData.append("name", form.name);
-      formData.append("email", form.email);
-      formData.append("phone", form.phone);
-      formData.append("position", form.position);
-      formData.append("message", form.message);
-
-      if (form.resume) {
-        formData.append("resume", form.resume);
-      }
+      const fd = new FormData();
+      fd.append("name", form.name);
+      fd.append("email", form.email);
+      fd.append("phone", form.phone);
+      fd.append("position", form.position);
+      fd.append("message", form.message);
+      fd.append("captchaToken", captchaToken!);
+      if (form.resume) fd.append("resume", form.resume);
 
       const res = await fetch("/api/forms/career", {
         method: "POST",
-        body: formData,
+        body: fd,
       });
-
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.error || "Submission failed");
-      }
+      if (!res.ok) throw new Error(data.error || "Submission failed");
 
-      toast.success("Application submitted successfully", successToast);
-
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        service: "other",
-        position: "",
-        resume: null,
-        message: "",
-      });
-
-      setErrors({});
-    } catch (err: any) {
-      toast.error(err.message || "Something went wrong", errorToast);
+      toast.success("Application submitted successfully!", toastStyle.success);
+      resetForm();
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Something went wrong";
+      toast.error(message, toastStyle.error);
+      // Reset captcha on failure so user can retry
+      captchaRef.current?.reset();
+      setCaptchaToken(null);
     } finally {
       setLoading(false);
     }
   };
 
+  // ── Render ───────────────────────────────────────────────────────────────────
   return (
     <section
       ref={sectionRef}
@@ -267,7 +265,6 @@ export default function ContactSection() {
               APPLICATION FORM
             </span>
           </div>
-
           <div className={styles.titleRow}>
             <span ref={leftLineRef} className={styles.line} />
             <h2 ref={titleRef} className={styles.title}>
@@ -279,13 +276,20 @@ export default function ContactSection() {
         </div>
 
         {/* FORM */}
-        <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
+        <form
+          ref={formRef}
+          className={styles.form}
+          onSubmit={handleSubmit}
+          noValidate
+        >
           {/* NAME */}
           <div className={`${styles.field} ${errors.name ? styles.error : ""}`}>
             <User size={18} className={styles.svg} />
             <input
+              type="text"
               placeholder="Full Name"
               value={form.name}
+              disabled={loading}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
             {errors.name && (
@@ -299,8 +303,10 @@ export default function ContactSection() {
           >
             <Mail size={18} className={styles.svg} />
             <input
+              type="email"
               placeholder="Email Address"
               value={form.email}
+              disabled={loading}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
             {errors.email && (
@@ -314,8 +320,11 @@ export default function ContactSection() {
           >
             <Phone size={18} className={styles.svg} />
             <input
+              type="tel"
               placeholder="Phone Number"
+              defaultValue={+91}
               value={form.phone}
+              disabled={loading}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
             {errors.phone && (
@@ -325,14 +334,14 @@ export default function ContactSection() {
 
           {/* POSITION */}
           <div
-            className={`${styles.field} ${styles.positionField} ${
-              errors.position ? styles.error : ""
-            }`}
+            className={`${styles.field} ${styles.positionField} ${errors.position ? styles.error : ""}`}
           >
             <Briefcase size={18} className={styles.svg} />
             <input
+              type="text"
               placeholder="Position Applying For"
               value={form.position}
+              disabled={loading}
               onChange={(e) => setForm({ ...form, position: e.target.value })}
             />
             {errors.position && (
@@ -342,29 +351,29 @@ export default function ContactSection() {
 
           {/* RESUME */}
           <div
-            className={`${styles.fileField} ${
-              errors.resume ? styles.error : ""
-            }`}
+            className={`${styles.fileField} ${errors.resume ? styles.error : ""}`}
           >
             <Upload size={18} className={styles.fileIcon} />
             <input
               ref={fileRef}
               type="file"
               className={styles.fileInput}
-              accept=".pdf,image/jpeg,image/png,image/webp"
-              onChange={(e) =>
-                setForm({ ...form, resume: e.target.files?.[0] || null })
-              }
+              accept=".pdf,.jpg,.jpeg,.png,.webp"
+              disabled={loading}
+              onChange={handleFileChange}
             />
             <button
               type="button"
               className={styles.fileLabel}
+              disabled={loading}
               onClick={() => fileRef.current?.click()}
             >
               {form.resume ? form.resume.name : "Upload Your Resume"}
             </button>
+            {/* hint and error on separate rows, never overlapping */}
+            <span className={styles.fileHint}>{ALLOWED_LABEL}</span>
             {errors.resume && (
-              <span className={styles.errorText}>{errors.resume}</span>
+              <span className={styles.fileError}>{errors.resume}</span>
             )}
           </div>
 
@@ -375,31 +384,52 @@ export default function ContactSection() {
               placeholder="Why are you a good fit for this position?"
               maxLength={300}
               value={form.message}
+              disabled={loading}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
             <span className={styles.charCount}>{form.message.length}/300</span>
           </div>
 
+          {/* RECAPTCHA */}
+          <div className={styles.captchaWrap}>
+            <ReCAPTCHA
+              ref={captchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              onChange={(token) => {
+                setCaptchaToken(token);
+                if (token)
+                  setErrors((prev) => ({ ...prev, captcha: undefined }));
+              }}
+              onExpired={() => {
+                setCaptchaToken(null);
+                setErrors((prev) => ({
+                  ...prev,
+                  captcha: "reCAPTCHA expired, please verify again",
+                }));
+              }}
+            />
+            {errors.captcha && (
+              <span className={styles.errorText}>{errors.captcha}</span>
+            )}
+          </div>
+
+          {/* ACTIONS */}
           <div ref={actionsRef} className={styles.actions}>
             <button type="submit" disabled={loading} className={styles.submit}>
-              {loading ? "Submitting..." : "Submit"}
+              {loading ? (
+                <>
+                  <Loader2 size={16} className={styles.spinner} />
+                  Submitting…
+                </>
+              ) : (
+                "Submit Application"
+              )}
             </button>
             <button
-              type="reset"
+              type="button"
               disabled={loading}
               className={styles.cancel}
-              onClick={() => {
-                setForm({
-                  name: "",
-                  email: "",
-                  phone: "",
-                  service: "other",
-                  position: "",
-                  resume: null,
-                  message: "",
-                });
-                setErrors({});
-              }}
+              onClick={resetForm}
             >
               Clear
             </button>

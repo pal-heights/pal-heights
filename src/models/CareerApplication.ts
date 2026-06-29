@@ -31,12 +31,13 @@ const CareerApplicationSchema = new Schema(
       maxlength: 1000,
     },
     resume: {
-      filename: String,
-      mimetype: String,
-      size: Number,
+      filename: { type: String, required: true }, // original file name
+      mimetype: { type: String, required: true },
+      size: { type: Number, required: true }, // in bytes
+      key: { type: String, required: true }, // R2 path e.g. Applicants/uuid.webp
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: "applicants" },
 );
 
 export default models.CareerApplication ||
