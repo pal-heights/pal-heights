@@ -62,6 +62,7 @@ export default function Footer() {
                     >
                       <img
                         src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/tripadvisor.png"
+                        alt="Trip Advisor icon"
                         className={`${styles.socialIcon} ${styles.socialIconImage}`}
                       />
                     </a>
@@ -85,6 +86,7 @@ export default function Footer() {
                     >
                       <img
                         src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/tripadvisor.png"
+                        alt="Trip advisor icon"
                         className={`${styles.socialIcon} ${styles.socialIconImage}`}
                       />
                     </a>

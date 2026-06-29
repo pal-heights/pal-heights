@@ -217,7 +217,7 @@ export default function DiscoverRooms() {
               <div className={styles.overlay}></div>
               <img
                 src={current.images[1].src}
-                alt={current.images[0].label}
+                alt={current.images[1].label}
                 data-lightbox
               />
               {/* <span className={styles.label}>{current.images[1].label}</span> */}

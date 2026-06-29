@@ -208,13 +208,21 @@ export default function DiscoverRooms() {
           <div className={styles.topRow}>
             <div className={styles.leftTall}>
               <div className={styles.overlay}></div>
-              <img src={current.images[0].src} alt="" data-lightbox />
+              <img
+                src={current.images[0].src}
+                alt={current.images[0].label}
+                data-lightbox
+              />
               {/* <span className={styles.label}>{current.images[0].label}</span> */}
             </div>
 
             <div className={styles.rightLarge}>
               <div className={styles.overlay}></div>
-              <img src={current.images[1].src} alt="" data-lightbox />
+              <img
+                src={current.images[1].src}
+                alt={current.images[1].label}
+                data-lightbox
+              />
               {/* <span className={styles.label}>{current.images[1].label}</span> */}
             </div>
           </div>
@@ -223,7 +231,7 @@ export default function DiscoverRooms() {
             {current.images.slice(2).map((img, i) => (
               <div key={i} className={styles.smallImage}>
                 <div className={styles.overlay}></div>
-                <img src={img.src} alt="" data-lightbox />
+                <img src={img.src} alt={img.label} data-lightbox />
                 {/* <span className={styles.label}>{img.label}</span> */}
               </div>
             ))}
