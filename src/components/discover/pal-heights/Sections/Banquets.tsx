@@ -16,10 +16,6 @@ const SLIDES = [
   },
   {
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-23.jpg",
-  },
-  {
-    image:
       "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights/image-24.jpg",
   },
   {
