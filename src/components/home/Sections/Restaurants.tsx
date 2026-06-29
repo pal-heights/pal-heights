@@ -54,6 +54,17 @@ const RESTAURANTS_DATA = [
       "Rooted in the rustic charm of North Indian highways, Pind Da Dhaba celebrates hearty Punjabi flavours and authentic cooking traditions. Warm, bold and soulful, it brings the spirit of a lively dhaba to your dining experience.",
     link: "https://api.whatsapp.com/send/?phone=918342000662&text&type=phone_number&app_absent=0",
   },
+  {
+    id: 5,
+    name: "Courtyard",
+    images: [
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/Restaurent-Courtyard-1.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/Restaurent-Courtyard-2.jpg",
+    ],
+    description:
+      "Courtyard, the best restaurant in Bhubaneswar and Cuttack, offers a fine-dining experience that transports you to the realms of European architecture and charm. Impeccably decorated to perfection, Courtyard sets the stage for an unforgettable culinary journey.",
+    link: "https://api.whatsapp.com/send/?phone=918342000662&text&type=phone_number&app_absent=0",
+  },
 ];
 
 const RotatingImage = ({
