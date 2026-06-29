@@ -41,7 +41,6 @@ export default function FooterCTA() {
         },
         body: JSON.stringify({
           email,
-          verified: false,
         }),
       });
 
