@@ -79,6 +79,8 @@ export default function ExperiencesSlider() {
   /* =========================
      Heading Refs
   ========================== */
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const activeCardRef = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const kickerRef = useRef<HTMLSpanElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
@@ -150,6 +152,29 @@ export default function ExperiencesSlider() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const card = activeCardRef.current;
+    if (!section || !card) return;
+
+    const setNavHeight = () => {
+      const height = card.offsetHeight;
+      if (!height) return;
+      section.style.setProperty("--nav-height", `${height}px`);
+    };
+
+    setNavHeight();
+
+    const resizeObserver = new ResizeObserver(setNavHeight);
+    resizeObserver.observe(card);
+    window.addEventListener("resize", setNavHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", setNavHeight);
+    };
+  }, [current]);
+
   const prev = (current - 1 + slides.length) % slides.length;
   const next = (current + 1) % slides.length;
 
@@ -180,7 +205,7 @@ export default function ExperiencesSlider() {
           <span ref={rightLineRef} className={styles.line} />
         </div>
       </div>
-      <div className={styles.section}>
+      <div ref={sectionRef} className={styles.section}>
         {/* LEFT NAV */}
         <button
           className={`${styles.nav} ${styles.left}`}
@@ -198,6 +223,7 @@ export default function ExperiencesSlider() {
           {slides.map((slide, i) => (
             <div
               key={i}
+              ref={i === current ? activeCardRef : undefined}
               className={`${styles.card} ${i === current ? styles.active : ""}`}
             >
               <div className={styles.imageWrap}>
@@ -210,7 +236,7 @@ export default function ExperiencesSlider() {
                   <p>{slide.description}</p>
                 </div>
 
-                <a href="#" className={styles.more} data-cursor="hover">
+                <a href="/contact" className={styles.more} data-cursor="hover">
                   More <ArrowRight size={16} />
                 </a>
               </div>
