@@ -20,14 +20,18 @@ export default function Hero() {
             </div>
 
             <p className={styles.paragraph}>
-              For us, hospitality is about making you feel comfortable, from the
-              moment you arrive.
+              Pal Group of Hotels & Resorts stands as a beacon of exceptional
+              hospitality in Bhubaneswar, offering a perfect blend of luxury,
+              comfort and personalized service. Recognized among the city's
+              premier hospitality brands, we are committed to creating memorable
+              experiences for every guest through world-class amenities,
+              impeccable service and warm hospitality.
             </p>
             <p className={styles.paragraph}>
-              At Pal Group, we create spaces that feel warm, open, and easy to
-              be in. Our service is friendly and thoughtful, never formal. We
-              believe the little things matter, and we want you to feel relaxed,
-              cared for, and at home long after your stay.
+              The word "PAL" means friend or close companion and this philosophy
+              forms the foundation of our hospitality culture. We believe in
+              building lifelong relationships with our guests by treating them
+              with genuine care, sincerity and attention to detail.
             </p>
           </div>
 

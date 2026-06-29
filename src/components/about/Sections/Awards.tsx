@@ -9,6 +9,11 @@ import styles from "./Awards.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const IMAGES = [
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/new--award-1.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/new--award-2.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/new--award-3.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/new--award-4.jpeg",
+  "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/new--award-5.jpeg",
   "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-1.jpeg",
   "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-2.jpeg",
   "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/About%20Us/image-3.jpeg",
@@ -121,11 +126,10 @@ export default function Awards() {
         <div ref={gridRef} className={styles.grid}>
           {IMAGES.map((src, i) => (
             <div key={i} className={styles.imageBox} data-cursor-theme="light">
-              <Image
+              <img
                 src={src}
                 data-lightbox
                 alt={`Award ${i + 1}`}
-                fill
                 className={styles.image}
               />
             </div>

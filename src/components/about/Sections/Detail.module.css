@@ -7,8 +7,7 @@
 .container {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 12rem 6rem 6rem;
-  /* height: 82rem; */
+  padding: 10rem 6rem 6rem;
 }
 
 /* MAIN 2-COLUMN LAYOUT */
@@ -24,25 +23,27 @@
 .leftCol {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
   height: 100%;
 }
 
-/* TEXT BLOCK */
 .header {
-  max-width: 70rem;
-  /* margin-bottom: 2rem; */
+  max-width: 75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Generous spacing between content blocks */
 }
 
 /* KICKER */
 .kicker {
   display: block;
   font-family: var(--font-allcaps);
-  font-weight: 400;
-  font-size: 1rem; /* 16px */
-  line-height: 1.5625rem; /* 25px */
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
   text-align: left;
   color: var(--pal-brown);
+  text-transform: uppercase;
 }
 
 .kickerWrap {
@@ -60,16 +61,16 @@
 .headingRow {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 .heading {
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: 2.8125rem; /* 45px */
-  line-height: 3.5rem; /* 52px */
-  letter-spacing: 0.02em;
+  font-size: 2.5rem; /* Slightly pulled back for premium editorial look */
+  line-height: 1.3;
+  letter-spacing: -0.01em;
   color: var(--pal-brown);
   white-space: nowrap;
 }
@@ -77,19 +78,27 @@
 .line {
   flex: 1;
   height: 1px;
-  max-width: 6.5rem;
+  max-width: 8rem;
   background-color: var(--pal-brown);
-  opacity: 0.4;
+  opacity: 0.3;
+}
+
+/* TEXT GROUP */
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Beautiful paragraph pacing */
 }
 
 /* PARAGRAPH */
 .paragraph {
   font-family: var(--font-paragraph);
   font-weight: 400;
-  font-size: 1.125rem; /* 18px */
-  line-height: 1;
-  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  line-height: 1.75; /* FIXED: Crucial for reading comfort and luxury feel */
+  letter-spacing: 0.01em;
   color: var(--pal-grey);
+  opacity: 0.9;
 }
 
 /* LEFT BOTTOM IMAGES (2 COLS) */
@@ -118,97 +127,58 @@
   object-fit: cover;
 }
 
-/* Scaled devices Responsivness */
+/* Scaled devices Responsiveness */
 @media (max-width: 1536px) {
   .container {
-    /* height: 70rem; */
-    padding: 8rem 3rem 5rem;
+    padding: 8rem 4rem 5rem;
   }
-  .kicker {
-    line-height: 1.4rem;
-    font-size: 0.75rem;
-    margin-bottom: 0rem;
+  .header {
+    gap: 2rem;
   }
   .heading {
     font-size: 2.2rem;
-    line-height: 2.7rem;
-  }
-  .header {
-    max-width: 40rem;
-    margin-bottom: 2rem;
-  }
-  .layout {
-    gap: 1rem;
-  }
-  .leftCol {
-    gap: 1rem;
-  }
-  .line {
-    opacity: 0.6;
   }
   .paragraph {
-    font-size: 0.9rem;
-  }
-  .bottomImages {
-    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 }
-/* Tablet Responsivness */
+
+/* Tablet Responsiveness */
 @media (max-width: 1024px) {
   .container {
-    /* height: 50rem; */
-    padding: 4rem 2rem;
+    padding: 5rem 2.5rem;
   }
   .header {
-    margin-bottom: 1.75rem;
-  }
-  .kicker {
-    line-height: 0.875rem;
-    font-size: 0.575rem;
-  }
-  .kickerWrap {
-    margin-bottom: 0.875rem;
+    gap: 1.75rem;
   }
   .headingRow {
-    margin-bottom: 0.75rem;
+    gap: 1.5rem;
   }
   .line {
-    max-width: 3.5rem;
+    max-width: 4rem;
   }
   .heading {
     font-size: 1.8rem;
-    line-height: 2.25rem;
-  }
-  .paragraph {
-    font-size: 0.9rem;
   }
 }
-/* Mobile Responsivness */
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .container {
-    /* height: 60rem; */
-    padding: 3rem 1.5rem;
-  }
-  .layout {
-    display: flex;
-    flex-direction: column;
+    padding: 4rem 1.5rem;
   }
   .header {
-    margin-bottom: 1rem;
-  }
-  .kicker {
-    font-size: 0.575rem;
-    margin-bottom: 0rem;
-  }
-  .line {
-    max-width: 2.5rem;
+    gap: 1.5rem;
   }
   .headingRow {
-    gap: 0.5rem;
-    margin-bottom: 0.875rem;
+    gap: 1rem;
+  }
+  .line {
+    display: none; /* Hide line on small viewports to give text room to shine */
   }
   .heading {
-    white-space: wrap;
-    font-size: 1.7rem;
+    white-space: normal;
+    font-size: 1.6rem;
   }
 }

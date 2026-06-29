@@ -11,9 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function DetailSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const kickerRef = useRef<HTMLSpanElement | null>(null);
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
-  const lineRef = useRef<HTMLSpanElement | null>(null);
-  const paragraphRef = useRef<HTMLParagraphElement | null>(null);
   const bottomImagesRef = useRef<HTMLDivElement | null>(null);
   const rightImageRef = useRef<HTMLDivElement | null>(null);
 
@@ -27,38 +24,48 @@ export default function DetailSection() {
         },
       });
 
-      tl.from(kickerRef.current, {
-        y: 50,
-        duration: 0.6,
-        ease: "power3.out",
-      })
+      // Animate kicker if active
+      if (kickerRef.current) {
+        tl.from(kickerRef.current, {
+          y: 50,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+
+      // Target all headings, lines, and paragraphs dynamically inside the container
+      tl.from(
+        `.${styles.heading}`,
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 0.7,
+          ease: "power3.out",
+        },
+        "-=0.3",
+      )
         .from(
-          headingRef.current,
-          {
-            y: 70,
-            duration: 0.7,
-            ease: "power3.out",
-          },
-          "-=0.3",
-        )
-        .from(
-          lineRef.current,
+          `.${styles.line}`,
           {
             scaleX: 0,
             transformOrigin: "left center",
+            stagger: 0.15,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.5",
+        )
+        .from(
+          `.${styles.paragraph}`,
+          {
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
             duration: 0.6,
             ease: "power3.out",
           },
           "-=0.4",
-        )
-        .from(
-          paragraphRef.current,
-          {
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.out",
-          },
-          "-=0.35",
         )
         .from(
           bottomImagesRef.current?.children || [],
@@ -98,37 +105,109 @@ export default function DetailSection() {
           {/* LEFT COLUMN */}
           <div className={styles.leftCol}>
             <div className={styles.header}>
-              <div className={styles.kickerWrap}>
+              {/* <div className={styles.kickerWrap}>
                 <span ref={kickerRef} className={styles.kicker}>
-                  WHERE EVERY DETAIL CREATES A LASTING MEMORY
+                  OUR JOURNEY
                 </span>
+              </div> */}
+
+              <div className={styles.headingRow}>
+                <span className={styles.headingWrap}>
+                  <h2 className={styles.heading}>Our Journey</h2>
+                </span>
+                <span className={styles.line} />
+              </div>
+
+              <div className={styles.textGroup}>
+                <p className={styles.paragraph}>
+                  Pal Heights was born in 2001 with a small restaurant that
+                  introduced authentic North Indian and Chinese cuisine to the
+                  people of Bhubaneswar. Encouraged by the overwhelming response
+                  and trust of our patrons, we expanded our horizons. In 2005 we
+                  established one of the largest convention facilities in
+                  Bhubaneswar.
+                </p>
+                <p className={styles.paragraph}>
+                  In 2008 we launched our first shopping arcade and hotel. Then
+                  came World Baker, the premium Bakery outlet which is the best
+                  feather of our cap as it has always a tempting story to tell.
+                </p>
+                <p className={styles.paragraph}>
+                  Flight catering with precision and discipline is our pride
+                  which caters to 85% flights of Bhubaneswar including
+                  International.
+                </p>
+                <p className={styles.paragraph}>
+                  Hotel Pal Heights is located at the heart of the city center,
+                  is 6 kms from airport and 3 kms from railway station and
+                  kalinga stadium the sports hub is our next neighbour.
+                </p>
+              </div>
+
+              <div className={styles.textGroup}>
+                <p className={styles.paragraph}>
+                  Pal Heights Mantra, born in 2017, our second resort property
+                  boasts of the most popular cuisine and mouth watering food
+                  with quality. Sandwiched between Bhubaneswar and cuttack it
+                  draws a straight road of about 55km to the PURI beach.
+                </p>
+                <p className={styles.paragraph}>
+                  The reciepe of success of Pal Heights Mantra is the 5 star
+                  rated Pind Da Dhaba alongwith an english restaurant named
+                  Courtyard offering mouth watering authentic north Indian and
+                  Pan Asian cusine.
+                </p>
+                <p className={styles.paragraph}>
+                  Over the years, Pal Group has evolved into one of Odisha's
+                  most respected hospitality groups, known for excellence in
+                  accommodation, dining, events, and guest services.
+                </p>
               </div>
 
               <div className={styles.headingRow}>
                 <span className={styles.headingWrap}>
-                  <h2 ref={headingRef} className={styles.heading}>
-                    Rooted in Craft, Guided by Time
+                  <h2 className={styles.heading}>
+                    Exceptional Hospitality & Experiences
                   </h2>
                 </span>
-                <span ref={lineRef} className={styles.line} />
+                <span className={styles.line} />
               </div>
 
-              <p ref={paragraphRef} className={styles.paragraph}>
-                ROOTED IN CRAFT, GUIDED BY TIME- What began with Inside China
-                Restaurant, has grown into one of Odisha's most celebrated
-                hospitality brands. From the landmark presence of Pal Heights to
-                the contemporary charm of Pal Heights Mantra, every chapter has
-                been built on exceptional experiences and warm hospitality. As
-                we expand with our upcoming Beachfront Resort in Puri, the
-                journey continues, creating destinations that guests love to
-                return to.
-              </p>
+              <div className={styles.textGroup}>
+                <p className={styles.paragraph}>
+                  Whether you are visiting for business, leisure, celebrations
+                  or corporate events, we deliver an unmatched hospitality
+                  experience. Our luxurious accommodations, diverse culinary
+                  offerings, elegant banquet facilities, and modern conference
+                  venues cater to every requirement with perfection.
+                </p>
+                <p className={styles.paragraph}>
+                  Our banquet and conference facilities are among the finest in
+                  the Twin Cities, making Pal a preferred destination for
+                  weddings, social gatherings, corporate meetings, MICE and
+                  special celebrations.
+                </p>
+                <p className={styles.paragraph}>
+                  At Pal Group of Hotels & Resorts, we go beyond expectations to
+                  ensure every guest enjoys comfort, elegance and personalized
+                  service. From luxury stays to exceptional dining experiences,
+                  our commitment remains unwavering—creating lasting memories
+                  and friendships that endure for a lifetime.
+                </p>
+                <p className={styles.paragraph}>
+                  Pal Group of Hotels & Resorts Where Hospitality Creates
+                  Friends for Life is gearing up for the new 5 star deluxe
+                  resort in PURI beach to go live shortly. We are looking to
+                  make you and your company our next friend which basically
+                  means PAL.
+                </p>
+              </div>
             </div>
 
             {/* <div ref={bottomImagesRef} className={styles.bottomImages}>
               <div className={styles.imageBox} data-cursor-theme="light">
-                <Image
-                  src="/about/small-left.jpg"
+              <Image
+              src="/about/small-left.jpg"
                   data-lightbox
                   alt=""
                   fill

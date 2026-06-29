@@ -2,16 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Globe,
-  Dribbble,
-  MessageCircle,
-  Twitch,
-} from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -146,13 +137,21 @@ export default function Connect() {
             >
               <Facebook {...ICON_PROPS} />
             </a>
+            <a
+              className={styles.icon}
+              href="https://www.instagram.com/palmantrahotel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              aria-label="Pal Heights Mantra Instagram"
+              data-cursor="hover"
+            >
+              <Instagram {...ICON_PROPS} />
+            </a>
           </div>
         </div>
 
         {/* RIGHT IMAGE */}
         <div ref={imageRef} className={styles.imageWrapper}>
           <Image
-            src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Connect/image-1.webp"
+            src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Connect/connect.jpg"
             data-lightbox
             alt="Pal Heights Interior"
             fill
