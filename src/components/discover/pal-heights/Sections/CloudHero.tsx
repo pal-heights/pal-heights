@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Play, Pause } from "lucide-react";
 import styles from "./Hero.module.css";
 
@@ -8,16 +8,86 @@ export default function Hero() {
   const playerRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [supportsHover, setSupportsHover] = useState(true);
+  const [showIcon, setShowIcon] = useState(true);
+  const timeoutRef = useRef<number | null>(null);
+
+  const clearHideTimeout = () => {
+    if (timeoutRef.current !== null) {
+      window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    const query = window.matchMedia("(hover: hover)");
+    const updateHoverSupport = () => setSupportsHover(query.matches);
+
+    updateHoverSupport();
+    if (query.addEventListener) {
+      query.addEventListener("change", updateHoverSupport);
+    } else {
+      query.addListener(updateHoverSupport);
+    }
+
+    return () => {
+      if (query.removeEventListener) {
+        query.removeEventListener("change", updateHoverSupport);
+      } else {
+        query.removeListener(updateHoverSupport);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    clearHideTimeout();
+
+    if (supportsHover) {
+      setShowIcon(!isPlaying || isHovering);
+      return;
+    }
+
+    if (!isPlaying) {
+      setShowIcon(true);
+      return;
+    }
+
+    if (showIcon) {
+      timeoutRef.current = window.setTimeout(() => {
+        setShowIcon(false);
+        timeoutRef.current = null;
+      }, 2000);
+    }
+
+    return () => clearHideTimeout();
+  }, [supportsHover, isPlaying, isHovering, showIcon]);
+
+  useEffect(() => {
+    return () => clearHideTimeout();
+  }, []);
+
+  const playVideo = () => {
+    if (!playerRef.current) return;
+    playerRef.current.play();
+    setIsPlaying(true);
+    setShowIcon(true);
+  };
+
+  const pauseVideo = () => {
+    if (!playerRef.current) return;
+    playerRef.current.pause();
+    setIsPlaying(false);
+    setShowIcon(true);
+    clearHideTimeout();
+  };
 
   const togglePlay = () => {
     if (!playerRef.current) return;
 
     if (isPlaying) {
-      playerRef.current.pause();
-      setIsPlaying(false);
+      pauseVideo();
     } else {
-      playerRef.current.play();
-      setIsPlaying(true);
+      playVideo();
     }
   };
 
@@ -80,14 +150,21 @@ export default function Hero() {
               loop
               muted
               playsInline
+              onClick={() => {
+                if (!supportsHover && isPlaying && !showIcon) {
+                  setShowIcon(true);
+                  return;
+                }
+                togglePlay();
+              }}
             />
 
             {/* PLAY BUTTON */}
             <button
               className={`${styles.videoControl} ${
-                !isPlaying ? styles.visible : styles.hidden
+                !isPlaying && showIcon ? styles.visible : styles.hidden
               }`}
-              onClick={togglePlay}
+              onClick={playVideo}
               aria-label="Play video"
             >
               <span className={styles.controlBg}>
@@ -100,9 +177,9 @@ export default function Hero() {
             {/* PAUSE BUTTON */}
             <button
               className={`${styles.videoControl} ${
-                isPlaying && isHovering ? styles.visible : styles.hidden
+                isPlaying && showIcon ? styles.visible : styles.hidden
               }`}
-              onClick={togglePlay}
+              onClick={pauseVideo}
               aria-label="Pause video"
             >
               <span className={styles.controlBg}>
