@@ -2,6 +2,7 @@
 
 import { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import toast from "react-hot-toast";
+import ReCAPTCHA from "react-google-recaptcha";
 import { errorToast, successToast } from "@lib/toast";
 import styles from "./CommentForm.module.css";
 
@@ -27,6 +28,7 @@ interface FormErrors {
   userName?: string;
   userEmail?: string;
   userComment?: string;
+  recaptcha?: string;
 }
 
 export default function CommentForm({
@@ -46,6 +48,7 @@ export default function CommentForm({
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   /* ---------- Load saved credentials ---------- */
   useEffect(() => {
@@ -76,6 +79,10 @@ export default function CommentForm({
 
     if (formData.userComment.trim().length < 10) {
       nextErrors.userComment = "Comment must be at least 10 characters";
+    }
+
+    if (!recaptchaToken) {
+      nextErrors.recaptcha = "Please verify that you are not a robot";
     }
 
     setErrors(nextErrors);
@@ -115,6 +122,7 @@ export default function CommentForm({
           comment: formData.userComment,
           website: formData.website,
           formLoadedAt,
+          recaptchaToken,
         }),
       });
 
@@ -234,6 +242,20 @@ export default function CommentForm({
             onChange={handleChange}
           />
           <label>Save my name and email for next time</label>
+        </div>
+
+        <div className={styles.inputGroup} style={{ marginBottom: "1rem" }}>
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+            onChange={(token) => {
+              setRecaptchaToken(token);
+              if (token)
+                setErrors((prev) => ({ ...prev, recaptcha: undefined }));
+            }}
+          />
+          {errors.recaptcha && (
+            <span className={styles.errorMessage}>{errors.recaptcha}</span>
+          )}
         </div>
 
         <button
