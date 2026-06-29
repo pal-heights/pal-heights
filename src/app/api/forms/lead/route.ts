@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       status: "pending",
       assignedBo: "none",
       trash: false,
-      verified: verified === true ? true : false,
+      verified: true,
     });
 
     return NextResponse.json(

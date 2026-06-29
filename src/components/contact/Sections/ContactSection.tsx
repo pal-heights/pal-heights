@@ -212,7 +212,6 @@ export default function ContactSection() {
           phone: form.phone,
           service: form.service ? [form.service] : [],
           message: form.message,
-          verified: true,
           recaptchaToken,
         }),
       });
