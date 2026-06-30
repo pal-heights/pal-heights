@@ -140,9 +140,6 @@
   .grid {
     gap: 2.5rem;
   }
-  .imageBox {
-    border: 3px solid #9b804e80;
-  }
 }
 /* Tablet Responsivness */
 @media (max-width: 1024px) {
@@ -172,9 +169,6 @@
   .grid {
     padding: 0 4rem;
     gap: 2rem;
-  }
-  .imageBox {
-    border: 2px solid #9b804e80;
   }
 }
 /* Mobile Responsivness */

@@ -111,7 +111,9 @@
 }
 
 .image {
+  aspect-ratio: 16/9;
   object-fit: cover;
+  width: 100%;
 }
 
 /* Scaled devices Responsivness */
@@ -139,9 +141,6 @@
 }
 /* Tablet Responsivness */
 @media (max-width: 1024px) {
-  .section {
-    overflow: hidden;
-  }
   .container {
     gap: 0;
     padding: 4rem 2rem;
@@ -151,22 +150,28 @@
   }
   .kicker {
     font-size: 0.575rem;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0rem;
+    line-height: 1;
   }
   .line {
-    max-width: 3.5rem;
+    max-width: 3rem;
+  }
+
+  .headingRow {
+    margin-bottom: 1.25rem;
   }
   .heading {
     white-space: wrap;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     line-height: 2rem;
   }
   .icons {
     gap: 0.875rem;
   }
   .icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0.2rem;
   }
 }
 /* Mobile Responsivness */
@@ -192,6 +197,8 @@
   .kicker {
     text-align: center;
     font-size: 0.575rem;
+  }
+  .kickerWrap {
     margin-bottom: 0.5rem;
   }
   .line {
@@ -214,5 +221,8 @@
   }
   .image {
     position: relative !important;
+  }
+  .icons {
+    justify-content: center;
   }
 }

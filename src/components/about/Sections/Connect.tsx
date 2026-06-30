@@ -150,12 +150,12 @@ export default function Connect() {
 
         {/* RIGHT IMAGE */}
         <div ref={imageRef} className={styles.imageWrapper}>
-          <Image
+          <img
             src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Connect/connect.jpg"
             data-lightbox
             alt="Pal Heights Interior"
-            fill
-            priority
+            // fill
+            // priority
             className={styles.image}
           />
         </div>

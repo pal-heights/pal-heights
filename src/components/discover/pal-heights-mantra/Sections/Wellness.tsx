@@ -243,7 +243,7 @@ export default function Wellness() {
                 }
                 data-cursor="hover"
               >
-                <Image
+                <img
                   src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-left.png"
                   alt="navigation icon"
                   width={48}
@@ -256,7 +256,7 @@ export default function Wellness() {
                 onClick={() => changeImage((active + 1) % SLIDES.length)}
                 data-cursor="hover"
               >
-                <Image
+                <img
                   src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Site%20Icons/slide-right.png"
                   alt="navigation icon"
                   width={48}

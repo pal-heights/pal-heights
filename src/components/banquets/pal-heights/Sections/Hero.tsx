@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -31,21 +32,30 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.bgWrapper}>
-        <div className={`${styles.bg} ${styles.bgOne}`} />
+        {/* <div className={`${styles.bg} ${styles.bgOne}`} /> */}
+        <Image
+          src="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Banquets%20Pal%20Heights%20Mantra/banquet%20hero.jpg"
+          alt="Pal heights Banquet Hero Image"
+          fill
+          priority
+          quality={100}
+          objectFit="cover"
+          className={styles.bg}
+        />
       </div>
       <div className={styles.inner}>
         <div className={styles.content}>
           <div className={styles.titleWrapper}>
             <span className={styles.visualLine} />
             <h1 ref={headingRef} className={styles.heading}>
-            {/* <div className={styles.mask}>
+              {/* <div className={styles.mask}>
               <div className={styles.line}>A Sense of Space.</div>
             </div> */}
-            <div className={styles.mask}>
-              <div className={styles.line}>Pal Heights Banquets</div>
-            </div>
-          </h1>
-        </div>
+              <div className={styles.mask}>
+                <div className={styles.line}>Pal Heights Banquets</div>
+              </div>
+            </h1>
+          </div>
 
           {/* <p className={styles.paragraph}>
             Stays shaped by proportion, light, and an understanding of what

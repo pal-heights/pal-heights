@@ -175,7 +175,7 @@ export default function BanquetsSlider({
                   <p>{slide.description}</p>
                 </div>
 
-                <a href="#" className={styles.more}>
+                <a href="/contact" className={styles.more}>
                   More <ArrowRight size={16} />
                 </a>
               </div>
