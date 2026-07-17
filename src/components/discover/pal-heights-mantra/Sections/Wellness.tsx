@@ -12,15 +12,19 @@ gsap.registerPlugin(ScrollTrigger);
 const SLIDES = [
   {
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-18.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-9.jpg",
   },
   {
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-19.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Homepage/image-6.jpg",
   },
   {
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-20.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/pool-1.jpg",
+  },
+  {
+    image:
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights/pool-2.jpg",
   },
 ];
 

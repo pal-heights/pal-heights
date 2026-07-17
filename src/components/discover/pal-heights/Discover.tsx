@@ -3,7 +3,7 @@ import SectionOne from "./Sections/DiscoverRooms";
 import SectionTwo from "./Sections/DiscoverRoomsDark";
 import SectionThree from "./Sections/PalSuites";
 import SectionFour from "./Sections/DiningHighlight";
-import SectionFive from "./Sections/Wellness";
+// import SectionFive from "./Sections/Wellness";
 import SectionSix from "./Sections/Gym";
 import SectionSeven from "./Sections/Banquets";
 
@@ -15,7 +15,7 @@ export default function Discover() {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
-      <SectionFive />
+      {/* <SectionFive /> */}
       <SectionSix />
       <SectionSeven />
     </>

@@ -206,16 +206,16 @@ export default function DiningHighlight() {
               >
                 Book Now
               </a>
-              {/* <a
+              <a
                 ref={buttonRef}
-                href="https://wa.me/8342000662"
+                href="https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Dining%20Pal%20Heights%20Mantra/tea-kettle-menu.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
                 data-cursor="hover"
               >
                 Our Menu
-              </a> */}
+              </a>
             </div>
           </div>
 

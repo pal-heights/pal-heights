@@ -23,7 +23,7 @@ const DATA = [
     heroTitle: "Dine In The Best Way",
     title: "Rodeo Bar",
     image:
-      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-17.jpg",
+      "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/rodeobar.jpg",
     desc: "Choose from an extensive menu that boasts of house infusion cocktails; all with a flair that has become Rodeo’s signature style. Contemporary surroundings combined with prim decor create a delightful affair.",
   },
 ];

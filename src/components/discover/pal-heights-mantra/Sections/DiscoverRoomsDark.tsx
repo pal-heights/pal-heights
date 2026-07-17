@@ -16,7 +16,7 @@ const ROOM_SETS = [
       },
       {
         label: "Luxe Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-6.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-9.jpg",
       },
       {
         label: "Premium Room",
@@ -24,7 +24,7 @@ const ROOM_SETS = [
       },
       {
         label: "Master Room",
-        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-9.jpg",
+        src: "https://pub-df2be1f0ac924e4f81cce390b6cc6cee.r2.dev/Discover%20Pal%20Heights%20Mantra/image-6.jpg",
       },
       {
         label: "Family Luxe",

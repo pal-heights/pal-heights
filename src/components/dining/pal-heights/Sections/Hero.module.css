@@ -124,7 +124,7 @@
 /* VIDEO WRAPPER — height-driven so it never crops */
 .videoWrapper {
   position: relative;
-  height: 78vh;
+  /* height: 78vh; */
   width: auto;
   aspect-ratio: 9 / 16;
   max-width: 26rem;
