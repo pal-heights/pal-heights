@@ -5,6 +5,7 @@ import SectionThree from "./Sections/Restaurants";
 // import SectionFour from "./Sections/Products";
 import SectionFive from "./Sections/Blogs";
 import SectionSix from "../sharedSections/VideoTestimonials";
+import Faq from "../sharedSections/Faq";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       {/* <SectionFour /> */}
       <SectionFive />
       <SectionSix />
+      <Faq variant="hotel" />
     </>
   );
 }

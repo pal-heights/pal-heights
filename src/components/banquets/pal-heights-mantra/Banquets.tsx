@@ -8,6 +8,7 @@ import { celebrationSlides } from "./Sections/data2";
 import { invitationSlides } from "./Sections/data3";
 import { cabanaSlides } from "./Sections/data4";
 import styles from "../Banquets.module.css";
+import Faq from "@/components/sharedSections/Faq";
 
 export default function Banquets() {
   return (
@@ -49,6 +50,7 @@ export default function Banquets() {
           titleLine2="Cabana"
         />
         <SectionTwo />
+        <Faq />
       </div>
     </div>
   );

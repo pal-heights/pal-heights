@@ -1,0 +1,274 @@
+/* ─── Section ─────────────────────────────────────────────────────────────── */
+.section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  color: #45443f;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 8rem 6rem 7rem;
+}
+
+/* ─── Section Header (matches Properties / Restaurants pattern) ─────────── */
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.kickerWrapper {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.kicker {
+  display: block;
+  font-family: var(--font-allcaps);
+  font-size: 0.9rem;
+  color: var(--pal-brown);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.line {
+  width: 6rem;
+  height: 2px;
+  background: var(--pal-brown);
+  opacity: 0.6;
+  transform-origin: center;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  color: var(--pal-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+}
+
+.lineInner {
+  display: block;
+  will-change: transform;
+}
+
+.lineInnerAccent {
+  display: block;
+  will-change: transform;
+  font-family: var(--font-small-heading);
+  color: var(--pal-brown);
+}
+
+.headerDesc {
+  margin: 1.5rem auto 0;
+  max-width: 46rem;
+  color: #55544f;
+  font-family: var(--font-paragraph);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ─── Body: two-column for hotel, single for banquets ─────────────────────── */
+.body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5rem;
+}
+
+.bodySingle {
+  grid-template-columns: 1fr;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* ─── Group ────────────────────────────────────────────────────────────────── */
+.group {
+  min-width: 0;
+}
+
+.groupLabel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.groupLabelLine {
+  flex: 1;
+  height: 1px;
+  background: var(--pal-brown);
+  opacity: 0.35;
+}
+
+.groupHeading {
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--font-allcaps);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--pal-brown);
+}
+
+/* ─── Accordion item ───────────────────────────────────────────────────────── */
+.item {
+  border-top: 1px solid rgba(69, 68, 63, 0.18);
+}
+
+.item:last-child {
+  border-bottom: 1px solid rgba(69, 68, 63, 0.18);
+}
+
+.trigger {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-height: 4.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  color: #3a3935;
+  font-family: var(--font-small-heading);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--pal-brown);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.iconWrap {
+  flex-shrink: 0;
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--pal-brown);
+}
+
+.iconWrap::before,
+.iconWrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconWrap::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.iconWrapOpen::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* ─── Animated panel ───────────────────────────────────────────────────────── */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.answer {
+  margin: 0;
+  padding-bottom: 1.25rem;
+  color: #55544f;
+  font-family: var(--font-paragraph);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  padding-right: 2.5rem;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1536px) {
+  .container {
+    padding: 6rem 3rem 5rem;
+  }
+  .sectionTitle {
+    font-size: 2.75rem;
+  }
+  .titleRow {
+    gap: 3rem;
+  }
+  .line {
+    width: 4.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 5rem 2rem 4rem;
+  }
+  .sectionTitle {
+    font-size: 2.25rem;
+  }
+  .titleRow {
+    gap: 2rem;
+  }
+  .line {
+    width: 3.5rem;
+  }
+  .body {
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 4rem 1.5rem 3.5rem;
+  }
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  .titleRow {
+    gap: 1rem;
+  }
+  .line {
+    width: 2rem;
+  }
+  .header {
+    margin-bottom: 3rem;
+  }
+  .body {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .trigger {
+    font-size: 0.95rem;
+  }
+  .kicker {
+    font-size: 0.75rem;
+  }
+}

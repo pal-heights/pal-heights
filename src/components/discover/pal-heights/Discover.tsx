@@ -6,6 +6,7 @@ import SectionFour from "./Sections/DiningHighlight";
 // import SectionFive from "./Sections/Wellness";
 import SectionSix from "./Sections/Gym";
 import SectionSeven from "./Sections/Banquets";
+import Faq from "@/components/sharedSections/Faq";
 
 export default function Discover() {
   return (
@@ -18,6 +19,7 @@ export default function Discover() {
       {/* <SectionFive /> */}
       <SectionSix />
       <SectionSeven />
+      <Faq variant="hotel" />
     </>
   );
 }

@@ -8,6 +8,7 @@ import SectionFiveTwo from "./Sections/DiningHighlightTwo";
 import SectionSix from "./Sections/Wellness";
 import SectionSeven from "./Sections/Gym";
 import SectionEight from "./Sections/Banquets";
+import Faq from "@/components/sharedSections/Faq";
 
 export default function Discover() {
   return (
@@ -22,6 +23,7 @@ export default function Discover() {
       <SectionSix />
       <SectionSeven />
       <SectionEight />
+      <Faq variant="hotel" />
     </>
   );
 }
